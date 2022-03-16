@@ -51,8 +51,8 @@
             <p class="text-slate-500 text-base truncate w-28">Denisbeder Duek Carvalho</p>
             <small class="text-slate-400 text-xs">Editar sua conta</small>
         </div>
-        <button class="ml-auto w-7 h-7 bg-white rounded-md flex items-center justify-center group-hover:bg-indigo-100 transition-colors duration-500">
-            <i data-feather="more-vertical" class="h-4 text-slate-500 group-hover:text-indigo-500 transition-colors duration-500"></i>
+        <button class="ml-auto w-7 h-7 bg-white border border-slate-100 rounded-md flex items-center justify-center group-hover:border-slate-200 transition-colors duration-500">
+            <i data-feather="more-vertical" class="h-4 text-slate-300 group-hover:text-slate-400 transition-colors duration-500"></i>
         </button>
     </a>
 </div>
