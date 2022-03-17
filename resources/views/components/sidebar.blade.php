@@ -1,4 +1,4 @@
-<div class="bg-white w-64 grid max-h-screen h-screen overflow-hidden">
+<aside class="bg-white w-64 grid max-h-screen h-screen overflow-hidden">
     <div class="flex items-end p-6">
         <a href="/" class="block">
             <img src="/vendor/assets/svg/logo.svg" alt="FACIN" class="h-10">
@@ -8,41 +8,38 @@
         </button>
     </div>
     
-    <button class="mx-6 py-2 px-3 w-auto bg-indigo-500 text-white rounded-md flex items-center justify-center hover:bg-indigo-700 transition-colors duration-500">
-        <i data-feather="plus" class="h-4"></i>
-        Criar postagem
-    </button>
+    <x-button title="Criar postagem" icon="plus" />
 
     <div class="flex flex-col overflow-hidden hover:overflow-y-auto px-6 my-4">
-        <x-nav-item url="/dashboard" title="Visão geral" icon="home" />
+        <x-sidebar.nav-item url="/dashboard" title="Visão geral" icon="home" />
 
         <span class="block font-bold uppercase text-slate-300 text-xs px-4 pt-5 pb-3">CONTEÚDO</span>
-        <x-nav-item url="/post" title="Postagem" icon="edit-2" />
-        <x-nav-item url="/page" title="Páginas" icon="file" />
-        <x-nav-item url="/banner" title="Banners" icon="flag" />
-        <x-nav-item url="/poll" title="Enquete" icon="bar-chart-2" />
+        <x-sidebar.nav-item url="/post" title="Postagem" icon="edit-2" />
+        <x-sidebar.nav-item url="/page" title="Páginas" icon="file" />
+        <x-sidebar.nav-item url="/banner" title="Banners" icon="flag" />
+        <x-sidebar.nav-item url="/poll" title="Enquete" icon="bar-chart-2" />
 
         <span class="block font-bold uppercase text-slate-300 text-xs px-4 pt-5 pb-3">GERENCIAMENTO</span>
-        <x-nav-item url="/comment" title="Comentários" icon="message-circle" />
-        <x-nav-item url="/schedule" title="Agendamentos" icon="clock" />
-        <x-nav-item url="/hightlight" title="Destaques de capa" icon="star" />
-        <x-nav-item url="/related" title="Posts relacionados" icon="link" />
-        <x-nav-item url="/category" title="Categorias" icon="bookmark" />
-        <x-nav-item url="/author" title="Autores" icon="users" />
-        <x-nav-item url="/menu" title="Menus" icon="menu" />
+        <x-sidebar.nav-item url="/comment" title="Comentários" icon="message-circle" />
+        <x-sidebar.nav-item url="/schedule" title="Agendamentos" icon="clock" />
+        <x-sidebar.nav-item url="/hightlight" title="Destaques de capa" icon="star" />
+        <x-sidebar.nav-item url="/related" title="Posts relacionados" icon="link" />
+        <x-sidebar.nav-item url="/category" title="Categorias" icon="bookmark" />
+        <x-sidebar.nav-item url="/author" title="Autores" icon="users" />
+        <x-sidebar.nav-item url="/menu" title="Menus" icon="menu" />
 
         <span class="block font-bold uppercase text-slate-300 text-xs px-4 pt-5 pb-3">CONTAS</span>
-        <x-nav-item url="/user" title="Sistema" icon="lock" />
-        <x-nav-item url="/user" title="Usuários do site" icon="user" />
+        <x-sidebar.nav-item url="/user" title="Sistema" icon="lock" />
+        <x-sidebar.nav-item url="/user" title="Usuários do site" icon="user" />
 
         <span class="block font-bold uppercase text-slate-300 text-xs px-4 pt-5 pb-3">FERRAMENTAS</span>
-        <x-nav-item url="/logs" title="Logs do sistema" icon="info" />
-        <x-nav-item url="/queue" title="Filas" icon="fast-forward" />        
+        <x-sidebar.nav-item url="/logs" title="Logs do sistema" icon="info" />
+        <x-sidebar.nav-item url="/queue" title="Filas" icon="fast-forward" />        
     </div>
 
     <div class="border-t py-4 px-6">
-        <x-nav-item url="/notification" title="Notificações" icon="bell" />
-        <x-nav-item url="/setting" title="Configurações" icon="settings" />
+        <x-sidebar.nav-item url="/notification" title="Notificações" icon="bell" />
+        <x-sidebar.nav-item url="/setting" title="Configurações" icon="settings" />
     </div>
 
     <a href="" class="flex items-center px-6 bg-slate-50/50 p-6 group">
@@ -55,4 +52,4 @@
             <i data-feather="more-vertical" class="h-4 text-slate-300 group-hover:text-slate-400 transition-colors duration-500"></i>
         </button>
     </a>
-</div>
+</aside>

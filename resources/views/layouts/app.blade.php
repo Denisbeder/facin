@@ -15,9 +15,9 @@
 <body>
     <div class="flex bg-slate-100 min-h-screen w-full">
         <x-sidebar />
-        <div class="flex-auto">
+        <main class="flex-1">
             @yield('content')
-        </div>
+        </main>
     </div>
     @livewireScripts
     <script src="{{ asset('vendor/assets/js/app.js') }}"></script>
