@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/Denisbeder/dash/master/resources/svg/logo.svg" width="200"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Denisbeder/facin/main/resources/svg/logo.svg" width="200"></p>
 
 ## Sobre o FACIN Gerenciador de conteúdos
 

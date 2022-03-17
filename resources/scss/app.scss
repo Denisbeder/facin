@@ -17,3 +17,17 @@
     border-radius: 100px;
     background-color: rgba(0,0,0,.3);
 }
+
+@layer utilities {
+    .overflow {
+        &-overlay {
+            overflow: overlay;
+        }
+        &-y-overlay {
+            overflow-y: overlay;
+        }
+        &-x-overlay {
+            overflow-x: overlay;
+        }
+    }
+}

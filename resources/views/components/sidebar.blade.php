@@ -10,7 +10,7 @@
     
     <x-button title="Criar postagem" icon="plus" />
 
-    <div class="flex flex-col overflow-hidden hover:overflow-y-auto px-6 my-4">
+    <div class="flex flex-col overscroll-contain overflow-hidden hover:overflow-y-overlay px-6 my-4">
         <x-sidebar.nav-item url="/dashboard" title="Visão geral" icon="home" />
 
         <span class="block font-bold uppercase text-slate-300 text-xs px-4 pt-5 pb-3">CONTEÚDO</span>
