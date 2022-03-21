@@ -1,5 +1,5 @@
 module.exports = {
-    mode: 'jit', 
+    mode: "jit",
     content: [
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",
@@ -13,6 +13,10 @@ module.exports = {
         require("@tailwindcss/aspect-ratio"),
     ],
     theme: {
-        extend: {},
+        extend: {
+            listStyleType: {
+                roman: "upper-roman",
+            },
+        },
     },
 };

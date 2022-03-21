@@ -1,6 +1,6 @@
 {
-    "/vendor/assets/js/app.js": "/vendor/assets/js/app.js?id=bb2609b40393c84c7ced693de920cb73",
-    "/vendor/assets/css/app.css": "/vendor/assets/css/app.css?id=84712f61837690463223775886f33f25",
-    "/vendor/assets/svg/favicon.svg": "/vendor/assets/svg/favicon.svg?id=7b5675a25a06f220c24656a233dc7871",
-    "/vendor/assets/svg/logo.svg": "/vendor/assets/svg/logo.svg?id=bceab9b97ebbcd8055e9afbd71ec43f3"
+    "/vendor/assets/js/app.js": "/vendor/assets/js/app.js",
+    "/vendor/assets/css/app.css": "/vendor/assets/css/app.css",
+    "/vendor/assets/svg/favicon.svg": "/vendor/assets/svg/favicon.svg",
+    "/vendor/assets/svg/logo.svg": "/vendor/assets/svg/logo.svg"
 }
