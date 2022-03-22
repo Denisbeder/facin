@@ -4,7 +4,7 @@
     $open = $open ? 'true' : 'false';
 @endphp
 
-<div x-data="{{ '{open: '.$open.'}' }}" x-on:click.outside="open = false" x-on:keydown.escape.window="open = false" class="relative inline-flex">
+<div {{ $attributes->merge(['class' => 'relative inline-flex']) }} x-data="{{ '{open: '.$open.'}' }}" x-on:click.outside="open = false" x-on:keydown.escape.window="open = false">
     <div x-on:click="open = !open" class="cursor-pointer">
         @isset($trigger)
             {{ $trigger }}

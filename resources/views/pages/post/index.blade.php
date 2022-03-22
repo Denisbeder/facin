@@ -4,4 +4,6 @@
 
 @section('content')
 <h1>Posts</h1>
+
+    <livewire:counter />
 @endsection
