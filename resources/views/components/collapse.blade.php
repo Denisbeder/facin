@@ -32,7 +32,7 @@
         @isset($rightIcon)
             <x-icon 
             ::class="!open || 'rotate-90'" 
-            class="transition duration-300 mr-1 ml-auto" 
+            class="transition duration-300 ml-auto" 
             name="{{ !is_bool($rightIcon) ? $rightIcon : 'chevron-right' }}" 
             size="{{ $sizeIcon ?? null }}" />
         @endisset

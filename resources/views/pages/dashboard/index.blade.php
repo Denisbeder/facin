@@ -11,7 +11,7 @@
         <x-card.body>
             eqweqw eqw
         </x-card.body>
-        <x-card.footer-collapse title="Open/Close">
+        <x-card.footer-collapse title="OPEN/CLOSE">
             Footer
         </x-card.footer-collapse>
     </x-card>
