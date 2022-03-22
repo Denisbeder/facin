@@ -7,43 +7,70 @@
     <livewire:counter />
 
     <x-card class="m-6">
-        <x-card.header title="Title" />
+        <x-card.header title="Dropdowns" />
         <x-card.body>
-            eqweqw eqw
+            <x-dropdown>
+                <x-dropdown.item href="/" title="Item 1" />
+                <x-dropdown.item href="/" title="Item 2" />
+                <x-dropdown.item href="/" title="Item 3" />
+                <x-dropdown.item href="/" title="Item 4" />
+                <x-dropdown.item href="/" title="Item 5" />
+                <x-dropdown.item href="/" title="Item 6" />
+            </x-dropdown.item>
+
+            <x-dropdown>
+                <x-slot name="trigger">
+                    <x-button title="Dropdown" />
+                </x-slot>
+                <x-dropdown.item href="/" title="Item 1" />
+                <x-dropdown.item href="/" title="Item 2" />
+                <x-dropdown.item href="/" title="Item 3" />
+                <x-dropdown.item href="/" title="Item 4" />
+                <x-dropdown.item href="/" title="Item 5" />
+                <x-dropdown.item href="/" title="Item 6" />
+            </x-dropdown.item>
+
+            <x-dropdown>
+                <x-slot name="trigger">
+                    <x-button>
+                        Dropdown
+                        <x-icon name="chevron-down" size="text-base" ::class="open || '-rotate-90'" class="transition-all duration-300 ml-1"  />
+                    </x-button>
+                </x-slot>
+                <x-dropdown.item href="/" title="Item 1" />
+                <x-dropdown.item href="/" title="Item 2" />
+                <x-dropdown.item href="/" title="Item 3" />
+                <x-dropdown.item href="/" title="Item 4" />
+                <x-dropdown.item href="/" title="Item 5" />
+                <x-dropdown.item href="/" title="Item 6" />
+            </x-dropdown.item>
         </x-card.body>
-        <x-card.footer-collapse title="OPEN/CLOSE">
-            Footer
-        </x-card.footer-collapse>
     </x-card>
 
     <x-card class="m-6">
-        <x-card.header title="Title" />
+        <x-card.header title="Buttons" />
         <x-card.body>
             <div class="grid grid-cols-4 gap-4">
-                <x-button title="Criar postagem" variant="dark" loading="true" />
-                <x-button title="Criar postagem" rightIcon="plus" sizeIcon="16" variant="dark" loading="true" />
-                <x-button title="Criar postagem" icon="plus" variant="light" />
-                <x-button title="Criar postagem" icon="plus" variant="white" />
-                <x-button title="Criar postagem" icon="plus" variant="primary" loading="true" />
-                <x-button title="Criar postagem" icon="plus" variant="secondary" />
-                <x-button title="Criar postagem" icon="plus" variant="warning" />
-                <x-button title="Criar postagem" icon="plus" variant="info" rounded="full" />
-                <x-button title="Criar postagem" icon="plus" variant="success" rounded="none" />
-                <x-button title="Criar postagem" icon="plus" variant="danger" rounded="xl" />
-                <x-button title="Criar postagem" icon="plus" variant="link" href="/post" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-primary" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-secondary" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-success" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-danger" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-info" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-warning" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-dark" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-light" />
-                <x-button title="Criar postagem" icon="plus" variant="outline-white" />
+                <x-button title="Dark" variant="dark" loading="true" />
+                <x-button title="Light" variant="light" />
+                <x-button title="White" variant="white" />
+                <x-button title="Primary" variant="primary" loading="true" />
+                <x-button title="Secondary" variant="secondary" />
+                <x-button title="Warning" variant="warning" />
+                <x-button title="Info" variant="info" rounded="full" />
+                <x-button title="Success" variant="success" rounded="none" />
+                <x-button title="Danger" variant="danger" rounded="xl" />
+                <x-button title="Link" variant="link" href="/post" />
+                <x-button title="Outline primary" variant="outline-primary" />
+                <x-button title="Outline secondary" variant="outline-secondary" />
+                <x-button title="Outline success" variant="outline-success" />
+                <x-button title="Outline danger" variant="outline-danger" />
+                <x-button title="Outline info" variant="outline-info" />
+                <x-button title="Outline warning" variant="outline-warning" />
+                <x-button title="Outline dark" variant="outline-dark" />
+                <x-button title="Outline light" variant="outline-light" />
+                <x-button title="Outline white" variant="outline-white" />
             </div>
         </x-card.body>
-        <x-card.footer>
-        Footer
-        </x-card.footer>
     </x-card>
 @endsection

@@ -1,8 +1,5 @@
 @props([
     'title', 
-    'icon',
-    'sizeIcon',
-    'rightIcon',
     'variant' => 'default',
     'rounded' => 'md',
     'loading' => false
@@ -11,7 +8,7 @@
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
-        'mx-6 py-2 px-3 w-auto inline-flex items-center justify-center transition-colors duration-500 focus:ring',
+        'py-2 px-3 w-auto inline-flex items-center justify-center transition-colors duration-500 focus:ring',
         'rounded-none' => $rounded === 'none'  || $rounded === false || $rounded === 'false',
         'rounded-' . $rounded => $rounded !== 'none',
         'opacity-50' => (bool) $loading,
@@ -41,12 +38,8 @@
     ];
 @endphp
 
-<{{ $tag }} disabled="{{ $loading }}" {{ $attributes->class($classList) }}>
-    <x-icon name="{{ $icon ?? null }}" size="{{ $sizeIcon ?? null }}" class="mr-1 -ml-4" />
-
+<{{ $tag }} {{ $loading ? 'disabled' : '' }} {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
     {{ $title ?? $slot }}
-
-    <x-icon name="{{ $rightIcon ?? null }}" size="{{ $sizeIcon ?? null }}" class="{{ Arr::toCssClasses(['ml-1', '-mr-4' => !$loading]) }}" />
 
     @if($loading)
         <x-icon name="spinner" class="ml-2 -mr-5" />

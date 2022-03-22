@@ -1,4 +1,4 @@
-@props(['name', 'size' => 'text-xl'])
+@props(['name', 'size' => 'text-base'])
 
 @if(str()->of($name ?? null)->isNotEmpty())    
     @if($name !== 'spinner')        

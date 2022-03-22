@@ -8,14 +8,13 @@
         </button>
     </div>
     
-    <x-button title="Criar postagem" icon="plus" />
+    <x-button title="Criar postagem" class="mx-6" icon="plus" />
 
     <div class="flex flex-col overscroll-contain overflow-hidden hover:overflow-y-overlay px-6 my-4">
         <x-sidebar.nav-item url="/dashboard" title="Visão geral" icon="home" />
 
         <x-collapse open class="mt-4">
-            <x-slot:heading 
-                sizeIcon="text-md"
+            <x-slot name="heading" 
                 class="font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-500 text-xs pb-3">
                 CONTEÚDO
             </x-slot>
@@ -27,8 +26,7 @@
 
 
         <x-collapse open class="mt-4">
-            <x-slot:heading 
-                sizeIcon="text-md"
+            <x-slot name="heading" 
                 class="font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-500 text-xs pb-3">
                 GERENCIMENTO
             </x-slot>
@@ -42,8 +40,7 @@
         </x-collapse>
 
         <x-collapse class="mt-4">
-            <x-slot:heading 
-                sizeIcon="text-md"
+            <x-slot name="heading" 
                 class="font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-500 text-xs pb-3">
                 CONTAS
             </x-slot>
@@ -52,8 +49,7 @@
         </x-collapse>
 
         <x-collapse class="mt-4">
-            <x-slot:heading 
-                sizeIcon="text-md"
+            <x-slot name="heading" 
                 class="font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-500 text-xs pb-3">
                 FERRAMENTAS
             </x-slot>
