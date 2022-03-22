@@ -5908,6 +5908,9 @@ select {
 .pointer-events-auto {
   pointer-events: auto;
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
@@ -6005,6 +6008,12 @@ select {
 }
 .mr-4 {
   margin-right: 1rem;
+}
+.ml-36 {
+  margin-left: 9rem;
+}
+.ml-64 {
+  margin-left: 16rem;
 }
 .block {
   display: block;

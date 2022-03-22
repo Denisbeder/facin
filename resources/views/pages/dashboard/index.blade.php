@@ -3,8 +3,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Dashboard</h1>
-
     <x-card class="m-6">
         <x-card.header title="Dropdowns" />
         <x-card.body>

@@ -1,4 +1,4 @@
-<aside class="bg-white w-64 grid grid-rows-[auto_auto_1fr_auto_auto] max-h-screen h-screen overflow-hidden border-r">
+<aside class="bg-white w-64 grid grid-rows-[auto_auto_1fr_auto_auto] max-h-screen h-screen overflow-hidden border-r fixed">
     <div class="flex items-end p-6">
         <a href="/" class="block">
             <img src="/vendor/assets/svg/logo.svg" alt="FACIN" class="h-10">
