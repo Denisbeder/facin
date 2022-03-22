@@ -46,11 +46,9 @@
 
     {{ $title ?? $slot }}
 
-    @isset($rightIcon)
-        <x-icon name="{{ $rightIcon }}" size="{{ $sizeIcon ?? null }}" class="{{ Arr::toCssClasses(['ml-1', '-mr-4' => !$loading]) }}" />
-    @endisset
+    <x-icon name="{{ $rightIcon ?? null }}" size="{{ $sizeIcon ?? null }}" class="{{ Arr::toCssClasses(['ml-1', '-mr-4' => !$loading]) }}" />
 
     @if($loading)
-        <x-icon name="spinner" size="4" class="ml-2 -mr-5" />
+        <x-icon name="spinner" class="ml-2 -mr-5" />
     @endif
 </{{ $tag }}>

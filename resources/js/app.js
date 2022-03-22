@@ -1,2 +1,2 @@
-require('./bootstrap');
-require('feather-icons').replace();
+require("./bootstrap");
+//require('boxicons');

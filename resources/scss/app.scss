@@ -16,27 +16,12 @@
     }
     ::-webkit-scrollbar-thumb {
         border-radius: 100px;
-        background-color: rgba(0,0,0,.3);
-    }
-
-    details {
-        summary.chevron-icon {
-            @apply flex pl-4 items-center relative;
-
-            &::before {
-                content: attr(data-icon);
-                @apply justify-center leading-[.375rem] w-3 h-3 flex text-[1.35rem] absolute left-0 duration-300 transition-transform;
-            }
-        }
-        &[open] {
-            summary::before {
-                @apply rotate-90;
-            }
-        }
+        background-color: rgba(0, 0, 0, 0.3);
     }
 }
 
 @layer utilities {
+    @import 'boxicons/css/boxicons.css';
     .overflow {
         &-overlay {
             overflow: overlay;
