@@ -1,4 +1,4 @@
-<aside class="bg-white w-64 grid grid-rows-[auto_auto_1fr_auto_auto] max-h-screen h-screen overflow-hidden">
+<aside class="bg-white w-64 grid grid-rows-[auto_auto_1fr_auto_auto] max-h-screen h-screen overflow-hidden border-r">
     <div class="flex items-end p-6">
         <a href="/" class="block">
             <img src="/vendor/assets/svg/logo.svg" alt="FACIN" class="h-10">
@@ -36,7 +36,7 @@
             <x-sidebar.nav-item url="/schedule" title="Agendamentos" icon="time-five" />
             <x-sidebar.nav-item url="/hightlight" title="Destaques de capa" icon="star" />
             <x-sidebar.nav-item url="/related" title="Posts relacionados" icon="link" />
-            <x-sidebar.nav-item url="/category" title="Categorias" icon="bookmark" />
+            <x-sidebar.nav-item url="/category" title="Categorias" icon="tag-alt" />
             <x-sidebar.nav-item url="/author" title="Autores" icon="group" />
             <x-sidebar.nav-item url="/menu" title="Menus" icon="menu" />
         </x-collapse>

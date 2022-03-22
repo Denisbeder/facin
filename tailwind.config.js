@@ -13,10 +13,14 @@ module.exports = {
         require("@tailwindcss/aspect-ratio"),
     ],
     theme: {
+        borderColor: (theme) => ({
+            DEFAULT: theme('colors.slate.100', 'currentColor'),
+            ...theme.colors
+        }),
         extend: {
             listStyleType: {
                 roman: "upper-roman",
-            },
+            },  
         },
     },
 };

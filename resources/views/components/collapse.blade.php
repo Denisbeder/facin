@@ -17,7 +17,7 @@
     $rightIcon = optional($heading ?? null)->attributes?->get('rightIcon') ?? ($rightIcon ?? null);
 @endphp
 
-<div x-data="{{ '{open: '.$open.'}' }}" {{ $attributes }}>
+<div x-data="{{ '{open: '.$open.'}' }}" {{ $attributes->merge(['class' => 'w-full']) }}>
     <div x-on:click="open = !open" class="{{ $classes }}">
         @unless($rightIcon)
             <x-icon 
