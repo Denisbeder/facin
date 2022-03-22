@@ -14,7 +14,7 @@
                 @endisset
             </div>
         </x-slot>
-        <div class="pb-6">
+        <div class="pb-6 pt-2">
             {{ $slot }}
         </div>
     </x-collapse>

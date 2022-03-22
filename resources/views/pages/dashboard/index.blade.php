@@ -132,7 +132,7 @@
                         <x-card.body>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
                         </x-card.body>
-                        <x-card.footer-collapse>
+                        <x-card.footer-collapse title="Mostrar mais">
                             <x-button title="Button 1" variant="outline-light" />
                             <x-button title="Button 2" class="ml-2" />
                         </x-card.footer-collapse>
