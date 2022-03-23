@@ -170,7 +170,7 @@
                 <x-collapse class="border rounded-md">
                     <x-slot name="trigger">
                         <x-collapse.trigger>
-                            (CUSTON TRIGGER) Ipsum is simply dummy text
+                            (CUSTOM TRIGGER) Ipsum is simply dummy text
                         </x-collapse.trigger>
                     </x-slot>
                     <x-collapse.body>
@@ -187,7 +187,7 @@
                 <x-collapse class="rounded-md border border-yellow-500">
                     <x-slot name="trigger">
                         <div class="bg-yellow-400 p-3 cursor-pointer text-red-500 rounded-t-md">
-                            (CUSTON TRIGGER) Ipsum is simply dummy text
+                            (CUSTOM) Ipsum is simply dummy text
                         </div>
                     </x-slot>
                     <x-collapse.body class="bg-yellow-100 border-t border-t-yellow-500 rounded-b-md">

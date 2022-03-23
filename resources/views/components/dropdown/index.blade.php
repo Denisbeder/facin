@@ -15,7 +15,7 @@
         @endisset
     </div>
     
-    <ul :class="!open || 'opacity-100 pointer-events-auto z-10'" class="mt-2 drop-shadow-xl absolute top-full z-0 bg-white border rounded-lg pointer-events-none transition-all opacity-0 duration-500 w-36">
+    <ul :class="!open || 'opacity-100 pointer-events-auto'" class="mt-2 drop-shadow-xl absolute top-full z-10 bg-white border rounded-lg pointer-events-none transition-all opacity-0 duration-500 w-36">
         {{ $slot }}
     </ul>
 </div>
