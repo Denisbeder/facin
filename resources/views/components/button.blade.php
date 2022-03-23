@@ -1,5 +1,5 @@
 @props([
-    'title', 
+    'label', 
     'variant' => 'default',
     'rounded' => 'md',
     'loading' => false
@@ -39,7 +39,7 @@
 @endphp
 
 <{{ $tag }} {{ $loading ? 'disabled' : '' }} {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
-    {{ $title ?? $slot }}
+    {{ $label ?? $slot }}
 
     @if($loading)
         <x-icon name="spinner" class="ml-2 -mr-5" />
