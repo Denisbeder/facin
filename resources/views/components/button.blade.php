@@ -3,15 +3,16 @@
     'variant' => 'default',
     'rounded' => 'md',
     'loading' => false,
-    'size' => 'md'
+    'size' => 'md',
+    'circle' => false
 ])
 
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
         'w-auto inline-flex items-center justify-center transition-colors duration-300 focus:ring',
-        'rounded-none' => $rounded === 'none'  || $rounded === false || $rounded === 'false',
-        'rounded-' . $rounded => $rounded !== 'none',
+        'rounded-none' => ($rounded === 'none'  || $rounded === false || $rounded === 'false') && !$circle,
+        'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'opacity-50' => (bool) $loading,
         'cursor-wait' => (bool) $loading,
         'cursor-pointer' => (bool) !$loading,
@@ -37,12 +38,19 @@
         'text-slate-400 border border-slate-300 hover:bg-slate-200 active:bg-slate-200 focus:ring-slate-200' => $variant === 'outline-light',
         'text-white border border-white hover:bg-slate-50 active:bg-slate-50 focus:ring-slate-200' => $variant === 'outline-white',
         // Size
-        'py-1.5 px-2.5 text-xs' => $size === 'xs',
-        'py-2 px-3 text-sm' => $size === 'sm',
-        'py-2 px-4 text-base' => $size === 'md',
-        'py-3 px-6 text-base' => $size === 'lg',
-        'py-4 px-6 text-base' => $size === 'xl',
-        'py-5 px-6 text-base' => $size === '2xl',
+        'py-1.5 px-2.5 text-xs' => $size === 'xs' && !$circle,
+        'py-2 px-3 text-sm' => $size === 'sm' && !$circle,
+        'py-2 px-4 text-base' => $size === 'md' && !$circle,
+        'py-3 px-6 text-base' => $size === 'lg' && !$circle,
+        'py-4 px-6 text-base' => $size === 'xl' && !$circle,
+        'py-5 px-6 text-base' => $size === '2xl' && !$circle,
+        // Size Circle Button
+        'w-[30px] h-[30px] text-xs rounded-full' => $size === 'xs' && $circle,
+        'w-[38px] h-[38px] text-sm rounded-full' => $size === 'sm' && $circle,
+        'w-[42px] h-[42px] text-base rounded-full' => $size === 'md' && $circle,
+        'w-[50px] h-[50px] text-base rounded-full' => $size === 'lg' && $circle,
+        'w-[58px] h-[58px] text-base rounded-full' => $size === 'xl' && $circle,
+        'w-[66px] h-[66px] text-base rounded-full' => $size === '2xl' && $circle,
     ];
 @endphp
 

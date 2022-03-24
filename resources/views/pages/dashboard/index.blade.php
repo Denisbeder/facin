@@ -8,7 +8,7 @@
         <x-card.body>
             <x-dropdown class="mr-2">
                 <x-slot name="trigger">
-                    <x-button rounded="full" variant="outline-light">
+                    <x-button rounded="full" circle variant="outline-light">
                         <x-icon name="dots-vertical-rounded" />
                     </x-button>
                 </x-slot>
@@ -129,6 +129,28 @@
                 <x-button label="Size lg" variant="primary" size="lg" />
                 <x-button label="Size xl" variant="primary" size="xl" />
                 <x-button label="Size 2xl" variant="primary" size="2xl" />
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-bold mb-3">Buttons Circle</h3>
+                <x-button circle size="xs">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
+                <x-button circle size="sm">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
+                <x-button circle size="md">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
+                <x-button circle size="lg">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
+                <x-button circle size="xl">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
+                <x-button circle size="2xl">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
             </div>
         </x-card.body>
     </x-card>
