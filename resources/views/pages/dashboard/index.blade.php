@@ -59,6 +59,39 @@
     </x-card>
 
     <x-card class="m-6">
+        <x-card.header label="Inputs" />
+        <x-card.body>
+            <x-form.control>
+                <x-form.input.text placeholder="Basic usage" name="name" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="label_" label="Label" />
+                <x-form.input.text name="label_" />
+            </x-form.control>
+
+            <x-form.control inline>
+                <x-form.label for="inline_" label="Inline" />
+                <x-form.input.text name="inline_" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="custom_label" label="Custom Label" class="font-normal text-slate-500" />
+                <x-form.input.text name="custom_label" />
+            </x-form.control>
+
+            <x-form.control inline>
+                <x-form.label for="custom_inline_label" label="Custom Inline Label" class="font-normal text-slate-500" />
+                <x-form.input.text name="custom_inline_label" />
+            </x-form.control>
+
+            <x-form.control class="bg-slate-200 p-4 rounded-full">
+                <x-form.input.text placeholder="Control Custom" name="control_custom" class="bg-transparent border-0 rounded-full" />
+            </x-form.control>
+        </x-card.body>
+    </x-card>
+
+    <x-card class="m-6">
         <x-card.header label="Buttons" />
         <x-card.body>
             <div class="grid grid-cols-4 gap-4">
@@ -84,7 +117,6 @@
             </div>
         </x-card.body>
     </x-card>
-
 
     <x-card class="m-6">
         <x-card.header label="Cards" />

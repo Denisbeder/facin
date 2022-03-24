@@ -41,7 +41,7 @@
         </x-collapse.trigger>
     @endisset
     <div 
-        class="overflow-hidden relative transition-all max-h-0 opacity-0 duration-500"
+        class="overflow-hidden relative transition-all max-h-0 opacity-0 duration-300"
         x-ref="{{ $key }}"
         :class="!open || 'opacity-100'"
         :style="!open || 'max-height: ' + $refs.{{ $key }}.scrollHeight + 'px'"

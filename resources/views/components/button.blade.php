@@ -8,7 +8,7 @@
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
-        'py-2 px-3 w-auto inline-flex items-center justify-center transition-colors duration-500 focus:ring',
+        'py-2 px-3 w-auto inline-flex items-center justify-center transition-colors duration-300 focus:ring',
         'rounded-none' => $rounded === 'none'  || $rounded === false || $rounded === 'false',
         'rounded-' . $rounded => $rounded !== 'none',
         'opacity-50' => (bool) $loading,
