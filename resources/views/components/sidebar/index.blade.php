@@ -13,7 +13,7 @@
     <div class="flex flex-col overscroll-contain overflow-hidden hover:overflow-y-overlay px-6 my-4">
         <x-sidebar.nav-item url="/dashboard" label="Visão geral" icon="home" />
 
-        <x-collapse open leftIcon class="mt-4" label="CONTEÚDO" triggerClass="bg-transparent hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">
+        <x-collapse open leftIcon class="mt-4" label="CONTEÚDO" triggerClass="bg-white hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">
             <x-sidebar.nav-item url="/post" label="Postagem" icon="edit-alt" />
             <x-sidebar.nav-item url="/page" label="Páginas" icon="file-blank" />
             <x-sidebar.nav-item url="/banner" label="Banners" icon="flag" />

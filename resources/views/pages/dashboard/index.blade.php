@@ -76,17 +76,17 @@
             </x-form.control>
 
             <x-form.control>
-                <x-form.label for="custom_label" label="Custom Label" class="font-normal text-slate-500" />
+                <x-form.label for="custom_label" label="Custom Label" class="font-normal text-sm text-slate-500" />
                 <x-form.input.text name="custom_label" />
             </x-form.control>
 
             <x-form.control inline>
-                <x-form.label for="custom_inline_label" label="Custom Inline Label" class="font-normal text-slate-500" />
+                <x-form.label for="custom_inline_label" label="Custom Inline Label" class="font-normal text-sm text-slate-500" />
                 <x-form.input.text name="custom_inline_label" />
             </x-form.control>
 
             <x-form.control class="bg-slate-200 p-4 rounded-full">
-                <x-form.input.text placeholder="Control Custom" name="control_custom" class="bg-transparent border-0 rounded-full" />
+                <x-form.input.text placeholder="Control Custom" name="control_custom" class="bg-transparent border-0 rounded-full focus:ring-slate-400 focus:bg-slate-100" />
             </x-form.control>
         </x-card.body>
     </x-card>
@@ -94,17 +94,22 @@
     <x-card class="m-6">
         <x-card.header label="Buttons" />
         <x-card.body>
-            <div class="grid grid-cols-4 gap-4">
-                <x-button label="Dark" variant="dark" loading="true" />
-                <x-button label="Light" variant="light" />
-                <x-button label="White" variant="white" />
-                <x-button label="Primary" variant="primary" loading="true" />
+            <h3 class="font-bold mb-3">Buttons Filled</h3>
+            <div class="grid grid-cols-4 items-start gap-4 mb-6">
+                <x-button label="Primary" variant="primary" />
                 <x-button label="Secondary" variant="secondary" />
                 <x-button label="Warning" variant="warning" />
                 <x-button label="Info" variant="info" rounded="full" />
                 <x-button label="Success" variant="success" rounded="none" />
                 <x-button label="Danger" variant="danger" rounded="xl" />
                 <x-button label="Link" variant="link" href="/post" />
+                <x-button label="Dark" variant="dark" loading="true" />
+                <x-button label="Light" variant="light" />
+                <x-button label="White" variant="white" />
+            </div>
+
+            <h3 class="font-bold mb-3">Buttons Outline</h3>
+            <div class="grid grid-cols-4 items-start gap-4">
                 <x-button label="Outline primary" variant="outline-primary" />
                 <x-button label="Outline secondary" variant="outline-secondary" />
                 <x-button label="Outline success" variant="outline-success" />
@@ -114,6 +119,16 @@
                 <x-button label="Outline dark" variant="outline-dark" />
                 <x-button label="Outline light" variant="outline-light" />
                 <x-button label="Outline white" variant="outline-white" />
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-bold mb-3">Buttons Sizes</h3>
+                <x-button label="Size xs" variant="primary" size="xs" />
+                <x-button label="Size sm" variant="primary" size="sm" />
+                <x-button label="Size md" variant="primary" size="md" />
+                <x-button label="Size lg" variant="primary" size="lg" />
+                <x-button label="Size xl" variant="primary" size="xl" />
+                <x-button label="Size 2xl" variant="primary" size="2xl" />
             </div>
         </x-card.body>
     </x-card>
@@ -194,7 +209,7 @@
         <x-card.body>
             <div class="grid grid-cols-2 items-start gap-4">
                 <x-collapse label="DEFAULT - Ipsum is simply dummy text" class="border rounded-md" triggerClass="font-bold text-blue-600">
-                    <x-collapse.body>
+                    <x-collapse.body class="border-t">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
                     </x-collapse.body>
                 </x-collapse>    
@@ -211,7 +226,7 @@
                 </x-collapse>     
 
                 <x-collapse leftIcon label="(LEFT ICON) Ipsum is simply dummy text" class="border rounded-md">
-                    <x-collapse.body>
+                    <x-collapse.body class="border-t">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
                     </x-collapse.body>
                 </x-collapse> 
