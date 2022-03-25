@@ -82,7 +82,7 @@
 
             <x-form.control inline>
                 <x-form.label for="custom_inline_label" label="Custom Inline Label" class="font-normal text-sm text-slate-500" />
-                <x-form.input.text name="custom_inline_label" />
+                <x-form.input.text rounded="full" name="custom_inline_label" />
             </x-form.control>
 
             <x-form.control class="bg-slate-200 p-4 rounded-full">
@@ -117,6 +117,46 @@
             <x-form.control>
                 <x-form.label for="prefix_suffix_input" label="Prefix Suffix" />
                 <x-form.input.text prefix="www." suffix=".com.br" placeholder="..." name="prefix_suffix_input" />
+            </x-form.control>
+            
+            <x-form.control>
+                <x-form.label for="left-right_input" label="Custom Left Right" />
+                <x-form.input.text placeholder="..." name="left-right_input">
+                    <x-slot name="left">
+                        <x-button rounded="full" size="xs" circle variant="outline-light" class="mx-2" onclick="javascript: alert();">
+                            <x-icon name="dots-vertical-rounded" />
+                        </x-button>
+                    </x-slot>
+
+                    <x-slot name="right">
+                        <x-button rounded="full" size="xs" circle variant="outline-light" class="mx-2" onclick="javascript: alert();">
+                            <x-icon name="dots-vertical-rounded" />
+                        </x-button>
+                    </x-slot>
+                </x-form.input.text>
+            </x-form.control>
+
+            <h3 class="font-bold mb-3">Input Sizes</h3>
+            <x-form.control>
+                <x-form.input.text size="2xs" placeholder="2xs" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="xs" placeholder="xs" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="sm" placeholder="sm" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="md" placeholder="md" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="lg" placeholder="lg" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="xl" placeholder="xl" name="name" />
+            </x-form.control>
+            <x-form.control>
+                <x-form.input.text size="2xl" placeholder="2xl" name="name" />
             </x-form.control>
         </x-card.body>
     </x-card>
@@ -153,6 +193,7 @@
 
             <div class="mt-6">
                 <h3 class="font-bold mb-3">Buttons Sizes</h3>
+                <x-button label="Size 2xs" variant="primary" size="2xs" />
                 <x-button label="Size xs" variant="primary" size="xs" />
                 <x-button label="Size sm" variant="primary" size="sm" />
                 <x-button label="Size md" variant="primary" size="md" />
@@ -163,6 +204,9 @@
 
             <div class="mt-6">
                 <h3 class="font-bold mb-3">Buttons Circle</h3>
+                <x-button circle size="2xs">
+                    <x-icon name="dots-vertical-rounded" />
+                </x-button>
                 <x-button circle size="xs">
                     <x-icon name="dots-vertical-rounded" />
                 </x-button>
@@ -294,6 +338,26 @@
                     </x-collapse.body>
                 </x-collapse>  
             </div>
+        </x-card.body>
+    </x-card>
+
+    <x-card class="m-6">
+        <x-card.header label="Modal" />
+        <x-card.body>
+            <x-button label="Open modal" href="/modal" inModal />
+            <x-modal focusable>
+                <div class="p-6">
+                    <x-form.control>
+                        <x-form.label for="label_" label="Label" />
+                        <x-form.input.text name="label_" />
+                    </x-form.control>
+
+                    <x-form.control>
+                        <x-form.label for="label_" label="Label" />
+                        <x-form.input.text name="label_" />
+                    </x-form.control>
+                </div>
+            </x-modal>
         </x-card.body>
     </x-card>
 @endsection

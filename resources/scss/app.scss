@@ -18,6 +18,9 @@
         border-radius: 100px;
         background-color: rgba(0, 0, 0, 0.3);
     }
+    :focus-visible {
+        @apply outline-slate-200;
+    }
 }
 
 @layer utilities {
