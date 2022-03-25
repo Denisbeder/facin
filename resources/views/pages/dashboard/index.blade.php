@@ -88,6 +88,36 @@
             <x-form.control class="bg-slate-200 p-4 rounded-full">
                 <x-form.input.text placeholder="Control Custom" name="control_custom" class="bg-transparent border-0 rounded-full focus:ring-slate-400 focus:bg-slate-100" />
             </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="left_icon" label="Left Icon" />
+                <x-form.input.text leftIcon="lock-alt" placeholder="Left Icon" name="left_icon" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="right_icon" label="Right Icon" />
+                <x-form.input.text rightIcon="lock-alt" placeholder="Right Icon" name="right_icon" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="left_right_icon" label="Left Right Icon" />
+                <x-form.input.text leftIcon="lock-alt" rightIcon="right-arrow-circle" placeholder="Left Right Icon" name="left_right_icon" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="prefix_input" label="Prefix" />
+                <x-form.input.text prefix="www." placeholder="..." name="prefix_input" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="suffix_input" label="Suffix" />
+                <x-form.input.text suffix="@gmail.com" placeholder="Digite..." name="suffix_input" />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="prefix_suffix_input" label="Prefix Suffix" />
+                <x-form.input.text prefix="www." suffix=".com.br" placeholder="..." name="prefix_suffix_input" />
+            </x-form.control>
         </x-card.body>
     </x-card>
 

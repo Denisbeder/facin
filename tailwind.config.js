@@ -14,13 +14,13 @@ module.exports = {
     ],
     theme: {
         borderColor: (theme) => ({
-            DEFAULT: theme('colors.slate.100', 'currentColor'),
-            ...theme.colors
+            DEFAULT: theme("colors.slate.100", "currentColor"),
+            ...theme.colors,
         }),
         extend: {
             listStyleType: {
                 roman: "upper-roman",
-            },  
+            },
         },
     },
 };
