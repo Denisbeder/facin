@@ -15,7 +15,7 @@
 <body>
     <div class="flex bg-slate-100 min-h-screen w-full">
         <x-sidebar />
-        <main class="ml-64 flex-1">
+        <main class="ml-64 flex-1 relative">
             @yield('content')
         </main>
     </div>

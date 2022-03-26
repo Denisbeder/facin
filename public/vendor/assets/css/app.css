@@ -6027,6 +6027,9 @@ select {
 .z-10 {
   z-index: 10;
 }
+.z-20 {
+  z-index: 20;
+}
 .m-6 {
   margin: 1.5rem;
 }
@@ -6103,6 +6106,9 @@ select {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
+.mr-auto {
+  margin-right: auto;
+}
 .block {
   display: block;
 }
@@ -6177,6 +6183,9 @@ select {
 }
 .h-6 {
   height: 1.5rem;
+}
+.h-16 {
+  height: 4rem;
 }
 .max-h-0 {
   max-height: 0px;
@@ -6313,6 +6322,9 @@ select {
 }
 .cursor-default {
   cursor: default;
+}
+.resize {
+  resize: both;
 }
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -6538,6 +6550,14 @@ select {
 .bg-slate-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+.bg-neutral-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
 }
 .p-6 {
   padding: 1.5rem;

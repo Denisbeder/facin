@@ -3,6 +3,16 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <x-top>
+        <x-slot name="left">
+            <x-button label="Cancel" />
+        </x-slot>
+        <x-slot name="title">Titulo</x-slot>
+        <x-slot name="right">
+            <x-button label="Cancel" />
+        </x-slot>
+    </x-top>
+
     <x-card class="m-6">
         <x-card.header label="Dropdowns" />
         <x-card.body>
@@ -387,7 +397,7 @@
         <x-card.header label="Modal" />
         <x-card.body>
             <x-button label="Open modal" href="/modal" inModal />
-            <x-modal focusable>
+            {{-- <x-modal focusable>
                 <div class="p-6">
                     <x-form.control>
                         <x-form.label for="label_" label="Label" />
@@ -399,7 +409,7 @@
                         <x-form.input.text name="label_" />
                     </x-form.control>
                 </div>
-            </x-modal>
+            </x-modal> --}}
         </x-card.body>
     </x-card>
 @endsection
