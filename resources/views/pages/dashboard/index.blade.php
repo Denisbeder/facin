@@ -120,8 +120,8 @@
             </x-form.control>
             
             <x-form.control>
-                <x-form.label for="left-right_input" label="Custom Left Right" />
-                <x-form.input.text placeholder="..." name="left-right_input">
+                <x-form.label for="left_right_input" label="Custom Left Right" />
+                <x-form.input.text placeholder="..." name="left_right_input">
                     <x-slot name="left">
                         <x-button rounded="full" size="xs" circle variant="outline-light" class="mx-2" onclick="javascript: alert();">
                             <x-icon name="dots-vertical-rounded" />
@@ -134,6 +134,48 @@
                         </x-button>
                     </x-slot>
                 </x-form.input.text>
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="checkbox" label="Checkbox" />
+                <x-form.input.checkbox checked>Label right</x-form.input.checkbox>
+                <x-form.input.checkbox leftLabel="Label left" checked />
+                <x-form.input.checkbox leftLabel="Label left" classLabel="text-red-500" checked />
+                <x-form.input.checkbox checked rightLabel="Primary" />
+                <x-form.input.checkbox variant="secondary" rightLabel="Secondary" checked />
+                <x-form.input.checkbox variant="success" rightLabel="Success" checked />
+                <x-form.input.checkbox variant="warning" rightLabel="Warning" checked />
+                <x-form.input.checkbox variant="danger" rightLabel="Danger" checked />
+                <x-form.input.checkbox variant="info" rightLabel="Info" checked />
+                <x-form.input.checkbox variant="dark" rightLabel="Dark" checked />
+                <x-form.input.checkbox variant="light" rightLabel="Light" checked />
+                <x-form.input.checkbox variant="white" rightLabel="White" checked />
+
+                <h3 class="font-semibold mt-5 mb-1">Checkbox Sizes</h3>
+                <x-form.input.checkbox size="sm" rightLabel="Size sm" checked />
+                <x-form.input.checkbox size="md" rightLabel="Size md (default)" checked />
+                <x-form.input.checkbox size="lg" rightLabel="Size lg" checked />
+            </x-form.control>
+
+            <x-form.control>
+                <x-form.label for="radio" label="Radio" />
+                <x-form.input.radio name="radio_input">Label right</x-form.input.radio>
+                <x-form.input.radio leftLabel="Label left" name="radio_input" />
+                <x-form.input.radio leftLabel="Label left" classLabel="text-red-500" name="radio_input" />
+                <x-form.input.radio checked rightLabel="Primary" name="radio_input" />
+                <x-form.input.radio variant="secondary" rightLabel="Secondary" name="radio_input" />
+                <x-form.input.radio variant="success" rightLabel="Success" name="radio_input" />
+                <x-form.input.radio variant="warning" rightLabel="Warning" name="radio_input" />
+                <x-form.input.radio variant="danger" rightLabel="Danger" name="radio_input" />
+                <x-form.input.radio variant="info" rightLabel="Info" name="radio_input" />
+                <x-form.input.radio variant="dark" rightLabel="Dark" name="radio_input" />
+                <x-form.input.radio variant="light" rightLabel="Light" name="radio_input" />
+                <x-form.input.radio variant="white" rightLabel="White" name="radio_input" />
+
+                <h3 class="font-semibold mt-5 mb-1">Radio Sizes</h3>
+                <x-form.input.radio size="sm" rightLabel="Size sm" name="radio_input" />
+                <x-form.input.radio size="md" rightLabel="Size md (default)" name="radio_input" />
+                <x-form.input.radio size="lg" rightLabel="Size lg" name="radio_input" />
             </x-form.control>
 
             <h3 class="font-bold mb-3">Input Sizes</h3>
