@@ -6478,6 +6478,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
+.border-slate-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(148 163 184 / var(--tw-border-opacity));
+}
 .border-t-yellow-500 {
   --tw-border-opacity: 1;
   border-top-color: rgb(234 179 8 / var(--tw-border-opacity));
@@ -7009,6 +7013,9 @@ select {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+.hover\:text-slate-500\/75:hover {
+  color: rgb(100 116 139 / 0.75);
+}
 .hover\:overflow-y-overlay:hover {
     overflow-y: overlay;
   }
@@ -7175,6 +7182,12 @@ select {
 .focus\:ring-slate-50\/75:focus {
   --tw-ring-color: rgb(248 250 252 / 0.75);
 }
+.focus\:ring-slate-100\/25:focus {
+  --tw-ring-color: rgb(241 245 249 / 0.25);
+}
+.focus\:ring-slate-400\/25:focus {
+  --tw-ring-color: rgb(148 163 184 / 0.25);
+}
 .focus\:ring-offset-0:focus {
   --tw-ring-offset-width: 0px;
 }
@@ -7238,6 +7251,9 @@ select {
 }
 .focus-visible\:outline-slate-50\/50:focus-visible {
   outline-color: rgb(248 250 252 / 0.5);
+}
+.focus-visible\:outline-slate-400\/50:focus-visible {
+  outline-color: rgb(148 163 184 / 0.5);
 }
 .active\:border-slate-600:active {
   --tw-border-opacity: 1;

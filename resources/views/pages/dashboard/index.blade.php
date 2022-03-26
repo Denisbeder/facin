@@ -4,11 +4,9 @@
 
 @section('content')
     <x-top fixed>
-        <x-slot name="left">
-            <x-button label="Cancel" />
-        </x-slot>
         <x-slot name="title">Titulo</x-slot>
         <x-slot name="right">
+            <x-button variant="outline-light" label="Cancel" class="mr-2" />
             <x-button label="Cancel" />
         </x-slot>
     </x-top>

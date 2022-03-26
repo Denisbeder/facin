@@ -24,7 +24,7 @@
         'text-white border border-sky-500 hover:border-sky-600 active:border-sky-600 bg-sky-500 hover:bg-sky-600 active:bg-sky-600 focus:ring-sky-500/25 focus-visible:outline-sky-600' => $variant === 'info',
         'text-white border border-yellow-500 hover:border-yellow-600 active:border-yellow-600 bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-600 focus:ring-yellow-500/25 focus-visible:outline-yellow-600' => $variant === 'warning',
         'text-white border border-slate-500 hover:border-slate-900 active:border-slate-900 bg-slate-800 hover:bg-slate-900 active:bg-slate-900 focus:ring-slate-800/25 focus-visible:outline-slate-800' => $variant === 'dark',
-        'text-slate-600 border border-slate-50 hover:border-slate-200 active:border-slate-200 bg-slate-50 hover:bg-slate-200 active:bg-slate-200 focus:ring-slate-200/25 focus-visible:outline-slate-200' => $variant === 'light',
+        'text-slate-600 border border-slate-50 hover:border-slate-200 active:border-slate-200 bg-slate-50 hover:bg-slate-100 active:bg-slate-100 focus:ring-slate-100/25 focus-visible:outline-slate-100' => $variant === 'light',
         'text-slate-600 border border-white bg-white hover:bg-slate-100 active:bg-slate-100 focus:ring-slate-100/50 focus-visible:outline-slate-100' => $variant === 'white',
         'text-blue-600 hover:text-blue-800 underline active:text-blue-800 focus:ring-slate-300/25 focus-visible:outline-rose-600 focus-visible:outline-blue-300' => $variant === 'link',
         // Outline
@@ -35,7 +35,7 @@
         'text-sky-600 border border-sky-500 hover:bg-sky-100 active:bg-sky-100 focus:ring-sky-500/25 focus-visible:outline-sky-500/50' => $variant === 'outline-info',
         'text-yellow-600 border border-yellow-500 hover:bg-yellow-50 active:bg-yellow-50 focus:ring-yellow-500/25 focus-visible:outline-yellow-500/50' => $variant === 'outline-warning',
         'text-slate-800 border border-slate-800 hover:bg-slate-300 active:bg-slate-300 focus:ring-slate-800/25 focus-visible:outline-slate-800/50' => $variant === 'outline-dark',
-        'text-slate-400 border border-slate-300 hover:bg-slate-200 active:bg-slate-200 focus:ring-slate-300/25 focus-visible:outline-slate-300/50' => $variant === 'outline-light',
+        'text-slate-400 border border-slate-300 hover:text-slate-500 hover:bg-slate-100 active:bg-slate-100 focus:ring-slate-300/25 focus-visible:outline-slate-300/50' => $variant === 'outline-light',
         'text-white border border-white hover:bg-slate-50 active:bg-slate-50 focus:ring-slate-50/50 focus-visible:outline-slate-50/50' => $variant === 'outline-white',
         // Size
         'py-0.5 px-1.5 text-xs' => $size === '2xs' && !$circle,
