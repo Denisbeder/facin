@@ -6,8 +6,8 @@
     <x-top fixed>
         <x-slot name="title">Titulo</x-slot>
         <x-slot name="right">
-            <x-button variant="outline-light" label="Cancel" class="mr-2" />
-            <x-button label="Cancel" />
+            <x-button icon="left-arrow-alt" variant="outline-light" label="Cancel" class="mr-2" />
+            <x-button icon="check-circle" label="Save" />
         </x-slot>
     </x-top>
 

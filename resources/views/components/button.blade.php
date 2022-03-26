@@ -4,7 +4,10 @@
     'rounded' => 'md',
     'loading' => false,
     'size' => 'md',
-    'circle' => false
+    'circle' => false,
+    'icon' => null,
+    'rightIcon' => null,
+    'sizeIcon' => 'text-sm',
 ])
 
 @php
@@ -57,7 +60,15 @@
 @endphp
 
 <{{ $tag }} {{ $loading ? 'disabled' : '' }} {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
+    @isset($icon)
+        <x-icon name="{{ $icon }}" class="mr-2 -mb-0.5" size="{{ $sizeIcon }}" />
+    @endisset
+
     {{ $label ?? $slot }}
+
+    @isset($rightIcon)
+        <x-icon name="{{ $rightIcon }}" class="ml-2 -mb-0.5" size="{{ $sizeIcon }}" />
+    @endisset
 
     @if($loading)
         <x-icon name="spinner" class="ml-2 -mr-2" />
