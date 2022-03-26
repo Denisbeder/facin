@@ -2,7 +2,7 @@
 
 @php
     $classList = [
-        'text-blue-600 focus:ring-offset-0',
+        'text-blue-600 focus:ring-offset-0 transition-colors duration-300',
         'text-indigo-500 focus:ring-indigo-500/50 focus:border-indigo-600' => $variant === 'primary' || $variant === 'default' || empty($variant),
         'text-slate-500 focus:ring-slate-500/50 focus:border-slate-600' => $variant === 'secondary',
         'text-lime-500 focus:ring-lime-500/50 focus:border-lime-600' => $variant === 'success',
