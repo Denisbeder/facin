@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <x-top>
+    <x-top fixed>
         <x-slot name="left">
             <x-button label="Cancel" />
         </x-slot>

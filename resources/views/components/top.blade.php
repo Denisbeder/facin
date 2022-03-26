@@ -1,13 +1,24 @@
+@props(['fixed' => false])
+
+@php
+    $classList = [
+        'bg-white px-6 py-3 border-b flex items-center h-16 transition duration-300',
+        'fixed top-0 z-20' => $fixed
+    ]
+@endphp
+
 <div 
-    x-data="{
-        adjustTop() {
-            $el.parentNode.style.paddingTop = '64px';
-            $el.style.width = $el.parentNode.scrollWidth + 'px';
-        }
-    }"
-    x-init="adjustTop()"
-    @resize.window="adjustTop()"
-    class="bg-white px-6 py-3 fixed top-0 z-20 border-b flex items-center h-16 transition duration-300"
+    @if($fixed)
+        x-data="{
+            adjustTop() {
+                $el.parentNode.style.paddingTop = '64px';
+                $el.style.width = $el.parentNode.scrollWidth + 'px';
+            }
+        }"
+        x-init="adjustTop()"
+        @resize.window="adjustTop()"
+    @endif
+    {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}
 >
     @isset($left)
         <div {{ $left->attributes->merge(['class' => 'mr-auto flex items-center']) }}>
