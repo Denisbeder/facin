@@ -1,13 +1,28 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
-
-Route::redirect('/', '/dashboard');
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/post', [PostController::class, 'index'])->name('post.index');
+Route::redirect('/', '/dashboard')->name('app.index');
+
+Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Post
+    Route::get('/post', [PostController::class, 'index'])->name('post.index');
+    Route::post('/post', [PostController::class, 'store'])->name('post.store');
+
+    // User
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+});
+
+Route::get('/teste', function () {
+    dd(bcrypt('password'));
+});

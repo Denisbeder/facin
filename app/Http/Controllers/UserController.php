@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     public function index(): View
     {
-        return view('pages.post.index');
+        return view('pages.user.index');
     }
 
     public function store(Request $request): RedirectResponse
     {
-        $request->merge(['user_id' => $request->user()->id]);
-        Post::create($request->input());
+        User::create($request->input());
         return back();
     }
 }

@@ -14,22 +14,14 @@ class PostTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Create posts table
-     *
-     * @test
-    */
-    public function create_posts_table()
+    public function test_create_posts_table()
     {
         $this->assertTrue(
             Schema::hasTable('posts')
         );
     }
 
-    /**
-     * @test
-     */
-    public function create_columns()
+    public function teste_create_columns()
     {
         $this->assertTrue(
             Schema::hasColumns('posts', [
@@ -53,9 +45,9 @@ class PostTest extends TestCase
      * Create a foreign key that will connect user_id with users table.
      * Make sure to create an index for this column.
      *
-     * @test
+     * @return void
      */
-    public function create_foreign_key_and_index()
+    public function test_create_foreign_key_and_index()
     {
         $constrain = collect(DB::select("PRAGMA index_list(posts)"));
         $indexUserId = $constrain->where('name', '=', 'posts_user_id_index')->first();
@@ -65,22 +57,12 @@ class PostTest extends TestCase
         $this->assertNotNull($indexStateSlug);
     }
 
-    /**
-     * Create Post Model
-     *
-     * @test
-     */
-    public function create_a_model()
+    public function test_create_a_model()
     {
         $this->assertTrue(class_exists('App\Models\Post'));
     }
 
-    /**
-     * Create relationships between User and Post
-     *
-     * @test
-     */
-    public function relationship_with_the_user()
+    public function test_relationship_with_the_user()
     {
         $post = new \App\Models\Post();
         $relationship = $post->user();
@@ -93,12 +75,7 @@ class PostTest extends TestCase
         $this->assertEquals(HasMany::class, get_class($relationship), 'user->posts()');
     }
 
-    /**
-     * Create factories for User and DailyLog
-     *
-     * @test
-     */
-    public function create_factories()
+    public function test_create_factories()
     {
         $user = \App\Models\User::factory()->create();
         \App\Models\Post::factory()->create(['user_id' => $user->id]);
@@ -106,12 +83,7 @@ class PostTest extends TestCase
         $this->assertCount(1, \App\Models\Post::all());
     }
 
-    /**
-     * Create route
-     *
-     * @test
-     */
-    public function create_route()
+    public function test_create_route()
     {
         $user = \App\Models\User::factory()->create();
 
@@ -122,7 +94,7 @@ class PostTest extends TestCase
                 'title' => 'Test 1',
                 'short_title' => 'Test short',
                 'description' => 'Lorem ipsum',
-                'body' => [],
+                'body' => []
             ]);
 
         $this->assertDatabaseHas('posts', [
@@ -132,7 +104,26 @@ class PostTest extends TestCase
             'title' => 'Test 1',
             'short_title' => 'Test short',
             'description' => 'Lorem ipsum',
-            'body' => json_encode([]),
+            'body' => json_encode([])
         ]);
+    }
+
+    public function test_profile_routes_are_protected_from_public()
+    {
+        $response = $this->get(route('app.index'));
+        $response->assertStatus(302);
+        $response->assertRedirect('dashboard');
+
+        $response = $this->get(route('dashboard'));
+        $response->assertStatus(302);
+        $response->assertRedirect('login');
+
+        $response = $this->post(route('post.store'));
+        $response->assertStatus(302);
+        $response->assertRedirect('login');
+
+        $user = \App\Models\User::factory()->create();
+        $response = $this->actingAs($user)->get(route('post.index'));
+        $response->assertOk();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PostState;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,7 +20,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'state' => 'draft',
+            'state' => PostState::DRAFT,
             'slug' => str()->slug(''),
             'title' => $this->faker->sentence(),
             'short_title' => $this->faker->sentence(),

@@ -15,8 +15,8 @@ return new class () extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->nullable()->references('id')->on('users');
-            $table->string('state')->default('draft'); // draft | published | unpublished | deleted
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('state', ['draft', 'published', 'unpublished', 'deleted']); // draft | published | unpublished | deleted
             $table->text('slug')->nullable();
             $table->text('title');
             $table->text('short_title')->nullable();
