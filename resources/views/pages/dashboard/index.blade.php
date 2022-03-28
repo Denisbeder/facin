@@ -3,15 +3,16 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <x-top fixed>
-        <x-slot name="title">Titulo</x-slot>
-        <x-slot name="right">
-            <x-button icon="left-arrow-alt" variant="outline-light" label="Cancel" class="mr-2" />
-            <x-button icon="check-circle" label="Save" />
-        </x-slot>
-    </x-top>
+<x-topbar fixed>
+    <x-slot name="title">Titulo</x-slot>
+    <x-slot name="right">
+        <x-button icon="left-arrow-alt" variant="outline-light" label="Cancel" class="mr-2" />
+        <x-button icon="check-circle" label="Save" />
+    </x-slot>
+</x-topbar>
 
-    <x-card class="m-6">
+<section class="p-6">
+    <x-card class="mb-6">
         <x-card.header label="Dropdowns" />
         <x-card.body>
             <x-dropdown class="mr-2">
@@ -66,7 +67,7 @@
         </x-card.body>
     </x-card>
 
-    <x-card class="m-6">
+    <x-card class="mb-6">
         <x-card.header label="Inputs" />
         <x-card.body>
             <x-form.control>
@@ -211,7 +212,7 @@
         </x-card.body>
     </x-card>
 
-    <x-card class="m-6">
+    <x-card class="mb-6">
         <x-card.header label="Buttons" />
         <x-card.body>
             <h3 class="font-bold mb-3">Buttons Filled</h3>
@@ -279,7 +280,7 @@
         </x-card.body>
     </x-card>
 
-    <x-card class="m-6">
+    <x-card class="mb-6">
         <x-card.header label="Cards" />
         <x-card.body>
             <div class="grid grid-cols-2 items-start gap-4">                
@@ -350,7 +351,7 @@
         </x-card.body>
     </x-card>
 
-    <x-card class="m-6">
+    <x-card class="mb-6">
         <x-card.header label="Collapses" />
         <x-card.body>
             <div class="grid grid-cols-2 items-start gap-4">
@@ -391,7 +392,7 @@
         </x-card.body>
     </x-card>
 
-    <x-card class="m-6">
+    <x-card class="mb-6">
         <x-card.header label="Modal" />
         <x-card.body>
             <x-button label="Open modal" href="/modal" inModal />
@@ -410,4 +411,5 @@
             </x-modal> --}}
         </x-card.body>
     </x-card>
+</section>
 @endsection

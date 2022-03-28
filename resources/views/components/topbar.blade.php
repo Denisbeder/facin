@@ -27,7 +27,7 @@
     @endisset
 
     @isset($title)
-        <h3 {{ $title->attributes->merge(['class' => 'font-bold']) }}>{{ $title }}</h3>
+        <h1 {{ $title->attributes->merge(['class' => 'font-bold text-lg']) }}>{{ $title }}</h1>
     @endisset
 
     @isset($right)
