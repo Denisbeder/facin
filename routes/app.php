@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::redirect('/', '/dashboard')->name('app.index');
 
 Route::middleware('auth')->group(function () {

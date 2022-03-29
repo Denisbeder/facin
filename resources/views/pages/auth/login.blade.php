@@ -11,28 +11,33 @@
             </a>
             <ul class="flex items-end mt-5 md:mt-0">
                 <li class="mx-3">
-                    <a href="" class="text-white font-semibold">Home</a>
+                    <a href="" class="text-white font-semibold hover:text-indigo-200 transition-colors duration-300">Home</a>
                 </li>
                 <li class="mx-3">
-                    <a href="" class="text-white font-semibold">Preços</a>
+                    <a href="" class="text-white font-semibold hover:text-indigo-200 transition-colors duration-300">Preços</a>
                 </li>
                 <li class="mx-3">
-                    <a href="" class="text-white font-semibold">Contato</a>
+                    <a href="" class="text-white font-semibold hover:text-indigo-200 transition-colors duration-300">Contato</a>
                 </li>
             </ul>
         </div>
     </div>
     <x-card class="mx-auto max-w-xs md:max-w-sm -mt-24">
-        <form action="/dashboard" method="GET">
-            <x-card.body class="p-10">
+        <form action="/login" method="POST" autocomplete="off">
+            <x-card.body class="!p-10">
+                @csrf
+                <div class="flex items-center flex-col mb-10 text-center">
+                    <h3 class="font-bold text-lg mb-3">Bem vindo de volta</h3>
+                    <p>Entre com as credenciais de acesso da sua conta</p>
+                </div>
                 <x-form.control>
-                    <x-form.label for="username" label="Usuário" />
-                    <x-form.input.text name="username" />
+                    <x-form.label for="email" label="E-mail" />
+                    <x-form.input.text name="email" useHasError />
                 </x-form.control>
 
                 <x-form.control>
                     <x-form.label for="password" label="Senha" />
-                    <x-form.input.text type="password" name="password" />
+                    <x-form.input.text type="password" name="password" useHasError />
                 </x-form.control>
 
                 <x-form.control>
@@ -43,7 +48,7 @@
                 <x-button label="ENVIAR" class="w-full" />
                 </x-form.control>
 
-                <a href="" class="block text-center text-sm">Esqueceu sua senha?</a>
+                <a href="" class="block text-center text-sm hover:text-indigo-500 transition-colors duration-300">Esqueceu sua senha?</a>
             </x-card.body>
         </form>
     </x-card>
