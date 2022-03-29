@@ -1,8 +1,18 @@
-@props(['leftLabel', 'rightLabel', 'classLabel', 'variant' => 'default', 'size' => 'md'])
+@props([
+    'name' => null,
+    'leftLabel',
+    'rightLabel',
+    'classLabel',
+    'variant' => 'default',
+    'size' => 'md',
+    'hasError' => false,
+    'useHasError' => false,
+])
 
 @php
+    $hasError = $hasError || session()->get('errors')?->has($name);
     $classList = [
-        'text-blue-600 focus:ring-offset-0 transition-colors duration-300',
+        'text-blue-600 border-slate-200 focus:ring-offset-0 transition-colors duration-300',
         'text-indigo-500 focus:ring-indigo-500/50 focus:border-indigo-600' => $variant === 'primary' || $variant === 'default' || empty($variant),
         'text-slate-500 focus:ring-slate-500/50 focus:border-slate-600' => $variant === 'secondary',
         'text-lime-500 focus:ring-lime-500/50 focus:border-lime-600' => $variant === 'success',
@@ -12,18 +22,19 @@
         'text-slate-800 focus:ring-slate-800/50 focus:border-slate-600' => $variant === 'dark',
         'text-slate-50 focus:ring-slate-50/75 focus:border-slate-100' => $variant === 'light',
         'text-white focus:ring-white focus:border-slate-50' => $variant === 'white',
+        'border-rose-500' => $hasError && $useHasError,
         'w-4 h-4' => $size === 'sm',
         'w-5 h-5' => $size === 'md',
         'w-6 h-6' => $size === 'lg',
     ]
 @endphp
 
-<label class="inline-flex items-center mt-3">
+<label class="inline-flex items-center cursor-pointer">
     @isset($leftLabel)
     <span @class(['mr-2 text-slate-700', $classLabel ?? null])>{{ $leftLabel }}</span>
     @endisset
 
-    <input type="radio" {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
+    <input type="radio" name="{{ $name }}" {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
 
     @if($slot->isNotEmpty() || isset($rightLabel))
     <span @class(['ml-2 text-slate-700', $classLabel ?? null])>{{ $rightLabel ?? $slot }}</span>

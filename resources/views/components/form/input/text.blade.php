@@ -6,18 +6,24 @@
     'suffix' => false,
     'prefix' => false,
     'rounded' => 'md',
-    'size' => 'md'
+    'size' => 'md',
+    'hasError' => false,
+    'useHasError' => false,
+    'value' => null
 ])
 
 
 @php
     $refKey = str()->random(5);
+    $hasError = $hasError ? $hasError : session()->get('errors')?->has($name);
+    $value = old($name, $value);
     $classList = [
         'block',
         'w-full',
         'relative z-0',
         'rounded-none' => ($rounded === 'none'  || $rounded === false || $rounded === 'false'),
         'rounded-' . $rounded => $rounded !== 'none',
+        'border-rose-500' => $hasError && $useHasError,
         'placeholder:text-slate-400 ',
         'border-slate-200',
         'shadow-sm',
@@ -61,7 +67,8 @@
         {{ $attributes->class($classList) }}
         name="{{ $name }}" 
         id="{{ $name }}"
-        type="{{ $type }}"        
+        type="{{ $type }}"  
+        value="{{ $value }}"      
         @if($prefix || isset($left) || $suffix || isset($right))
         :style="{
             @if($prefix || isset($left))
@@ -88,4 +95,14 @@
 
 @if($leftIcon || $rightIcon || $prefix || $suffix || isset($left) || isset($right))
 </div>
+@endif
+
+@if($useHasError)     
+    @if($hasError && is_string($hasError))
+        <div class="text-sm text-rose-500 mt-1">{{ $hasError }}</div>
+    @else
+        @error($name)
+            <div class="text-sm text-rose-500 mt-1">{{ $message }}</div>
+        @enderror
+    @endif
 @endif

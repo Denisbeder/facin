@@ -46,7 +46,7 @@
         <x-sidebar.nav-item url="/setting" label="Configurações" icon="cog" />
     </div>
 
-    <a href="" class="flex items-center px-6 bg-slate-50/50 p-6 group">
+    <a href="/logout" class="flex items-center px-6 bg-slate-50/50 p-6 group">
         <img class="rounded-full w-9 h-9 mr-3" src="https://images.unsplash.com/photo-1542309667-2a115d1f54c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&h=80&q=80" alt="">
         <div class="flex-shrink flex flex-col">
             <p class="text-slate-500 text-base truncate w-28">Denisbeder Duek Carvalho</p>
