@@ -19,4 +19,15 @@ class UserController extends Controller
         User::create($request->input());
         return back();
     }
+
+    public function edit(User $user): View
+    {
+        return view('pages.user.form', compact('user'));
+    }
+
+    public function update(User $user, Request $request): RedirectResponse
+    {
+        $user->update($request->input());
+        return back();
+    }
 }

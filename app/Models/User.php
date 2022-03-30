@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as AuthUser;
@@ -16,6 +17,7 @@ class User extends AuthUser implements Authenticatable
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->where('user', '[0-9]+');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update')->where('user', '[0-9]+');
 });
 
 Route::get('/teste', function () {
