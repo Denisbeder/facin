@@ -7,8 +7,8 @@
                 @isset($label)
                     {{ $label }}
                 @else
-                    <span x-show="open">Fechar</span>        
-                    <span x-show="!open">Abrir</span>        
+                    <span x-show="collapseOpen">Fechar</span>        
+                    <span x-show="!collapseOpen">Abrir</span>        
                 @endisset
             </div>
         </x-slot>
