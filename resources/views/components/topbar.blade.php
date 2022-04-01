@@ -2,8 +2,7 @@
 
 @php
     $classList = [
-        'bg-white px-6 py-3 border-b flex items-center h-16 transition duration-300',
-        'fixed top-0 z-20' => $fixed
+        'bg-white px-6 py-3 border-b flex items-center h-16 transition-[top] duration-300', 
     ]
 @endphp
 
@@ -13,11 +12,19 @@
             adjustTop() {
                 $el.parentNode.style.paddingTop = '64px';
                 $el.style.width = $el.parentNode.scrollWidth + 'px';
+                $el.style.position = 'fixed';                
+                $el.style.zIndex = '20';   
+                $el.style.top = (window.pageYOffset > 150) ? '0px' : '-65px';
+            },
+            resetTop() {
+                $el.parentNode.removeAttribute('style');
+                $el.removeAttribute('style');
             }
         }"
-        x-init="adjustTop()"
         @resize.window="adjustTop()"
+        @scroll.window="window.pageYOffset > 64 ? adjustTop() : resetTop()"
     @endif
+    x-ref="topbar"
     {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}
 >
     @isset($left)
