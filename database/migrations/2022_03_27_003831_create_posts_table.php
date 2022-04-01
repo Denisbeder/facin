@@ -16,13 +16,13 @@ return new class () extends Migration {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->enum('state', ['draft', 'published', 'unpublished', 'deleted']); // draft | published | unpublished | deleted
-            $table->text('slug')->nullable();
-            $table->text('title');
-            $table->text('short_title')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('title');
+            $table->string('short_title')->nullable();
             $table->text('description')->nullable();
             $table->json('body')->nullable();
-            $table->timestamp('published_at')->nullable();
+            $table->enum('state', collect(\App\Enums\PostState::cases())->pluck('value')->toArray())->default('draft');
+            $table->timestamp('posted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

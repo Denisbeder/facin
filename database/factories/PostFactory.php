@@ -18,15 +18,16 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence();
         return [
             'user_id' => User::factory(),
             'state' => PostState::DRAFT,
-            'slug' => str()->slug(''),
-            'title' => $this->faker->sentence(),
-            'short_title' => $this->faker->sentence(),
+            'slug' => str()->slug($title),
+            'title' => $title,
+            'short_title' => str()->of($title)->words(4, null),
             'description' => $this->faker->text(),
             'body' => [],
-            'published_at' => null,
+            'posted_at' => null,
             'deleted_at' => null,
         ];
     }

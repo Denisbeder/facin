@@ -50,4 +50,16 @@ class ModelPostTest extends TestCase
 
         $this->assertTrue($hasTrait, 'This Trait "' . SoftDeletes::class . '" don\'t exists in the model.');
     }
+
+    public function test_has_observer_class()
+    {
+        $user = User::factory()->create();
+        $post = Post::factory()->create();
+        $postObserver = $this->mock(\App\Observers\PostObserver::class);
+        $postObserver->shouldReceive('updated')->once();
+
+        $post->title = "new title";
+        $post->user_id = $user->id;
+        $post->save();
+    }
 }

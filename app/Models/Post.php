@@ -21,12 +21,12 @@ class Post extends Model
         'short_title',
         'description',
         'body',
-        'published_at',
+        'posted_at',
     ];
 
     protected $casts = [
         'state' => PostState::class,
-        'published_at' => 'datetime',
+        'posted_at' => 'datetime',
         'body' => 'array',
     ];
 

@@ -21,22 +21,22 @@ class MigrationPostTest extends TestCase
 
     public function test_create_columns()
     {
-        $this->assertTrue(
-            Schema::hasColumns('posts', [
-                'id',
-                'user_id',
-                'state',
-                'slug',
-                'title',
-                'short_title',
-                'description',
-                'body',
-                'published_at',
-                'created_at',
-                'updated_at',
-                'deleted_at',
-            ])
-        );
+        $columns = [
+            'id',
+            'user_id',
+            'slug',
+            'title',
+            'short_title',
+            'description',
+            'body',
+            'state',
+            'posted_at',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+        ];
+
+        $this->assertTrue(Schema::hasColumns('posts', $columns));
     }
 
     /**

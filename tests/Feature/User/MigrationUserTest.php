@@ -20,18 +20,18 @@ class MigrationUserTest extends TestCase
 
     public function test_create_columns()
     {
-        $this->assertTrue(
-            Schema::hasColumns('users', [
-                'id',
-                'name',
-                'email',
-                'email_verified_at',
-                'remember_token',
-                'password',
-                'created_at',
-                'updated_at',
-                'deleted_at',
-            ])
-        );
+        $columns = [
+            'id',
+            'name',
+            'email',
+            'email_verified_at',
+            'remember_token',
+            'password',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+        ];
+
+        $this->assertTrue(Schema::hasColumns('users', $columns));
     }
 }
