@@ -20,4 +20,11 @@ class PostController extends Controller
         Post::create($request->input());
         return back();
     }
+
+    public function delete(Post $post): RedirectResponse
+    {
+        $post->delete();
+
+        return back();
+    }
 }
