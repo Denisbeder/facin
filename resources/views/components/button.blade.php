@@ -13,7 +13,7 @@
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
-        'w-auto font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
+        'w-auto whitespace-nowrap font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
         'rounded-none' => ($rounded === 'none'  || $rounded === false || $rounded === 'false') && !$circle,
         'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'opacity-50' => (bool) $loading,
