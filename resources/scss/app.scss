@@ -21,6 +21,8 @@
     :focus-visible {
         @apply outline-slate-200;
     }
+
+    [x-cloak] { display: none !important; }
 }
 
 @layer utilities {
