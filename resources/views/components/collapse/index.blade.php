@@ -9,17 +9,34 @@
 
 @php
     $key = 'key_' . str()->random();
-    $open = $open ? 'true' : 'false';
 @endphp
 
-<div x-data="{{ '{open: '.$open.'}' }}" {{ $attributes->merge(['class' => 'w-full']) }}>
+<div 
+    x-data="{
+        open: {{ $open ? 'true' : 'false' }}, 
+        handleCollapse(value) {
+            setTimeout(() => {
+                $refs.{{ $key }}.style.transition = 'max-height 300ms, opacity 300ms';
+                if (value) {
+                    $refs.{{ $key }}.style.opacity = 1;
+                    $refs.{{ $key }}.style.maxHeight = $refs.{{ $key }}.scrollHeight + 'px';
+                } else {
+                    $refs.{{ $key }}.style.opacity = 0;
+                    $refs.{{ $key }}.style.maxHeight = '0px';
+                } 
+            });
+        }
+    }" 
+    x-init="handleCollapse(open); $watch('open', value => handleCollapse(value))" 
+    {{ $attributes->merge(['class' => 'w-full']) }}
+>
     @isset($trigger)
         <div x-on:click="open = !open">
             {{ $trigger }}
         </div>
     @else
         <x-collapse.trigger class="{{ $triggerClass }}">
-            <div x-on:click="open = !open" class="flex cursor-pointer items-center">
+            <div x-on:click="open = !open" class="flex cursor-pointer items-center truncate">
                 @isset($leftIcon)
                     <x-icon 
                     ::class="open || '-rotate-90'" 
@@ -40,12 +57,7 @@
             </div>
         </x-collapse.trigger>
     @endisset
-    <div 
-        class="overflow-hidden relative transition-all max-h-0 opacity-0 duration-300"
-        x-ref="{{ $key }}"
-        :class="!open || 'opacity-100'"
-        :style="!open || 'max-height: ' + $refs.{{ $key }}.scrollHeight + 'px'"
-    >
+    <div x-ref="{{ $key }}" class="overflow-hidden relative">
         {{ $slot }}
     </div>
 </div>
