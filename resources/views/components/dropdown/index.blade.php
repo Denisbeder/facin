@@ -5,11 +5,11 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => 'relative inline-flex']) }} 
-    x-data="{{ '{open: '.$open.'}' }}" 
-    x-on:click.outside="open = false" 
-    x-on:keydown.escape.window="open = false"
+    x-data="{{ '{dropdownOpen: '.$open.'}' }}" 
+    x-on:click.outside="dropdownOpen = false" 
+    x-on:keydown.escape.window="dropdownOpen = false"
 >
-    <div x-on:click="open = !open" class="cursor-pointer">
+    <div x-on:click="dropdownOpen = !dropdownOpen" class="cursor-pointer">
         @isset($trigger)
             {{ $trigger }}
         @else
@@ -20,7 +20,7 @@
     </div>
     
     <ul 
-        :class="!open || 'opacity-100 pointer-events-auto'" 
+        :class="{'!opacity-100 !pointer-events-auto': dropdownOpen}" 
         class="mt-2 drop-shadow-xl absolute top-full z-10 bg-white border rounded-lg pointer-events-none transition-all opacity-0 duration-300 w-36"
     >
         {{ $slot }}
