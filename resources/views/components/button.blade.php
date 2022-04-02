@@ -13,7 +13,7 @@
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
-        'w-auto whitespace-nowrap font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
+        'whitespace-nowrap font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
         'rounded-none' => ($rounded === 'none'  || $rounded === false || $rounded === 'false') && !$circle,
         'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'opacity-50' => (bool) $loading,
@@ -61,13 +61,22 @@
 
 <{{ $tag }} {{ $loading ? 'disabled' : '' }} {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
     @isset($icon)
-        <x-icon name="{{ $icon }}" class="mr-2 -mb-0.5" size="{{ $sizeIcon }}" />
+        <x-icon name="{{ $icon }}" size="{{ $sizeIcon }}" />
     @endisset
 
-    {{ $label ?? $slot }}
+    @isset($label)
+        <span @class([
+            'ml-2' => isset($icon),
+            'mr-2' => isset($rightIcon),
+        ])>
+            {{ $label }}
+        </span>
+    @else 
+        {{ $slot }}
+    @endisset
 
     @isset($rightIcon)
-        <x-icon name="{{ $rightIcon }}" class="ml-2 -mb-0.5" size="{{ $sizeIcon }}" />
+        <x-icon name="{{ $rightIcon }}" size="{{ $sizeIcon }}" />
     @endisset
 
     @if($loading)
