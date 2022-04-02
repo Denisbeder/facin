@@ -12,10 +12,24 @@
     @livewireStyles
     <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div class="flex bg-slate-100 min-h-screen w-full">
+<body class="min-h-screen w-full bg-slate-100">
+    <div 
+        x-cloak 
+        x-data="{sidebarOpen: false}" 
+        x-init="$watch('sidebarOpen', value => {
+            if (value) {
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.documentElement.removeAttribute('style');
+                document.body.removeAttribute('style');
+            }            
+        })"
+        class="grid bg-slate-100 min-h-screen w-full transition-[margin-left] duration-300 -ml-64 md:ml-0"
+        :class="{'!ml-0': sidebarOpen}" 
+    >
         <x-sidebar />
-        <main class="ml-64 flex-1 relative">
+        <main class="flex-1 ml-64 w-screen md:w-auto relative">
             @yield('content')
         </main>
     </div>

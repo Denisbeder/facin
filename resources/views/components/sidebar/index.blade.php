@@ -1,20 +1,26 @@
-<aside class="bg-white w-64 grid grid-rows-[auto_auto_1fr_auto_auto] max-h-screen h-screen overflow-hidden border-r fixed">
-    <div class="flex items-end p-6">
-        <a href="/" class="block">
-            <img src="/vendor/assets/svg/logo.svg" alt="FACIN" class="h-10">
-        </a>
-        <button class="ml-auto w-7 h-7 bg-slate-50 rounded-md flex items-center justify-center group hover:bg-indigo-50 transition-colors duration-300">
-            <x-icon name="chevron-left" class="h-4 text-slate-400 group-hover:text-indigo-500 transition-colors duration-300" />
-        </button>
-    </div>
+@php
+    $classList = [
+        'grid grid-rows-[auto_auto_1fr_auto_auto] border-r fixed z-30 bg-white',
+        'max-h-screen h-screen',
+        'w-64',
+        'transition-transform duration-300',
+    ];
+@endphp
+
+<aside {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
+    <a href="/" class="flex items-end p-6">
+        <img src="/vendor/assets/svg/logo.svg" alt="FACIN" class="h-10">
+    </a>
     
-    <x-button label="Criar postagem" class="mx-6" icon="plus" />
+    <x-button class="mx-6">
+        <x-icon name="plus" class="mr-2" /> Criar postagem
+    </x-button>
 
     <div class="flex flex-col overscroll-contain overflow-hidden hover:overflow-y-overlay px-6 my-4">
         <x-sidebar.nav-item url="/dashboard" label="Visão geral" icon="home" />
 
-        <x-collapse open leftIcon class="mt-4" label="CONTEÚDO" triggerClass="bg-white hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">
-            <x-sidebar.nav-item url="/post" label="Postagem" icon="edit-alt" />
+        <x-collapse open leftIcon class="mt-4" label="CONTEÚDO" triggerClass="bg-white gap-4 hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">
+            <x-sidebar.nav-item url="/post" label="Postagens" icon="edit-alt"/>
             <x-sidebar.nav-item url="/page" label="Páginas" icon="file-blank" />
             <x-sidebar.nav-item url="/banner" label="Banners" icon="flag" />
             <x-sidebar.nav-item url="/poll" label="Enquete" icon="bar-chart-alt-2" />
@@ -46,14 +52,16 @@
         <x-sidebar.nav-item url="/setting" label="Configurações" icon="cog" />
     </div>
 
-    <a href="/logout" class="flex items-center px-6 bg-slate-50/50 p-6 group">
-        <img class="rounded-full w-9 h-9 mr-3" src="https://images.unsplash.com/photo-1542309667-2a115d1f54c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&h=80&q=80" alt="">
-        <div class="flex-shrink flex flex-col">
-            <p class="text-slate-500 text-base truncate w-28">Denisbeder Duek Carvalho</p>
-            <small class="text-slate-400 text-xs">Editar sua conta</small>
+    <a href="/logout" class="flex items-center bg-slate-50/50 p-6 group">
+        <img class="rounded-full w-[42px] h-[42px] mr-3" src="https://images.unsplash.com/photo-1542309667-2a115d1f54c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=80&h=80&q=80" alt="">
+        <div class="flex flex-1 items-center">
+            <div class="flex-shrink flex flex-col">
+                <p class="text-slate-500 text-base truncate w-28">Denisbeder Duek Carvalho</p>
+                <small class="text-slate-400 text-xs">Editar sua conta</small>
+            </div>
+            <button class="ml-auto w-5 h-5 bg-white border border-slate-100 rounded-full flex items-center justify-center group-hover:border-slate-200 transition-colors duration-300">
+                <x-icon name="dots-vertical-rounded" class="h-4 text-slate-300 group-hover:text-slate-400 transition-colors duration-300" />
+            </button>
         </div>
-        <button class="ml-auto w-7 h-7 bg-white border border-slate-100 rounded-md flex items-center justify-center group-hover:border-slate-200 transition-colors duration-300">
-            <x-icon name="dots-vertical-rounded" class="h-4 text-slate-300 group-hover:text-slate-400 transition-colors duration-300" />
-        </button>
     </a>
 </aside>
