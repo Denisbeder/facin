@@ -10,26 +10,60 @@
         </x-slot>
     </x-topbar>
 
-    <div class="p-6">
-        <x-flex-list>
-            <x-flex-list.header>
-                <x-flex-list.cell>Nome</x-flex-list.cell>
-                <x-flex-list.cell>E-mail</x-flex-list.cell>
+    <div class="p-6 flex justify-center">
+        <x-flex-list class="max-w-4xl">
+            <x-flex-list.row asHeader>
+                <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
+                <x-flex-list.cell class="flex-[2]">E-mail</x-flex-list.cell>
                 <x-flex-list.cell>Estado</x-flex-list.cell>
-            </x-flex-list.header>
+                <x-flex-list.cell>Criado em</x-flex-list.cell>
+                <x-flex-list.cell></x-flex-list.cell>
+            </x-flex-list.row>
 
-            @for($i = 0; $i < 20; $i++)
             <x-flex-list.row>
-                <x-flex-list.cell header="Nome">
-                    Denisbeder
+                <x-flex-list.cell class="flex-[2]">
+                    <img src="https://source.unsplash.com/random/300x300/?people,1" class="rounded-full w-10 h-10 inline-block mr-2">
+                    Denisbeder Duek Carvalho
                 </x-flex-list.cell>
 
-                <x-flex-list.cell header="E-mail">
+                <x-flex-list.cell class="flex-[2]" header="E-mail">
                     denisbeder@gmail.com
                 </x-flex-list.cell>
 
                 <x-flex-list.cell header="Estado">
                     Ativado
+                </x-flex-list.cell>
+
+                <x-flex-list.cell header="Estado">
+                    24/02/2022 17:20
+                </x-flex-list.cell>
+
+                <x-flex-list.cell class="md:justify-end" header="Ações">
+                    <x-button label="Editar" icon="edit-alt" size="2xs" />
+                </x-flex-list.cell>
+            </x-flex-list.row>
+
+            @for($i = 0; $i < 20; $i++)
+            <x-flex-list.row>
+                <x-flex-list.cell class="flex-[2]">
+                    <img src="https://source.unsplash.com/random/300x300/?people,{{ $i }}" class="rounded-full w-10 h-10 inline-block mr-2">
+                    Denisbeder
+                </x-flex-list.cell>
+
+                <x-flex-list.cell class="flex-[2]" header="E-mail">
+                    denisbeder@gmail.com
+                </x-flex-list.cell>
+
+                <x-flex-list.cell header="Estado">
+                    Ativado
+                </x-flex-list.cell>
+
+                <x-flex-list.cell header="Estado">
+                    24/02/2022 17:20
+                </x-flex-list.cell>
+
+                <x-flex-list.cell class="md:justify-end" header="Ações">
+                    <x-button label="Editar" icon="edit-alt" size="2xs" />
                 </x-flex-list.cell>
             </x-flex-list.row>
             @endfor
