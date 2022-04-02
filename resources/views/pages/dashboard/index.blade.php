@@ -54,7 +54,7 @@
                 <x-slot name="trigger">
                     <x-button>
                         Dropdown
-                        <x-icon name="chevron-down" size="text-base" ::class="open || '-rotate-90'" class="transition-all duration-300 ml-1"  />
+                        <x-icon name="chevron-down" size="text-base" ::class="dropdownOpen || '-rotate-90'" class="transition-all duration-300 ml-1"  />
                     </x-button>
                 </x-slot>
                 <x-dropdown.item href="/" label="Item 1" />
@@ -251,6 +251,17 @@
                 <x-button label="Size lg" variant="primary" size="lg" />
                 <x-button label="Size xl" variant="primary" size="xl" />
                 <x-button label="Size 2xl" variant="primary" size="2xl" />
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-bold mb-3">Buttons Sizes with icon</h3>
+                <x-button label="Size 2xs" variant="primary" icon="plus-circle" size="2xs" />
+                <x-button label="Size xs" variant="primary" icon="plus-circle" size="xs" />
+                <x-button label="Size sm" variant="primary" icon="plus-circle" size="sm" />
+                <x-button label="Size md" variant="primary" icon="plus-circle" size="md" />
+                <x-button label="Size lg" variant="primary" icon="plus-circle" size="lg" />
+                <x-button label="Size xl" variant="primary" icon="plus-circle" size="xl" />
+                <x-button label="Size 2xl" variant="primary" icon="plus-circle" size="2xl" />
             </div>
 
             <div class="mt-6">
