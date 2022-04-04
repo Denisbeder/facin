@@ -1,17 +1,16 @@
 @props(['open' => false, 'aligny' => 'bottom', 'alignx' => 'left', 'variant' => null])
+@aware(['size' => 'md'])
 
-<div {{ $attributes->merge(['class' => 'relative inline-flex']) }} 
+<div {{ $attributes->merge(['class' => 'relative inline-flex items-stretch']) }} 
     x-data="{dropdownOpen: {{ $open ? 'true' : 'false' }} }" 
     x-on:click.outside="dropdownOpen = false" 
     x-on:keydown.escape.window="dropdownOpen = false">
 
-    <div x-on:click="dropdownOpen = !dropdownOpen" class="cursor-pointer">
+    <div x-on:click="dropdownOpen = !dropdownOpen" class="cursor-pointer flex items-stretch">
         @isset($trigger)
             {{ $trigger }}
         @else
-            <x-button variant="{{ $variant }}">
-                <x-icon name="dots-vertical-rounded" size="text-base" />
-            </x-button>
+            <x-button size="{{ $size }}" variant="{{ $variant }}" icon="dots-vertical-rounded" />
         @endisset
     </div>
     
