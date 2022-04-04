@@ -7,11 +7,17 @@
     'circle' => false,
     'icon' => null,
     'rightIcon' => null,
-    'sizeIcon' => 'text-sm',
+    'sizeIcon' => null,
 ])
+
+@aware(['size' => 'md'])
 
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
+    $classListIconSize = [
+        'text-xs' => $size === '2xs' || $size === 'xs' || $size === 'sm',
+        'text-base' => $size !== '2xs' && $size !== 'xs' && $size !== 'sm',
+    ];
     $classList = [
         'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'whitespace-nowrap font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
@@ -61,14 +67,17 @@
 
 <{{ $tag }} {{ $loading ? 'disabled' : '' }} {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }}>
     @isset($icon)
-        <x-icon name="{{ $icon }}" size="{{ $sizeIcon }}" />
+        <x-icon name="{{ $icon }}" size="{{ $sizeIcon ?? Arr::toCssClasses($classListIconSize) }}" />
     @endisset
 
     @isset($label)
-        <span @class([
+        <span @if(isset($icon) || isset($rightIcon)) 
+        @class([
             'ml-2' => isset($icon),
             'mr-2' => isset($rightIcon),
-        ])>
+            'ml-1' => isset($icon) && ($size === 'xs' || $size === '2xs'),
+            'mr-1' => isset($rightIcon) && ($size === 'xs' || $size === '2xs'),
+        ]) @endif>
             {{ $label }}
         </span>
     @else 
@@ -76,7 +85,7 @@
     @endisset
 
     @isset($rightIcon)
-        <x-icon name="{{ $rightIcon }}" size="{{ $sizeIcon }}" />
+        <x-icon name="{{ $rightIcon }}" size="{{ $sizeIcon ?? Arr::toCssClasses($classListIconSize) }}" />
     @endisset
 
     @if($loading)
