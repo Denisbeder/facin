@@ -1,4 +1,4 @@
-@props(['vertical' => false])
+@props(['vertical' => false, 'size' => 'md'])
 
 @php
     $dom = new domDocument();
@@ -12,17 +12,18 @@
             $buttonClassList = $button->getAttribute('class');
             $buttonClassList = str()->of($buttonClassList)->replaceMatches('/(\s+)?([a-z]+:)?([a-z]+:)?(rounded)(\-[a-z0-9]+)?(\-[a-z0-9]+)?(\s+)?|(\s+)border(\s+)/', ' ');
             $buttonClassList = trim(preg_replace('/\s+/', ' ', $buttonClassList));
-            $button->setAttribute('class', $buttonClassList . ' border');
+            $buttonClassList = $buttonClassList . ' border-x border-y';
+            $button->setAttribute('class', $buttonClassList);
 
             // In first item add rounded left or top
             if ($k === 0) {
-                $classBtn = !$vertical ? ' rounded-l-md border-l border-y' : ' rounded-t-md border-t border-x';
+                $classBtn = !$vertical ? ' rounded-l-md border-r-0' : ' rounded-t-md border-b-0';
                 $button->setAttribute('class', $buttonClassList . $classBtn);
             } 
             
             // In last item add rounded right or bottom
             if (($buttons->length - 1) === $k) {
-                $classBtn = !$vertical ? ' rounded-r-md border-r border-y' : ' rounded-b-md border-b border-x';
+                $classBtn = !$vertical ? ' rounded-r-md -ml-px ' : ' rounded-b-md border-t-0';
                 $button->setAttribute('class', $buttonClassList . $classBtn);
             }            
         }      
@@ -33,7 +34,7 @@
     }
 
     $classList = [
-        'inline-flex',
+        'inline-flex items-stretch',
         'flex-col' => $vertical
     ];
 @endphp
