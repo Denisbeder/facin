@@ -13,14 +13,14 @@
 @php
     $tag = $attributes->has('href') ? 'a' : 'button';
     $classList = [
+        'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'whitespace-nowrap font-semibold inline-flex items-center justify-center transition-colors duration-300 focus:ring',
         'rounded-none' => ($rounded === 'none'  || $rounded === false || $rounded === 'false') && !$circle,
-        'rounded-' . $rounded => $rounded !== 'none' && !$circle,
         'opacity-50' => (bool) $loading,
         'cursor-wait' => (bool) $loading,
         'cursor-pointer' => (bool) !$loading,
         // Fill Color
-        'text-white border border-indigo-500 hover:border-indig0-600 active:border-indig-600 bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-600 focus:ring-indigo-500/25 focus-visible:outline-indigo-600 focus-visible:border-indigo-600' => $variant === 'primary' || $variant === 'default' || empty($variant),
+        'text-white border border-indigo-500 hover:border-indigo-600 active:border-indig-600 bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-600 focus:ring-indigo-500/25 focus-visible:outline-indigo-600 focus-visible:border-indigo-600' => $variant === 'primary' || $variant === 'default' || empty($variant),
         'text-white border border-slate-500 hover:border-slate-600 active:border-slate-600 bg-slate-500 hover:bg-slate-600 active:bg-slate-600 focus:ring-slate-500/25 focus-visible:outline-slate-600' => $variant === 'secondary',
         'text-white border border-lime-500 hover:border-lime-600 active:border-lime-600 bg-lime-500 hover:bg-lime-600 active:bg-lime-600 focus:ring-lime-500/25 focus-visible:outline-lime-600' => $variant === 'success',
         'text-white border border-rose-500 hover:border-rose-600 active:border-rose-600 bg-rose-500 hover:bg-rose-600 active:bg-rose-600 focus:ring-rose-500/25 focus-visible:outline-rose-600' => $variant === 'danger',

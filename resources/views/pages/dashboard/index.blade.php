@@ -243,6 +243,33 @@
             </div>
 
             <div class="mt-6">
+                <h3 class="font-bold mb-3">Buttons Group</h3>
+                <x-button-group>
+                    <x-button label="Button 1" variant="primary" />
+                    <x-button label="Button 2" variant="primary" />
+                </x-button-group>
+
+                <x-button-group class="mt-3">
+                    <x-button label="Button 1" variant="primary" />
+                    <x-button label="Button 2" variant="secondary" />
+                    <x-button label="Button 3" variant="danger" />
+                </x-button-group>
+
+                <x-button-group class="mt-3">
+                    <x-button label="Button 1" variant="outline-primary" />
+                    <x-button label="Button 2" variant="outline-primary" />
+                    <x-button label="Button 3" variant="outline-primary" />
+                </x-button-group>
+
+                <h3 class="font-bold mb-3 mt-6">Buttons Group Vertical</h3>
+                <x-button-group class="mt-3" vertical>
+                    <x-button label="Button 1" variant="outline-primary" />
+                    <x-button label="Button 2" variant="outline-primary" />
+                    <x-button label="Button 3" variant="outline-primary" />
+                </x-button-group>
+            </div>
+
+            <div class="mt-6">
                 <h3 class="font-bold mb-3">Buttons Sizes</h3>
                 <x-button label="Size 2xs" variant="primary" size="2xs" />
                 <x-button label="Size xs" variant="primary" size="xs" />

@@ -38,7 +38,7 @@
 
         <x-collapse leftIcon class="mt-4" label="CONTAS" triggerClass="bg-transparent hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">
             <x-sidebar.nav-item url="/user" label="Sistema" icon="lock" />
-            <x-sidebar.nav-item url="/user" label="Usuários do site" icon="user" />
+            <x-sidebar.nav-item url="/customer-user" label="Usuários do site" icon="user" />
         </x-collapse>
 
         <x-collapse leftIcon class="mt-4" label="FERRAMENTAS" triggerClass="bg-transparent hover:bg-transparent px-0 pt-0 pb-3 text-xs font-bold uppercase text-slate-400 hover:text-slate-500 transition-colors duration-300">

@@ -23,7 +23,7 @@
             <x-flex-list.row>
                 <x-flex-list.cell class="flex-[2]">
                     <img src="https://source.unsplash.com/random/300x300/?people,1" class="rounded-full w-10 h-10 inline-block mr-2">
-                    Denisbeder Duek Carvalho
+                    <span class="font-semibold">Denisbeder Duek Carvalho</span>
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="flex-[2]" header="E-mail">
@@ -47,7 +47,7 @@
             <x-flex-list.row>
                 <x-flex-list.cell class="flex-[2]">
                     <img src="https://source.unsplash.com/random/300x300/?people,{{ $i }}" class="rounded-full w-10 h-10 inline-block mr-2">
-                    Denisbeder
+                    <span class="font-semibold">Denisbeder</span>
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="flex-[2]" header="E-mail">

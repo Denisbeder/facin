@@ -1,11 +1,7 @@
 @props(['open' => false])
 
-@php
-    $open = $open ? 'true' : 'false';
-@endphp
-
 <div {{ $attributes->merge(['class' => 'relative inline-flex']) }} 
-    x-data="{{ '{dropdownOpen: '.$open.'}' }}" 
+    x-data="{dropdownOpen: {{ $open ? 'true' : 'false' }} }" 
     x-on:click.outside="dropdownOpen = false" 
     x-on:keydown.escape.window="dropdownOpen = false"
 >
