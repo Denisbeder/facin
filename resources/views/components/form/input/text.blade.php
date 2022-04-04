@@ -12,7 +12,6 @@
     'value' => null
 ])
 
-
 @php
     $refKey = str()->random(5);
     $hasError = $hasError ? $hasError : session()->get('errors')?->has($name);
@@ -47,7 +46,22 @@
 @endphp
 
 @if($leftIcon || $rightIcon || $prefix || $suffix || isset($left) || isset($right))
-<div @if($prefix || $suffix || isset($left) || isset($right)) x-data @endif class="relative w-full flex">
+<div 
+    @if($prefix || $suffix || isset($left) || isset($right)) 
+        x-data 
+        @if($prefix || isset($left) || $suffix || isset($right))
+            x-init="setTimeout(() => {
+                @if($prefix || isset($left))
+                $refs.input_{{ $refKey }}.style.paddingLeft = $refs.refLeft_{{ $refKey }}?.scrollWidth + 'px';
+                @endif
+
+                @if($suffix || isset($right))
+                $refs.input_{{ $refKey }}.style.paddingRight = $refs.refRight_{{ $refKey }}?.scrollWidth + 'px';
+                @endif
+            })" 
+        @endif
+    @endif 
+class="relative w-full flex">
 @endif
 
     @isset($left)
@@ -65,20 +79,11 @@
     <input 
         {{ $attributes->except('class') }}
         {{ $attributes->class($classList) }}
+        x-ref="input_{{ $refKey }}"
         name="{{ $name }}" 
         id="{{ $name }}"
         type="{{ $type }}"  
         value="{{ $value }}"      
-        @if($prefix || isset($left) || $suffix || isset($right))
-        :style="{
-            @if($prefix || isset($left))
-            paddingLeft: ($refs.refLeft_{{ $refKey }}.scrollWidth + 1) + 'px',
-            @endif
-            @if($suffix || isset($right))
-            paddingRight: ($refs.refRight_{{ $refKey }}.scrollWidth + 1) + 'px',
-            @endif
-        }"
-        @endif
     >
 
     @isset($right)
