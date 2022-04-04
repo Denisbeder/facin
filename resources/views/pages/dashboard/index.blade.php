@@ -64,6 +64,30 @@
                 <x-dropdown.item href="/" label="Item 5" />
                 <x-dropdown.item href="/" label="Item 6" />
             </x-dropdown.item>
+
+            <x-dropdown class="mr-2" aligny="top">
+                <x-slot name="trigger">
+                    <x-button label="Dropdown Align Top" />
+                </x-slot>
+                <x-dropdown.item href="/" label="Item 1" />
+                <x-dropdown.item href="/" label="Item 2" />
+                <x-dropdown.item href="/" label="Item 3" />
+                <x-dropdown.item href="/" label="Item 4" />
+                <x-dropdown.item href="/" label="Item 5" />
+                <x-dropdown.item href="/" label="Item 6" />
+            </x-dropdown.item>
+
+            <x-button-group class="mt-3">
+                <x-button label="Button 1" variant="primary" />
+                <x-dropdown variant="primary" class="mr-2">
+                    <x-dropdown.item href="/" label="Item 1" />
+                    <x-dropdown.item href="/" label="Item 2" />
+                    <x-dropdown.item href="/" label="Item 3" />
+                    <x-dropdown.item href="/" label="Item 4" />
+                    <x-dropdown.item href="/" label="Item 5" />
+                    <x-dropdown.item href="/" label="Item 6" />
+                </x-dropdown.item>
+            </x-button-group>
         </x-card.body>
     </x-card>
 
