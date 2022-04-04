@@ -31,7 +31,7 @@
         'text-slate-600 border border-white bg-white hover:bg-slate-100 active:bg-slate-100 focus:ring-slate-100/50 focus-visible:outline-slate-100' => $variant === 'white',
         'text-blue-600 hover:text-blue-800 underline active:text-blue-800 focus:ring-slate-300/25 focus-visible:outline-rose-600 focus-visible:outline-blue-300' => $variant === 'link',
         // Outline
-        'text-indigo-600 border border-indigo-500 hover:bg-indigo-100 active:bg-indigo-100 focus:ring-indigo-500/25 focus-visible:outline-indigo-500/50' => $variant === 'outline-primary' || $variant === 'outline-default' || empty($variant),
+        'text-indigo-600 border border-indigo-500 hover:bg-indigo-100 active:bg-indigo-100 focus:ring-indigo-500/25 focus-visible:outline-indigo-500/50' => $variant === 'outline-primary' || $variant === 'outline-default',
         'text-slate-600 border border-slate-500 hover:bg-slate-100 active:bg-slate-100 focus:ring-slate-500/25 focus-visible:outline-slate-500/50' => $variant === 'outline-secondary',
         'text-lime-600 border border-lime-500 hover:bg-lime-50 active:bg-lime-50 focus:ring-lime-500/25 focus-visible:outline-lime-500/50' => $variant === 'outline-success',
         'text-rose-600 border border-rose-500 hover:bg-rose-50 active:bg-rose-50 focus:ring-rose-500/25 focus-visible:outline-rose-500/50' => $variant === 'outline-danger',
