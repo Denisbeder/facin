@@ -41,7 +41,7 @@
                 </x-form.control>
 
                 <x-form.control>
-                    <x-form.input.checkbox name="remember" rightLabel="Lembrar-me" classLabel="text-base" />
+                    <x-form.input.checkbox name="remember" value="1" rightLabel="Lembrar-me" classLabel="text-base" />
                 </x-form.control>
 
                 <x-form.control>
