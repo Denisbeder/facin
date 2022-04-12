@@ -25,6 +25,7 @@ class User extends AuthUser implements Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'active',
         'name',
         'email',
         'password',
@@ -46,6 +47,7 @@ class User extends AuthUser implements Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'active' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
 
