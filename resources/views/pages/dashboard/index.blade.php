@@ -77,7 +77,7 @@
                 <x-dropdown.item href="/" label="Item 6" />
             </x-dropdown.item>
 
-            <x-button-group class="mt-3">
+            <x-button.group class="mt-3">
                 <x-button label="Dropdown Split" variant="primary" />
                 <x-dropdown variant="primary" class="mr-2">
                     <x-dropdown.item href="/" label="Item 1" />
@@ -87,9 +87,9 @@
                     <x-dropdown.item href="/" label="Item 5" />
                     <x-dropdown.item href="/" label="Item 6" />
                 </x-dropdown.item>
-            </x-button-group>
+            </x-button.group>
 
-            <x-button-group size="2xs" class="mt-3">
+            <x-button.group size="2xs" class="mt-3">
                 <x-button label="Dropdown Split" variant="primary" />
                 <x-dropdown variant="primary" class="mr-2">
                     <x-dropdown.item href="/" label="Item 1" />
@@ -99,9 +99,9 @@
                     <x-dropdown.item href="/" label="Item 5" />
                     <x-dropdown.item href="/" label="Item 6" />
                 </x-dropdown.item>
-            </x-button-group>
+            </x-button.group>
 
-            <x-button-group size="2xs" class="mt-3">
+            <x-button.group size="2xs" class="mt-3">
                 <x-button label="Dropdown Split" variant="outline-light" />
                 <x-dropdown variant="outline-light" class="mr-2">
                     <x-dropdown.item href="/" label="Item 1" />
@@ -111,7 +111,7 @@
                     <x-dropdown.item href="/" label="Item 5" />
                     <x-dropdown.item href="/" label="Item 6" />
                 </x-dropdown.item>
-            </x-button-group>
+            </x-button.group>
         </x-card.body>
     </x-card>
 
@@ -292,29 +292,29 @@
 
             <div class="mt-6">
                 <h3 class="font-bold mb-3">Buttons Group</h3>
-                <x-button-group>
+                <x-button.group>
                     <x-button label="Button 1" variant="primary" />
                     <x-button label="Button 2" variant="primary" />
-                </x-button-group>
+                </x-button.group>
 
-                <x-button-group class="mt-3">
+                <x-button.group class="mt-3">
                     <x-button label="Button 1" variant="primary" />
                     <x-button label="Button 2" variant="secondary" />
                     <x-button label="Button 3" variant="danger" />
-                </x-button-group>
+                </x-button.group>
 
-                <x-button-group class="mt-3">
+                <x-button.group class="mt-3">
                     <x-button label="Button 1" variant="outline-primary" />
                     <x-button label="Button 2" variant="outline-primary" />
                     <x-button label="Button 3" variant="outline-primary" />
-                </x-button-group>
+                </x-button.group>
 
                 <h3 class="font-bold mb-3 mt-6">Buttons Group Vertical</h3>
-                <x-button-group class="mt-3" vertical>
+                <x-button.group class="mt-3" vertical>
                     <x-button label="Button 1" variant="outline-primary" />
                     <x-button label="Button 2" variant="outline-primary" />
                     <x-button label="Button 3" variant="outline-primary" />
-                </x-button-group>
+                </x-button.group>
             </div>
 
             <div class="mt-6">

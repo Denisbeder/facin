@@ -39,13 +39,13 @@
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="md:justify-end" header="Ações">
-                    <x-button-group size="2xs">
+                    <x-button.group size="2xs">
                         <x-button label="Edit" icon="edit-alt" variant="outline-light" />
                         <x-dropdown variant="outline-light">
                             <x-dropdown.item href="/" label="Delete" />
                             <x-dropdown.item href="/" label="Show" />
                         </x-dropdown.item>
-                    </x-button-group>
+                    </x-button.group>
                 </x-flex-list.cell>
             </x-flex-list.row>
 
@@ -69,13 +69,13 @@
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="md:justify-end" header="Ações">
-                    <x-button-group size="2xs">
+                    <x-button.group size="2xs">
                         <x-button label="Edit" icon="edit-alt" variant="outline-light" />
                         <x-dropdown variant="outline-light">
                             <x-dropdown.item href="/" label="Delete" />
                             <x-dropdown.item href="/" label="Show" />
                         </x-dropdown.item>
-                    </x-button-group>
+                    </x-button.group>
                 </x-flex-list.cell>
             </x-flex-list.row>
             @endfor
