@@ -12,7 +12,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.aut
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::redirect('/', '/dashboard')->name('app.index');
 
-Route::middleware('auth')->group(function () {
+//Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->where('user', '[0-9]+');
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update')->where('user', '[0-9]+');
     //Route::delete('/user/{user}', [UserController::class, 'delete'])->name('user.delete')->where('user', '[0-9]+');
-});
+//});
 
 Route::get('/teste', function () {
     dd(collect(\App\Enums\State::cases())->pluck('value')->toArray());
