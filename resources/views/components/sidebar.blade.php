@@ -39,10 +39,10 @@
     ]
 @endphp
 
-<div class="flex flex-grow flex-col bg-indigo-700">
+<div class="h-full flex flex-grow flex-col bg-indigo-700">
     <div class="flex flex-col flex-shrink-0 items-start justify-center p-4 relative min-h-[64px]">
-        <img class="transition-all duration-300" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt="Workflow" :class="{'h-8 w-auto opacity-100': isModeBar(), 'w-0 h-0 opacity-0': isModeFull()}" />
-        <img class="transition-all duration-300" src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg" alt="Workflow" :class="{'w-0 h-0 opacity-0': isModeBar(), 'h-8 w-auto opacity-100': isModeFull()}" />
+        <img class="transition-all duration-300" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt="Workflow" :class="{'h-8 w-auto opacity-100': isModeBar(), 'w-0 h-0 opacity-0': isModeFull() || isModeMobile()}" />
+        <img class="transition-all duration-300" src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg" alt="Workflow" :class="{'w-0 h-0 opacity-0': isModeBar(), 'h-8 w-auto opacity-100': isModeFull() || isModeMobile()}" />
         <button class="text-sm font-medium" :class="{'bg-indigo-800 text-white rounded-md mt-5 w-9 h-9 flex items-center justify-center': isModeBar(), 'px-2 py-2 rounded-full absolute right-0 mr-4 text-white bg-indigo-800': isModeFull()}" @click="toggleMode()">
             <i class="bx w-3 h-3 text-sm flex items-center justify-center" :class="{'bx-chevron-right': isModeBar(), 'bx-chevron-left': isModeFull()}"></i>
         </button>
