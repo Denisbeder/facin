@@ -1,42 +1,42 @@
 @php
-    $sidebarMenuItems = [
-        [
-            'label' => 'Dashboard',
-            'url' => '/',
-            'icon' => 'bx-home',
-            'active' => true,
-        ],
-        [
-            'label' => 'Team',
-            'url' => '/',
-            'icon' => 'bx-user',
-            'active' => false,
-        ],
-        [
-            'label' => 'Projects',
-            'url' => '/',
-            'icon' => 'bx-folder',
-            'active' => false,
-        ],
-        [
-            'label' => 'Calendar',
-            'url' => '/',
-            'icon' => 'bx-calendar',
-            'active' => false,
-        ],
-        [
-            'label' => 'Documents',
-            'url' => '/',
-            'icon' => 'bx-box',
-            'active' => false,
-        ],
-        [
-            'label' => 'Reports',
-            'url' => '/',
-            'icon' => 'bx-bar-chart',
-            'active' => false,
-        ],
-    ]
+$sidebarMenuItems = [
+    [
+    'label' => 'Dashboard',
+    'url' => '/',
+    'icon' => 'bx-home',
+    'active' => true,
+    ],
+    [
+    'label' => 'Team',
+    'url' => '/',
+    'icon' => 'bx-user',
+    'active' => false,
+    ],
+    [
+    'label' => 'Projects',
+    'url' => '/',
+    'icon' => 'bx-folder',
+    'active' => false,
+    ],
+    [
+    'label' => 'Calendar',
+    'url' => '/',
+    'icon' => 'bx-calendar',
+    'active' => false,
+    ],
+    [
+    'label' => 'Documents',
+    'url' => '/',
+    'icon' => 'bx-box',
+    'active' => false,
+    ],
+    [
+    'label' => 'Reports',
+    'url' => '/',
+    'icon' => 'bx-bar-chart',
+    'active' => false,
+    ],
+];
 @endphp
 
 <div class="h-full flex flex-grow flex-col bg-indigo-700">
@@ -51,10 +51,22 @@
         <nav class="flex-1 space-y-2 px-4 pb-4">
             <small class="text-indigo-300 font-bold uppercase text-xs mb-5 flex" :class="sidebar.isModeBar() && 'hidden'">Menu</small>
             @foreach ($sidebarMenuItems as $item)
-                <a href="#" class="group flex items-center rounded-md px-2 py-2 text-sm font-medium justify-start transition-colors duration-300 {{ $item['active'] ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600' }}">
+            <div x-data="{ expanded: false }">
+                <button type="button" @click.prevent="expanded = !expanded" class="w-full overflow-hidden group flex rounded-md px-2 py-2 text-sm font-medium justify-start transition-colors duration-300 {{ $item['active'] ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600' }}">
                     <i class="bx {{ $item['icon'] }} w-5 h-5 flex items-center justify-center text-lg flex-shrink-0 text-indigo-300"></i>
-                    <span class="ml-3 overflow-hidden w-full opacity-100 transition-all duration-300" :class="{'w-0 ml-0 opacity-0': sidebar.isModeBar()}">{{ $item['label'] }}</span>
-                </a>
+                    <span class="inline-block text-left overflow-hidden transition-[color,background-color,opacity,width,margin-left] duration-100" :class="{'w-0 ml-0 opacity-0': sidebar.isModeBar(), 'w-full ml-3 opacity-100': sidebar.isModeFull() || sidebar.isModeMobile()}">{{ $item['label'] }}</span>
+                </button>
+
+                <nav @click.outside="expanded = false" x-show="expanded" x-collapse class="p-4" :class="{'fixed left-[68px] z-20 inset-y-0 w-64 mt-0 bg-white shadow-xl min-h-screen': sidebar.isModeBar(), 'text-white bg-indigo-800 mt-1 rounded-md': sidebar.isModeFull() || sidebar.isModeMobile()}">
+                    <h2 class="font-bold text-xl mb-5 flex" :class="(sidebar.isModeFull() || sidebar.isModeMobile()) && 'hidden'">Menu</h2>
+                    @foreach ($sidebarMenuItems as $item)
+                        <button type="button" @click.prevent="expanded = !expanded" class="w-full overflow-hidden group flex rounded-md px-2 py-2 text-sm font-medium justify-start mb-1 last:mb-0 transition-colors duration-300" :class="{'hover:bg-slate-100 text-slate-700': sidebar.isModeBar(), 'text-white hover:bg-indigo-700': sidebar.isModeFull() || sidebar.isModeMobile()}">
+                            <i class="bx {{ $item['icon'] }} w-5 h-5 flex items-center justify-center text-lg flex-shrink-0"></i>
+                            <span class="inline-block text-left ml-3 transition-color duration-300">{{ $item['label'] }}</span>
+                        </button>
+                    @endforeach
+                </nav>
+            </div>
             @endforeach
         </nav>
     </div>
