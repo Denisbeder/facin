@@ -15,7 +15,7 @@ module.exports = {
     theme: {
         borderColor: (theme) => ({
             DEFAULT: theme('colors.slate.100', 'currentColor'),
-            //...theme.colors
+            ...theme.colors
         }),
         extend: {
             backgroundImage: {
