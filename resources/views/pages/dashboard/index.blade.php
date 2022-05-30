@@ -7,7 +7,7 @@
     <div class="block mb-4">
         <x-button href="ola" size="xs">Text Button</x-button>
         <x-button size="sm">Text Button</x-button>
-        <x-button>Text Button</x-button>
+        <x-button disabled>Text Button</x-button>
         <x-button size="lg">Text Button</x-button>
         <x-button size="xl">Text Button</x-button>
     </div>

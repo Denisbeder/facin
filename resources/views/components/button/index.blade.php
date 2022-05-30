@@ -19,6 +19,7 @@
         'shadow-sm',
         'focus:outline-none',
         'focus:ring-2',
+        'disabled:opacity-75 disabled:cursor-not-allowed',
         'transition-colors duration-300',
         'rounded-full' => $roundedFull || $circle
     ];
