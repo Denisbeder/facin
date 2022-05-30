@@ -1,10 +1,10 @@
 <div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
-    <button @click="sidebar.toggleOffCanvas()" type="button" 
+    <button x-on:click="$store.sidebar.toggleOffCanvas()" type="button" 
         class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
-        :class="{'after:block after:absolute after:inset-0 after:bg-black after:bg-opacity-75 after:min-h-screen after:z-0': sidebar.isModeMobile() && sidebar.isOpenOffCanvas}"
+        :class="{'after:block after:absolute after:inset-0 after:bg-black after:bg-opacity-75 after:min-h-screen after:z-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}"
     >
         <span class="sr-only">Open sidebar</span>
-        <i class="bx bx-menu w-5 h-5 flex items-center justify-center"></i>
+        <x-icons name="menu-alt-1" class="w-5 h-5" />
     </button>
 
     <div class="flex flex-1 items-center justify-between px-6">

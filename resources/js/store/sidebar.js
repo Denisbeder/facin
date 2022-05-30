@@ -14,11 +14,14 @@ export default {
     isModeMobile() {
         return this.mode === "mobile";
     },
+    isMobile() {
+        return window.matchMedia("only screen and (max-width: 768px)").matches;
+    },
     setMode() {
         const defaultMode = window.innerWidth < 1366 ? 'bar' : 'full';
         const storageMode = localStorage.getItem("sidebarMode") ?? defaultMode;
-        const currentMode = this.mode === null || !isMobile() ? storageMode : this.mode;
-        this.mode = isMobile() ? "mobile" : currentMode;
+        const currentMode = this.mode === null || !this.isMobile() ? storageMode : this.mode;
+        this.mode = this.isMobile() ? "mobile" : currentMode;
     },
     toggleMode() {
         this.mode = this.mode === "full" ? "bar" : "full";

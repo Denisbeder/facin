@@ -1,5 +1,6 @@
 module.exports = {
     mode: "jit",
+    darkMode: 'class',
     content: [
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",

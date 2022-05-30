@@ -13,14 +13,14 @@
     <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="h-full w-full bg-slate-100">
-    <div x-cloak x-data="app" class="flex h-full">
+    <div x-cloak x-data class="flex h-full">
         <div class="flex flex-col transition-[width,transform] duration-300" 
-            :class="{'w-64': sidebar.isModeFull(), 'w-[68px]': sidebar.isModeBar(), 'w-64 fixed inset-0 z-50 -translate-x-64': sidebar.isModeMobile(), '!translate-x-0': sidebar.isModeMobile() && sidebar.isOpenOffCanvas}">
+            :class="{'w-64': $store.sidebar.isModeFull(), 'w-[68px]': $store.sidebar.isModeBar(), 'w-64 fixed inset-0 z-50 -translate-x-64': $store.sidebar.isModeMobile(), '!translate-x-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
             <x-sidebar />
         </div>
 
         <div class="flex flex-1 flex-col transition-[padding-left,transform] duration-300" 
-            :class="{'translate-x-64 min-w-screen': sidebar.isModeMobile() && sidebar.isOpenOffCanvas}">
+            :class="{'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
             <x-topbar />
             <main>
                 @yield('content')

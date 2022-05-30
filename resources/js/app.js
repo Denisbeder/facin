@@ -1,16 +1,10 @@
-import './bootstrap';
 import Alpine from "alpinejs";
 import collapse from '@alpinejs/collapse'
-import SidebarComponent from "./components/SidebarComponent";
-
-Alpine.plugin(collapse);
-
-Alpine.data("app", () => ({
-    init () {
-        this.sidebar.init();       
-    },
-    sidebar: SidebarComponent,
-}));
+import './bootstrap';
+import './store';
+import './components';
 
 window.Alpine = Alpine;
+
+Alpine.plugin(collapse);
 Alpine.start();
