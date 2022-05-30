@@ -53,18 +53,20 @@ $sidebarMenuItems = [
         <nav class="flex-1 space-y-2 px-4 pb-4">
             @foreach ($sidebarMenuItems as $item)
             <div x-data="{ expanded: false }">
-                <button type="button" x-on:click.prevent="expanded = !expanded" class="w-full overflow-hidden group flex rounded-md px-2 py-2 text-sm font-medium justify-start transition-colors duration-300 {{ $item['active'] ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600' }}">
+                <button type="button" x-on:click.prevent="expanded = !expanded" class="w-full overflow-hidden group flex rounded-md px-2 py-2 text-sm font-medium justify-start items-center transition-colors duration-300 {{ $item['active'] ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600' }}">
                     <x-icons name="{{ $item['icon'] }}" class="w-5 h-5" />
                     <span class="inline-block text-left overflow-hidden transition-[color,background-color,opacity,width,margin-left] duration-100" x-bind:class="{'w-0 ml-0 opacity-0': $store.sidebar.isModeBar(), 'w-full ml-3 opacity-100': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">{{ $item['label'] }}</span>
                 </button>
 
-                <div x-on:click.outside="expanded = false" x-show="expanded" x-collapse class="p-4" x-bind:class="{'fixed left-[68px] z-20 inset-y-0 w-64 mt-0 bg-white shadow-xl min-h-screen': $store.sidebar.isModeBar(), 'text-white bg-indigo-800 mt-1 rounded-md': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">
-                    <h2 class="font-bold text-xl mb-5 flex" x-bind:class="($store.sidebar.isModeFull() || $store.sidebar.isModeMobile()) && 'hidden'">{{ $item['label'] }}</h2>
-                    <nav class="space-y-1">
+                <div x-on:click.outside="expanded = false" x-show="expanded" x-collapse class="px-4 my-4" 
+                x-bind:class="{'fixed left-[68px] z-20 inset-y-0 w-64 mt-0 bg-white shadow-xl min-h-screen': $store.sidebar.isModeBar(), 
+                'text-white border-l border-indigo-600 ml-4 !pl-6': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">
+                    <h2 class="font-bold text-xl my-5 flex" x-bind:class="{'hidden': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">{{ $item['label'] }}</h2>
+                    <nav x-bind:class="{'space-y-1': $store.sidebar.isModeBar(), 'space-y-2': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">
                         @foreach ($sidebarMenuItems as $item)
-                            <button type="button" x-on:click.prevent="expanded = !expanded" class="w-full overflow-hidden group flex rounded-md px-2 py-2 text-sm font-medium justify-start mb-1 last:mb-0 transition-colors duration-300" x-bind:class="{'hover:bg-slate-100 text-slate-700': $store.sidebar.isModeBar(), 'text-white hover:bg-indigo-700': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">
-                                <x-icons name="{{ $item['icon'] }}" class="w-5 h-5" />
-                                <span class="inline-block text-left ml-3 transition-color duration-300">{{ $item['label'] }}</span>
+                            <button type="button" x-on:click.prevent="expanded = !expanded" class="w-full text-sm overflow-hidden group flex rounded-md justify-start items-center transition-colors duration-300" x-bind:class="{'hover:bg-slate-100 text-slate-700 font-medium p-2': $store.sidebar.isModeBar(), 'text-indigo-300 hover:text-white p-0': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()}">
+                                <x-icons name="{{ $item['icon'] }}" class="w-5 h-5 mr-3" x-bind:class="($store.sidebar.isModeFull() || $store.sidebar.isModeMobile()) && 'hidden'" />
+                                <span class="inline-block text-left transition-color duration-300">{{ $item['label'] }}</span>
                             </button>
                         @endforeach
                     </nav>
