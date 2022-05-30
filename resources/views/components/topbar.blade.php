@@ -4,7 +4,7 @@
         :class="{'after:block after:absolute after:inset-0 after:bg-black after:bg-opacity-75 after:min-h-screen after:z-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}"
     >
         <span class="sr-only">Open sidebar</span>
-        <x-icons name="menu-alt-1" class="w-5 h-5" />
+        <x-icon name="menu-alt-1" class="w-5 h-5" />
     </button>
 
     <div class="flex flex-1 items-center justify-between px-6">
