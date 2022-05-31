@@ -9,6 +9,7 @@
     }
     ::-webkit-scrollbar {
         width: 6px;
+        height: 6px;
         background-color: inherit;
     }
     ::-webkit-scrollbar-track {
@@ -26,7 +27,7 @@
 }
 
 @layer utilities {
-    .overflow {
+    .overflow{
         &-overlay {
             overflow: overlay;
         }
