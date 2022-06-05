@@ -1,11 +1,9 @@
 @props([
-    'size' => 'md', 
-    'color' => 'primary', 
+    'size' => 'md',
+    'color' => 'primary',
     'leftIcon' => null,
     'rightIcon' => null,
     'roundedNone' => false,
-    'roundedFull' => false,
-    'circle' => false,
 ])
 
 @php
@@ -15,57 +13,37 @@
         'inline-flex',
         'items-center',
         'border',
-        'font-medium',      
+        'font-medium',
         'shadow-sm',
         'focus:outline-none',
         'focus:ring-2',
         'disabled:opacity-75 disabled:cursor-not-allowed',
         'transition-colors duration-300',
-        'rounded-full' => $roundedFull || $circle
     ];
 
-    $sizeType = $circle ? 'circle' : 'default';
     $sizesList = [
-        'default' => [
-            'button' => [
-                'xs' => 'px-2.5 py-1.5 text-xs', // 30px
-                'sm' => 'px-3 py-2 text-sm leading-4', // 34px
-                'md' => 'px-4 py-2 text-sm', // 38px
-                'lg' => 'px-4 py-2 text-base', // 42px
-                'xl' => 'px-6 py-3 text-base', // 50px
-            ],
-            'icon' => [
-                'xs' => 'h-4 w-4',
-                'sm' => 'h-5 w-5',
-                'md' => 'h-5 w-5',
-                'lg' => 'h-5 w-5',
-                'xl' => 'h-5 w-5',
-            ],
+        'button' => [
+            'xs' => 'px-2.5 py-1.5 text-xs', // 30px
+            'sm' => 'px-3 py-2 text-sm leading-4', // 34px
+            'md' => 'px-4 py-2 text-sm', // 38px
+            'lg' => 'px-4 py-2 text-base', // 42px
+            'xl' => 'px-6 py-3 text-base', // 50px
         ],
-        'circle' => [
-            'button' => [
-                'xs' => 'p-1', // 30px
-                'sm' => 'p-1.5', // 34px
-                'md' => 'p-2', // 38px
-                'lg' => 'p-2', // 42px
-                'xl' => 'p-3', // 50px
-            ],
-            'icon' => [
-                'xs' => 'h-5 w-5',
-                'sm' => 'h-5 w-5',
-                'md' => 'h-5 w-5',
-                'lg' => 'h-6 w-6',
-                'xl' => 'h-6 w-6',
-            ],
+        'icon' => [
+            'xs' => 'h-4 w-4',
+            'sm' => 'h-5 w-5',
+            'md' => 'h-5 w-5',
+            'lg' => 'h-5 w-5',
+            'xl' => 'h-5 w-5',
         ],
     ];
 
     $roundedList = [
-        'xs' => ['rounded' => !$roundedNone && (!$roundedFull && !$circle)],
-        'sm' => ['rounded-md' => !$roundedNone && (!$roundedFull && !$circle)],
-        'md' => ['rounded-md' => !$roundedNone && (!$roundedFull && !$circle)],
-        'lg' => ['rounded-md' => !$roundedNone && (!$roundedFull && !$circle)],
-        'xl' => ['rounded-md' => !$roundedNone && (!$roundedFull && !$circle)],
+        'xs' => ['rounded' => !$roundedNone],
+        'sm' => ['rounded-md' => !$roundedNone],
+        'md' => ['rounded-md' => !$roundedNone],
+        'lg' => ['rounded-md' => !$roundedNone],
+        'xl' => ['rounded-md' => !$roundedNone],
     ];
 
     $colorsList = [
@@ -75,14 +53,14 @@
     ];
 @endphp
 
-<{{ $tag }} {{ $attributes->class([...$baseList, ...$roundedList[$size], $sizesList[$sizeType]['button'][$size], $colorsList[$color]]) }}>
-    @if($leftIcon) 
-        <x-icon name="{{ $leftIcon }}" {{ $attributes->class([$sizesList[$sizeType]['icon'][$size], 'mr-3' => !$circle]) }} />
+<{{ $tag }} {{ $attributes->class([...$baseList, ...$roundedList[$size], $sizesList['button'][$size], $colorsList[$color]]) }}>
+    @if($leftIcon)
+        <x-icon name="{{ $leftIcon }}" {{ $attributes->class([$sizesList['icon'][$size], 'mr-3']) }} />
     @endif
 
     {{ $slot }}
 
-    @if($rightIcon) 
-        <x-icon name="{{ $rightIcon }}" {{ $attributes->class([$sizesList[$sizeType]['icon'][$size], 'ml-3' => !$circle]) }} />
+    @if($rightIcon)
+        <x-icon name="{{ $rightIcon }}" {{ $attributes->class([$sizesList['icon'][$size], 'ml-3']) }} />
     @endif
 </{{ $tag }}>
