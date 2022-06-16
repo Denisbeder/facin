@@ -28,6 +28,12 @@ export default {
         localStorage.setItem("sidebarMode", this.mode);
     },
     toggleOffCanvas() {
-        this.isOpenOffCanvas = !this.isOpenOffCanvas;
+        const isOpenOffCanvas = !this.isOpenOffCanvas;
+        this.isOpenOffCanvas = isOpenOffCanvas;
+        if (isOpenOffCanvas === true) {            
+            document.querySelector('html').classList.add('overflow-hidden');
+        } else {
+            document.querySelector('html').classList.remove('overflow-hidden');
+        }        
     },
 };

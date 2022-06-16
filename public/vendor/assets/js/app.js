@@ -3149,7 +3149,14 @@ __webpack_require__.r(__webpack_exports__);
     localStorage.setItem("sidebarMode", this.mode);
   },
   toggleOffCanvas: function toggleOffCanvas() {
-    this.isOpenOffCanvas = !this.isOpenOffCanvas;
+    var isOpenOffCanvas = !this.isOpenOffCanvas;
+    this.isOpenOffCanvas = isOpenOffCanvas;
+
+    if (isOpenOffCanvas === true) {
+      document.querySelector('html').classList.add('overflow-hidden');
+    } else {
+      document.querySelector('html').classList.remove('overflow-hidden');
+    }
   }
 });
 

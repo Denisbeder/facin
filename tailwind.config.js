@@ -1,6 +1,5 @@
 module.exports = {
     mode: "jit",
-    darkMode: 'class',
     content: [
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",
@@ -12,16 +11,17 @@ module.exports = {
         require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
         require("@tailwindcss/aspect-ratio"),
+        require("daisyui"),
     ],
     theme: {
-        borderColor: (theme) => ({
-            DEFAULT: theme('colors.slate.200', 'currentColor'),
-            ...theme.colors
-        }),
         extend: {
             backgroundImage: {
-                'hero': "url(/vendor/assets/img/hero.png)",
-            }
+                hero: "url(/vendor/assets/img/hero.png)",
+            },
         },
+    },
+    daisyui: {
+        themes: ['winter'],
+        darkTheme: "dark",
     },
 };

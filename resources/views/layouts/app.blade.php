@@ -12,8 +12,8 @@
     @livewireStyles
     <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
 </head>
-<body class="h-full w-full bg-slate-100">
-    <div x-cloak x-data class="flex relative h-screen" x-bind:class="{'overflow-hidden': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
+<body x-bind:class="{'overflow-hidden': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
+    <div x-cloak x-data class="flex relative">
         <div class="flex flex-col transition-[width,transform] duration-300 h-screen min-h-screen max-h-screen" 
             x-bind:class="{'w-64': $store.sidebar.isModeFull(), 'w-[68px]': $store.sidebar.isModeBar(), 'w-64 fixed inset-0 z-50 -translate-x-64': $store.sidebar.isModeMobile(), '!translate-x-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
             <x-sidebar />
