@@ -13,14 +13,23 @@
     <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
 </head>
 <body x-bind:class="{'overflow-hidden': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
-    <div x-cloak x-data class="flex relative">
-        <div class="flex flex-col transition-[width,transform] duration-300 h-screen min-h-screen max-h-screen" 
-            x-bind:class="{'w-64': $store.sidebar.isModeFull(), 'w-[68px]': $store.sidebar.isModeBar(), 'w-64 fixed inset-0 z-50 -translate-x-64': $store.sidebar.isModeMobile(), '!translate-x-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
+    <div x-cloak x-data class="flex">
+        <aside class="h-screen flex flex-col z-20 transition-[width,transform] duration-300 bg-indigo-700"
+            x-bind:class="{
+                'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(), 
+                'w-64': $store.sidebar.isModeFull(), 
+                'w-[68px]': $store.sidebar.isModeBar(), 
+                'w-64 fixed inset-0 -translate-x-64': $store.sidebar.isModeMobile(), 
+                '!translate-x-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
+            }"
+        >
             <x-sidebar />
-        </div>
-
+        </aside>
+        
         <div class="flex flex-1 flex-col transition-[padding-left,transform] duration-300" 
-            x-bind:class="{'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
+            x-bind:class="{
+                'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
+            }">
             <x-topbar />
             <main>
                 @yield('content')

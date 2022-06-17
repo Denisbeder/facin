@@ -27,7 +27,7 @@
 }
 
 @layer utilities {
-    .overflow{
+    .overflow {
         &-overlay {
             overflow: overlay;
         }
@@ -36,6 +36,20 @@
         }
         &-x-overlay {
             overflow-x: overlay;
+        }
+    }
+
+    .hover\:overflow {
+        :hover {
+            &-overlay {
+                overflow: overlay;
+            }
+            &-y-overlay {
+                overflow-y: overlay;
+            }
+            &-x-overlay {
+                overflow-x: overlay;
+            }
         }
     }
 }
