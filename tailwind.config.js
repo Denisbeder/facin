@@ -1,5 +1,6 @@
 module.exports = {
     mode: "jit",
+    darkMode: 'class',
     content: [
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",
@@ -21,7 +22,7 @@ module.exports = {
         },
     },
     daisyui: {
-        themes: ['winter'],
+        themes: ['light'],
         darkTheme: "dark",
     },
 };

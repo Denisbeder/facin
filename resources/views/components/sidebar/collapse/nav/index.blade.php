@@ -9,7 +9,7 @@
     class="px-4 my-4" 
     x-bind:class="{
         'fixed left-[68px] z-20 inset-y-0 w-64 mt-0 bg-white shadow-xl min-h-screen': $store.sidebar.isModeBar(), 
-        'text-white border-l border-indigo-600 ml-4 !pl-6': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()
+        'text-white border-l border-base-content/10 ml-4 !pl-6': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()
     }"
 >   
     @if($headerTitle)

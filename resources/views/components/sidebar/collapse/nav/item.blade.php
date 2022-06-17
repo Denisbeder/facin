@@ -9,8 +9,8 @@
     x-on:click.prevent="expanded = !expanded" 
     {{ $attributes->merge(['class' => 'w-full text-sm overflow-hidden flex rounded-md justify-start items-center transition-colors duration-300']) }}
     x-bind:class="{
-        'hover:bg-slate-100 text-slate-700 font-medium p-2': $store.sidebar.isModeBar(), 
-        'text-indigo-300 hover:text-white p-0': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()
+        'hover:bg-base-content/10 text-base-content font-medium p-2': $store.sidebar.isModeBar(), 
+        'text-base-content hover:text-base-content/90 p-0': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()
     }"
 >
     @if($icon)

@@ -12,9 +12,9 @@
     @livewireStyles
     <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
 </head>
-<body x-bind:class="{'overflow-hidden': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
+<body  x-bind:class="{'overflow-hidden': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas}">
     <div x-cloak x-data class="flex">
-        <aside class="h-screen flex flex-col z-20 transition-[width,transform] duration-300 bg-indigo-700"
+        <aside class="h-screen flex flex-col z-20 transition-[width,transform] duration-300 bg-base-200"
             x-bind:class="{
                 'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(), 
                 'w-64': $store.sidebar.isModeFull(), 

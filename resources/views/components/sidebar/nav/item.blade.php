@@ -23,8 +23,8 @@
         'items-center',
         'transition-colors',
         'duration-300',
-        'text-indigo-100 hover:bg-indigo-600' => !$active,
-        'text-white bg-indigo-800' => $active,
+        'text-base-content hover:bg-base-content/10' => !$active,
+        'text-primary-content bg-primary hover:bg-primary/90' => $active,
     ]) }}
     
     @if($triggerCollapsed)
