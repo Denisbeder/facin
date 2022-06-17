@@ -10,12 +10,14 @@
         <x-sidebar.collapse>
             <x-sidebar.nav.item icon="document" title="Páginas" label="Páginas" triggerCollapsed />
             <x-sidebar.collapse.nav headerTitle="Páginas"> 
-                <x-sidebar.collapse.nav.item icon="document" title="Notícias" label="Notícias" />
-                <x-sidebar.collapse.nav.item icon="document" title="Galeria de fotos" label="Galeria de fotos" />
-                <x-sidebar.collapse.nav.item icon="document" title="Vídeos" label="Vídeos" />
-                <x-sidebar.collapse.nav.item icon="document" title="Colunas" label="Colunas" />
-                <x-sidebar.collapse.nav.item icon="document" title="Contato" label="Contato" />
-                <x-sidebar.collapse.nav.item icon="document" title="Expediente" label="Expediente" />
+                <x-sidebar.collapse.nav.item icon="document-add" title="Criar página" label="Criar página" />
+                <x-sidebar.collapse.nav.item icon="newspaper" title="Notícias" label="Notícias" />
+                <x-sidebar.collapse.nav.item icon="photograph" title="Galeria de fotos" label="Galeria de fotos" />
+                <x-sidebar.collapse.nav.item icon="video-camera" title="Vídeos" label="Vídeos" />
+                <x-sidebar.collapse.nav.item icon="pencil-alt" title="Colunas" label="Colunas" />
+                <x-sidebar.collapse.nav.item icon="microphone" title="Colunas" label="Podcast" />
+                <x-sidebar.collapse.nav.item icon="phone" title="Contato" label="Contato" />
+                <x-sidebar.collapse.nav.item icon="document-text" title="Expediente" label="Expediente" />
             </x-sidebar.collapse.nav>  
         </x-sidebar.collapse>  
 

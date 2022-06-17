@@ -1462,6 +1462,9 @@ body[dir="rtl"] .checkbox:checked,
   opacity: 1;
   transition-delay: 75ms;
 }
+.artboard.phone {
+  width: 320px;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1601,6 +1604,21 @@ body[dir="rtl"] .checkbox:checked,
 }
 .ml-7 {
   margin-left: 1.75rem;
+}
+.-ml-5 {
+  margin-left: -1.25rem;
+}
+.-ml-6 {
+  margin-left: -1.5rem;
+}
+.mr-0 {
+  margin-right: 0px;
+}
+.-mr-6 {
+  margin-right: -1.5rem;
+}
+.-ml-2 {
+  margin-left: -0.5rem;
 }
 .block {
   display: block;
@@ -1829,6 +1847,9 @@ body[dir="rtl"] .checkbox:checked,
 .border-l {
   border-left-width: 1px;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
 .border-indigo-700 {
   --tw-border-opacity: 1;
   border-color: rgb(67 56 202 / var(--tw-border-opacity));
@@ -1913,6 +1934,9 @@ body[dir="rtl"] .checkbox:checked,
 .\!p-10 {
   padding: 2.5rem !important;
 }
+.\!p-2 {
+  padding: 0.5rem !important;
+}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1939,6 +1963,18 @@ body[dir="rtl"] .checkbox:checked,
 }
 .\!pl-6 {
   padding-left: 1.5rem !important;
+}
+.pl-6 {
+  padding-left: 1.5rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pr-0 {
+  padding-right: 0px;
 }
 .text-left {
   text-align: left;
