@@ -26,6 +26,12 @@
     [x-cloak] { display: none !important; }
 }
 
+@layer components {
+    .input-bordered {
+        @apply border-base-content/10;
+    }
+}
+
 @layer utilities {
     .overflow {
         &-overlay {
