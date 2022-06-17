@@ -5,6 +5,10 @@
 @section('content')
 <div class="p-6">
     <button class="btn">Button</button>
+
+    <div class="tooltip" data-tip="hello">
+    <a href="" class="btn">Hover me</a>
+    </div>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque purus semper eget duis at tellus at. Nunc id cursus metus aliquam. Lacus vestibulum sed arcu non odio. Aenean pharetra magna ac placerat vestibulum. A erat nam at lectus urna duis convallis convallis tellus. Et ligula ullamcorper malesuada proin. Platea dictumst quisque sagittis purus. Leo duis ut diam quam nulla porttitor massa. Turpis egestas pretium aenean pharetra magna. Eu mi bibendum neque egestas. Adipiscing elit duis tristique sollicitudin nibh. Pharetra sit amet aliquam id diam maecenas ultricies mi. Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Felis bibendum ut tristique et egestas quis ipsum. Morbi tincidunt ornare massa eget egestas purus viverra. Facilisis gravida neque convallis a cras semper auctor neque vitae. Aliquet risus feugiat in ante metus dictum at tempor. Ultrices sagittis orci a scelerisque purus semper eget duis. Ultricies tristique nulla aliquet enim tortor at auctor urna.
 
 Mauris augue neque gravida in. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Blandit cursus risus at ultrices. Nec dui nunc mattis enim ut tellus. Nisl tincidunt eget nullam non nisi est sit amet. Diam sollicitudin tempor id eu. Consequat semper viverra nam libero justo laoreet sit amet cursus. Sed libero enim sed faucibus turpis. Orci porta non pulvinar neque. Ipsum dolor sit amet consectetur. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet. Pharetra sit amet aliquam id diam. Tincidunt lobortis feugiat vivamus at augue. Mattis rhoncus urna neque viverra justo nec ultrices. Magna eget est lorem ipsum dolor sit amet. Velit ut tortor pretium viverra suspendisse. Sed ullamcorper morbi tincidunt ornare massa.

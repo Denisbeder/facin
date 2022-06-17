@@ -13,7 +13,6 @@
     {{ $attributes->class([
         'relative',
         'w-full',
-        'overflow-hidden',
         'flex',
         'rounded-md',
         'px-2',
