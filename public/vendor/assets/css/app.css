@@ -566,11 +566,10 @@ html {
 }
 
 :root {
-  --p: 259 94% 51%;
-  --pf: 259 94% 41%;
-  --sf: 314 100% 38%;
-  --af: 174 60% 41%;
-  --nf: 219 14% 22%;
+  --p: 262 80% 50%;
+  --pf: 262 80% 40%;
+  --sf: 316 70% 40%;
+  --af: 175 70% 33%;
   --in: 198 93% 60%;
   --su: 158 64% 52%;
   --wa: 43 96% 56%;
@@ -590,16 +589,17 @@ html {
   --tab-border: 1px;
   --tab-radius: 0.5rem;
   --pc: 0 0% 100%;
-  --s: 314 100% 47%;
+  --s: 316 70% 50%;
   --sc: 0 0% 100%;
-  --a: 174 60% 51%;
-  --ac: 175 44% 15%;
-  --n: 219 14% 28%;
-  --nc: 0 0% 100%;
-  --b1: 0 0% 100%;
-  --b2: 0 0% 95%;
-  --b3: 180 2% 90%;
-  --bc: 215 28% 17%;
+  --a: 175 70% 41%;
+  --ac: 0 0% 100%;
+  --n: 218 18% 12%;
+  --nf: 223 17% 8%;
+  --nc: 220 13% 69%;
+  --b1: 220 18% 20%;
+  --b2: 220 17% 17%;
+  --b3: 219 18% 15%;
+  --bc: 220 13% 69%;
 }
   * {
     scrollbar-width: thin;
@@ -1713,20 +1713,6 @@ body[dir="rtl"] .checkbox:checked,
   padding-left: 0.313rem;
   padding-right: 0.313rem;
 }
-.badge-sm {
-  height: 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  padding-left: 0.438rem;
-  padding-right: 0.438rem;
-}
-.badge-lg {
-  height: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding-left: 0.688rem;
-  padding-right: 0.688rem;
-}
 .btn-xs {
   height: 1.5rem;
   padding-left: 0.5rem;
@@ -1833,6 +1819,21 @@ body[dir="rtl"] .checkbox:checked,
 .right-0 {
   right: 0px;
 }
+.top-1 {
+  top: 0.25rem;
+}
+.right-1 {
+  right: 0.25rem;
+}
+.-top-1 {
+  top: -0.25rem;
+}
+.-right-0\.5 {
+  right: -0.125rem;
+}
+.-right-0 {
+  right: -0px;
+}
 .top-0 {
   top: 0px;
 }
@@ -1842,23 +1843,14 @@ body[dir="rtl"] .checkbox:checked,
 .left-3 {
   left: 0.75rem;
 }
-.-top-1 {
-  top: -0.25rem;
+.left-1 {
+  left: 0.25rem;
 }
-.right-1 {
-  right: 0.25rem;
+.left-9 {
+  left: 2.25rem;
 }
-.-right-1 {
-  right: -0.25rem;
-}
-.-right-0\.5 {
-  right: -0.125rem;
-}
-.-right-0 {
-  right: -0px;
-}
-.top-1 {
-  top: 0.25rem;
+.left-8 {
+  left: 2rem;
 }
 .z-50 {
   z-index: 50;
@@ -2064,8 +2056,17 @@ body[dir="rtl"] .checkbox:checked,
 .flex-\[2\] {
   flex: 2;
 }
+.flex-auto {
+  flex: 1 1 auto;
+}
+.flex-initial {
+  flex: 0 1 auto;
+}
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+.flex-grow {
+  flex-grow: 1;
 }
 .translate-x-1\/2 {
   --tw-translate-x: 50%;
@@ -2073,6 +2074,10 @@ body[dir="rtl"] .checkbox:checked,
 }
 .translate-y-8 {
   --tw-translate-y: 2rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-x-64 {
@@ -2087,16 +2092,8 @@ body[dir="rtl"] .checkbox:checked,
   --tw-translate-x: 16rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.-translate-y-1\/2 {
-  --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.translate-x-1\/3 {
-  --tw-translate-x: 33.333333%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .rotate-90 {

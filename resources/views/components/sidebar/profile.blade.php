@@ -5,8 +5,9 @@
             <p class="text-sm font-medium text-base-content truncate md:mr-4">Denisbeder Duek Carvalho</p>
             <p class="text-xs font-medium text-base-content/50 group-hover:text-base-content/70 mb-0 transition-colors duration-300">Ver mais opções</p>
         </div>
-        @if($hasNotifications = true)
-        <div class="badge badge-xs badge-error absolute top-1 right-1 -translate-y-1/2 translate-x-1/2" x-bind:class="!$store.sidebar.isModeBar() && 'hidden'"></div>
+        @php $hasNotifications = true; @endphp
+        @if($hasNotifications)
+        <div class="badge badge-xs badge-error absolute top-1 left-8 -translate-y-1/2 -translate-x-1/2" x-bind:class="!$store.sidebar.isModeBar() && 'hidden'"></div>
         <div class="relative" x-bind:class="$store.sidebar.isModeBar() && 'hidden'">
             <div class="badge badge-xs badge-error absolute -top-1 -right-0.5"></div>
             <x-icon name="bell" class="w-5 h-5 text-base-content/50 group-hover:text-base-content/70 transition-colors duration-300" />
@@ -17,6 +18,7 @@
     </div>
 
     <div tabindex="0" class="dropdown-content !transition-none shadow-xl bg-base-100 w-64 ml-px min-h-screen">
+        @if($hasNotifications)
         <ul role="list" class="divide-y divide-base-content/5">
             @foreach ([1,2,3,4,5] as $item)                
             <li class="p-4">
@@ -33,6 +35,7 @@
             </li>
             @endforeach
         </ul>
+        @endif
         <ul class="menu">
             <li><a>Item 1</a></li>
             <li><a>Item 2</a></li>
