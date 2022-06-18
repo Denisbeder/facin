@@ -14,7 +14,7 @@
                 <button class="btn btn-ghost bg-base-100 border-base-content/5 text-base-content/50 btn-xs" x-on:click="expanded = !expanded">Mais opções</button>
             </div>
 
-            <div class="bg-base-200/40 pb-8">
+            <div class="bg-base-300/60 pb-8">
                 <div class="card-body gap-0 pb-0" x-show="expanded" x-collapse>
                     <div class="form-control gap-4 mb-4 flex flex-row">
                         <div class="form-control flex-1">
