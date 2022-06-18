@@ -3150,12 +3150,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   toggleOffCanvas: function toggleOffCanvas() {
     var isOpenOffCanvas = !this.isOpenOffCanvas;
+    var htmlBody = document.querySelectorAll('html,body');
     this.isOpenOffCanvas = isOpenOffCanvas;
 
     if (isOpenOffCanvas === true) {
-      document.querySelector('html').classList.add('overflow-hidden');
+      htmlBody.forEach(function (item) {
+        return item.classList.add('overflow-hidden');
+      });
     } else {
-      document.querySelector('html').classList.remove('overflow-hidden');
+      htmlBody.forEach(function (item) {
+        return item.classList.remove('overflow-hidden');
+      });
     }
   }
 });

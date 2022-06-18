@@ -29,11 +29,13 @@ export default {
     },
     toggleOffCanvas() {
         const isOpenOffCanvas = !this.isOpenOffCanvas;
+        const htmlBody = document.querySelectorAll('html,body');
         this.isOpenOffCanvas = isOpenOffCanvas;
-        if (isOpenOffCanvas === true) {            
-            document.querySelector('html').classList.add('overflow-hidden');
+        
+        if (isOpenOffCanvas === true) {       
+            htmlBody.forEach((item) => item.classList.add('overflow-hidden'));     
         } else {
-            document.querySelector('html').classList.remove('overflow-hidden');
+            htmlBody.forEach((item) => item.classList.remove('overflow-hidden'));
         }        
     },
 };
