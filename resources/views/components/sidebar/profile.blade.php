@@ -48,7 +48,7 @@
         </h6>
         <ul class="menu menu-compact">
             <li><a>Ajuda</a></li>
-            <li><a>Configurações</a></li>
+            <li><a>Configurações do sistema</a></li>
             <li><a>Minha conta</a></li>
             <li><a>Sair</a></li>
         </ul>

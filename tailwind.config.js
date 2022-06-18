@@ -15,10 +15,6 @@ module.exports = {
         require("daisyui"),
     ],
     theme: {
-        borderColor: (theme) => ({
-            DEFAULT: 'hsl(var(--bc) / .05)',
-            ...theme.colors
-        }),
         extend: {
             backgroundImage: {
                 hero: "url(/vendor/assets/img/hero.png)",

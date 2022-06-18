@@ -27,8 +27,8 @@
 }
 
 @layer components {
-    .input-bordered {
-        border-color: hsl(var(--bc) / 0.05);
+    .border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
+        @apply border-base-content/10;
     }
 }
 

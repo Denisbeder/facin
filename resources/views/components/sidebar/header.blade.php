@@ -4,7 +4,7 @@
     <button 
     class="text-sm font-medium px-1 py-1 rounded-full absolute right-0 z-50 transition-transform duration-300" 
     x-bind:class="{
-            'translate-x-1/2 translate-y-8 text-base-content bg-base-100 border border-base-300': $store.sidebar.isModeBar(), 
+            'translate-x-1/2 translate-y-8 text-base-content bg-base-100 border': $store.sidebar.isModeBar(), 
             'mr-4 text-base-content bg-base-300/90': $store.sidebar.isModeFull(), 'hidden': $store.sidebar.isModeMobile()
         }" 
         x-on:click="$store.sidebar.toggleMode()"
