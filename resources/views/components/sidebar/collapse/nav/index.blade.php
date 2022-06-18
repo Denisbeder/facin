@@ -13,14 +13,14 @@
     }"
 >   
     @if($headerTitle)
-    <h2 
+    <h6 
         class="font-bold text-xl my-5 flex" 
         x-bind:class="{
             'hidden': $store.sidebar.isModeFull() || $store.sidebar.isModeMobile()
         }"
     >
         {{ $headerTitle }}
-    </h2>
+    </h6>
     @endif
 
     <nav x-bind:class="{
