@@ -7,6 +7,8 @@
             x-on:click="expanded = !expanded"
         >
             {{ $buttonLabel ?? 'Mais opções' }}
+
+            <x-icon name="chevron-right" class="w-3 h-3 transition-transform duration-300 ml-1" x-bind:class="expanded && 'rotate-90'" />
         </button>
     </div>
 

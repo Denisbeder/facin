@@ -1,0 +1,36 @@
+$choices-border-radius: var(--rounded-btn, 0.5rem);
+$choices-bg-color: white;
+@import "~choices.js/src/styles/choices";
+.choices__inner,
+.is-focused .choices__inner,
+.is-open .choices__inner,
+.is-open .choices__list--dropdown,
+.is-open .choices__list[aria-expanded] {
+    @apply border-base-content/10;
+}
+.is-focused .choices__inner,
+.is-open .choices__inner,
+.is-open .choices__list--dropdown,
+.is-open .choices__list[aria-expanded] {
+    @apply ring-2 ring-base-content/10;
+}
+
+.choices__list--multiple .choices__item {
+    background-color: hsl(var(--p) / 1);
+    border: 1px solid hsl(var(--p) / 1);
+}
+.choices[data-type*="text"] {
+    .choices__button {
+        // border-left: hsl(var(--p) / 1);
+    }
+}
+.choices__list--multiple {
+    .choices__item {
+        background-color: hsl(var(--p) / 1);
+        border: 1px solid hsl(var(--p) / 1);
+        &.is-highlighted {
+            background-color: hsl(var(--ac));
+            border: 1px solid hsl(var(--ac));
+        }
+    }
+}

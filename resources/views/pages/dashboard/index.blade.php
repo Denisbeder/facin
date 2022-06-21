@@ -11,7 +11,7 @@
                     <h2 class="card-title mb-5">Title</h2>
                     <input type="text" class="input input-bordered" id="title" />
                 </x-card.body>
-                <x-card.collapse buttonLabel="Descrição - Chapéu - Título curto">
+                <x-card.footer-collapse buttonLabel="Descrição - Chapéu - Título curto">
                     <div class="form-control gap-4 mb-4 flex flex-row">
                         <div class="form-control flex-1">
                             <label class="label label-text" for="description">Descrição</label>
@@ -28,7 +28,7 @@
                         <label class="label label-text" for="short_title">Título curto</label>
                         <input type="text" class="input input-bordered" id="short_title" />
                     </div>
-                </x-card.collapse>
+                </x-card.footer-collapse>
             </x-card>
 
             <x-card>
@@ -36,28 +36,12 @@
                     <h2 class="card-title mb-5">Texto</h2>
                     <textarea class="textarea input-bordered" placeholder="Digite ou cole seu texto aqui..."></textarea>
                 </x-card.body>
-                <x-card.collapse buttonLabel="Adicionar resumo">
+                <x-card.footer-collapse buttonLabel="Adicionar resumo">
                     <div class="form-control">
                         <label class="label label-text" for="summary">Resumo</label>
                         <textarea class="textarea input-bordered" id="summary"></textarea>
                     </div>
-                </x-card.collapse>
-            </x-card>
-
-            <x-card>
-                <x-card.body>
-                    <h2 class="card-title mb-5">Imagens</h2>
-                    <div class="cursor-pointer border border-dashed p-8 rounded-lg flex flex-col justify-center items-center text-base-content/30 select-none">
-                        <x-icon name="photograph" class="w-8 h-8" />
-                        <p>Solte suas imagens aqui ou clique para selecionar </p>
-                    </div>
-                </x-card.body>
-                <x-card.footer class="px-8 py-5">
-                    <label class="cursor-pointer">
-                        <input name="use_image_inside" value="1" type="checkbox" checked="checked" class="checkbox checkbox-sm checkbox-primary" />
-                        <span class="label-text ml-3 mr-auto">Mostrar imagem de capa dentro da postagem</span>
-                    </label>
-                </x-card.footer>
+                </x-card.footer-collapse>
             </x-card>
 
             <x-card>
@@ -83,10 +67,63 @@
             </x-card>
         </div>
 
-        <div class="w-full md:w-1/3">
+        <div class="w-full md:w-1/3 space-y-10">
             <x-card>
                 <x-card.body>
-                    CONTENT
+                    Destacar na pagina inicial <br>
+                    Adicionar relacionadas <br>
+                </x-card.body>
+            </x-card>
+
+            <x-card>
+                <x-card.body>
+                    <h2 class="card-title mb-5">Imagens</h2>
+                    <div class="cursor-pointer border border-dashed p-8 h-56 rounded-lg flex flex-col justify-center items-center text-center text-base-content/30 select-none">
+                        <x-icon name="photograph" class="w-8 h-8" />
+                        <div>Clique e selecione um arquivo</div>
+                    </div>
+                </x-card.body>
+                <x-card.footer class="px-8 py-5">
+                    <div class="form-control mb-2">                
+                        <label class="cursor-pointer flex items-center">
+                            <input name="use_image_inside" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
+                            <span class="label-text ml-3 mr-auto">Mostrar imagem de capa dentro da postagem</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control">                
+                        <label class="cursor-pointer flex items-center">
+                            <input name="content_sensisitivy" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
+                            <span class="label-text ml-3 mr-auto">Imagem com conteúdo sensível</span>
+                        </label>
+                    </div>
+                </x-card.footer>
+            </x-card>
+
+            <x-card>
+                <x-card.body>
+                    <div class="form-control mb-4">
+                        <label class="label label-text" for="author">Autor</label>
+                        <x-select />
+                    </div>
+
+                   <div class="form-control mb-4">
+                        <label class="label label-text" for="source">Fonte</label>
+                        <input type="text" class="input input-bordered" id="source" />
+                    </div>
+                   
+                   <div class="form-control">
+                        <label class="label label-text" for="categories">Categorias</label>
+                        <x-select.multi />
+                    </div>
+                </x-card.body>
+            </x-card>
+
+            <x-card>
+                <x-card.body>
+                   Permitir comentarios <br>
+                   Data e hora da postagem <br>
+                   Programar expiracao <br>
                 </x-card.body>
             </x-card>
         </div>       

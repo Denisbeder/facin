@@ -9,7 +9,6 @@ module.exports = {
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     ],
     plugins: [
-        require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
         require("@tailwindcss/aspect-ratio"),
         require("daisyui"),

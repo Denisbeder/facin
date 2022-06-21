@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'choices';
+
 @layer base {
+    :root {
+        --rounded-box: .75rem;
+    }
+
     // To Firefox
     * {
         scrollbar-width: thin;
     }
+    
     ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -27,6 +34,14 @@
 }
 
 @layer components {
+    .card {
+        overflow: unset;
+    }
+    .input, .textarea {
+        &:focus {
+            @apply outline-offset-0;
+        }
+    }
     .border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
         @apply border-base-content/10;
     }
