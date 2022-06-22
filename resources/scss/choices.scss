@@ -1,5 +1,6 @@
 $choices-border-radius: var(--rounded-btn, 0.5rem);
 $choices-bg-color: white;
+$choices-bg-color-disabled: hsl(var(--b2, var(--b1)) / 1);
 @import "~choices.js/src/styles/choices";
 
 .choices__inner,
@@ -16,13 +17,20 @@ $choices-bg-color: white;
     @apply ring-2 ring-base-content/10;
 }
 
+.choices[data-type*="select-multiple"],
+.choices[data-type*="text"] {
+    .choices__button {
+        border-left: 1px solid white;
+    }
+}
+
 .choices__list--multiple .choices__item {
     background-color: hsl(var(--p) / 1);
     border: 1px solid hsl(var(--p) / 1);
 }
 .choices[data-type*="text"] {
     .choices__button {
-        // border-left: hsl(var(--p) / 1);
+        border-left: red;
     }
 }
 .choices__list--multiple {
@@ -34,4 +42,9 @@ $choices-bg-color: white;
             border: 1px solid hsl(var(--ac));
         }
     }
+}
+
+.choices.is-disabled .choices__inner,
+.choices.is-disabled .choices__input {
+    border-color: hsl(var(--b2, var(--b1)) / 1);
 }

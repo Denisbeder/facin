@@ -3056,6 +3056,7 @@ window.Choices = function (element) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return new (choices_js__WEBPACK_IMPORTED_MODULE_2___default())(element, _objectSpread({
     allowHTML: true,
+    removeItemButton: true,
     loadingText: "Carregando...",
     noResultsText: "Nenhum resultado encontrado",
     noChoicesText: "Nenhuma opção para selecionar",
@@ -3108,77 +3109,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (choicesOptions) {
   return {
-    multiple: false,
-    value: null,
-    options: [],
-    choicesInstance: null,
-    setChoicesInstance: function setChoicesInstance() {
-      this.choicesInstance = Choices(this.$refs.select, {
-        removeItemButton: true
-      });
-    },
-    setMultiple: function setMultiple() {
-      this.multiple = this.$refs.select.hasAttribute("multiple");
-    },
-    setValue: function setValue() {
-      var selectedValue = this.options.filter(function (e) {
-        return e.selected === true;
-      }).shift();
-      var value = selectedValue !== undefined ? selectedValue.value : this.value;
-      this.value = this.multiple ? [value] : value;
-    },
-    setOptions: function setOptions() {
+    choicesOptions: _objectSpread({}, choicesOptions),
+    init: function init() {
       var _this = this;
 
-      var optionsCollect = Array.from(this.$refs.select.options);
-      optionsCollect.forEach(function (e) {
-        _this.options.push({
-          value: e.value,
-          label: e.text,
-          selected: e.hasAttribute("selected")
-        });
-      });
-    },
-    refreshChoices: function refreshChoices() {
-      var selection = this.multiple ? this.value : [this.value];
-      this.choicesInstance.clearStore();
-      this.choicesInstance.setChoices(this.options.map(function (_ref) {
-        var value = _ref.value,
-            label = _ref.label;
-        return {
-          value: value,
-          label: label,
-          selected: selection.includes(value) || selection.includes(String(value)) || selection.includes(Number(value))
-        };
-      }));
-    },
-    init: function init() {
-      var _this2 = this;
-
       this.$nextTick(function () {
-        _this2.setMultiple();
-
-        _this2.setOptions();
-
-        _this2.setValue();
-
-        _this2.setChoicesInstance();
-
-        _this2.refreshChoices();
-
-        _this2.$refs.select.addEventListener("change", function () {
-          _this2.value = _this2.choicesInstance.getValue(true);
-        });
-
-        _this2.$watch("value", function () {
-          return _this2.refreshChoices();
-        });
-
-        _this2.$watch("options", function () {
-          return _this2.refreshChoices();
-        });
+        Choices(_this.$refs.select, _this.choicesOptions);
       });
     }
   };

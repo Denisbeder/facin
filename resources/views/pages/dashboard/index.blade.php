@@ -34,7 +34,7 @@
             <x-card>
                 <x-card.body>
                     <h2 class="card-title mb-5">Texto</h2>
-                    <textarea class="textarea input-bordered" placeholder="Digite ou cole seu texto aqui..."></textarea>
+                    <textarea disabled class="textarea input-bordered" placeholder="Digite ou cole seu texto aqui..."></textarea>
                 </x-card.body>
                 <x-card.footer-collapse buttonLabel="Adicionar resumo">
                     <div class="form-control">
@@ -104,7 +104,7 @@
                 <x-card.body>
                     <div class="form-control mb-4">
                         <label class="label label-text" for="author">Autor</label>
-                        <x-select>
+                        <x-select disabled>
                             <option value="1">Item 1</option>
                             <option value="2" >Item 2</option>
                             <option value="3" selected>Item 3</option>
@@ -119,7 +119,7 @@
                    
                    <div class="form-control">
                         <label class="label label-text" for="categories">Categorias</label>
-                        <x-select multiple>
+                        <x-select disabled multiple>
                             <option value="tag 1">Tag 1</option>
                             <option value="tag 2" >Tag 2</option>
                             <option value="tag 3" selected>Tag 3</option>

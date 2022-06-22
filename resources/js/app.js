@@ -8,6 +8,7 @@ import "./components";
 window.Choices = (element, options = {}) =>
     new Choices(element, {
         allowHTML: true,
+        removeItemButton: true,
         loadingText: "Carregando...",
         noResultsText: "Nenhum resultado encontrado",
         noChoicesText: "Nenhuma opção para selecionar",
