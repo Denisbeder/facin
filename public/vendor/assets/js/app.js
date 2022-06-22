@@ -3039,13 +3039,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components */ "./resources/js/components/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
 
-window.Choices = (choices_js__WEBPACK_IMPORTED_MODULE_2___default());
+
+
+window.Choices = function (element) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return new (choices_js__WEBPACK_IMPORTED_MODULE_2___default())(element, _objectSpread({
+    allowHTML: true,
+    loadingText: "Carregando...",
+    noResultsText: "Nenhum resultado encontrado",
+    noChoicesText: "Nenhuma opção para selecionar",
+    itemSelectText: "Clique e selecione",
+    addItemText: function addItemText(value) {
+      return "Precione Enter e selecione <b>\"".concat(value, "\"</b>");
+    },
+    maxItemText: function maxItemText(maxItemCount) {
+      return "Somente ".concat(maxItemCount, " valores podem ser adicionados");
+    }
+  }, options));
+};
+
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].plugin(_alpinejs_collapse__WEBPACK_IMPORTED_MODULE_1__["default"]);
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -3074,6 +3097,95 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),
 
+/***/ "./resources/js/components/Select/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Select/index.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  return {
+    multiple: false,
+    value: null,
+    options: [],
+    choicesInstance: null,
+    setChoicesInstance: function setChoicesInstance() {
+      this.choicesInstance = Choices(this.$refs.select, {
+        removeItemButton: true
+      });
+    },
+    setMultiple: function setMultiple() {
+      this.multiple = this.$refs.select.hasAttribute("multiple");
+    },
+    setValue: function setValue() {
+      var selectedValue = this.options.filter(function (e) {
+        return e.selected === true;
+      }).shift();
+      var value = selectedValue !== undefined ? selectedValue.value : this.value;
+      this.value = this.multiple ? [value] : value;
+    },
+    setOptions: function setOptions() {
+      var _this = this;
+
+      var optionsCollect = Array.from(this.$refs.select.options);
+      optionsCollect.forEach(function (e) {
+        _this.options.push({
+          value: e.value,
+          label: e.text,
+          selected: e.hasAttribute("selected")
+        });
+      });
+    },
+    refreshChoices: function refreshChoices() {
+      var selection = this.multiple ? this.value : [this.value];
+      this.choicesInstance.clearStore();
+      this.choicesInstance.setChoices(this.options.map(function (_ref) {
+        var value = _ref.value,
+            label = _ref.label;
+        return {
+          value: value,
+          label: label,
+          selected: selection.includes(value) || selection.includes(String(value)) || selection.includes(Number(value))
+        };
+      }));
+    },
+    init: function init() {
+      var _this2 = this;
+
+      this.$nextTick(function () {
+        _this2.setMultiple();
+
+        _this2.setOptions();
+
+        _this2.setValue();
+
+        _this2.setChoicesInstance();
+
+        _this2.refreshChoices();
+
+        _this2.$refs.select.addEventListener("change", function () {
+          _this2.value = _this2.choicesInstance.getValue(true);
+        });
+
+        _this2.$watch("value", function () {
+          return _this2.refreshChoices();
+        });
+
+        _this2.$watch("options", function () {
+          return _this2.refreshChoices();
+        });
+      });
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/index.js":
 /*!******************************************!*\
   !*** ./resources/js/components/index.js ***!
@@ -3083,9 +3195,11 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
- //import MyComponent from './myComponent'
-//window.MyComponent = MyComponent;
-//Alpine.data('myComponent', MyComponent);
+/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Select */ "./resources/js/components/Select/index.js");
+
+
+window.Select = _Select__WEBPACK_IMPORTED_MODULE_1__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].data('Select', _Select__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /***/ }),
 

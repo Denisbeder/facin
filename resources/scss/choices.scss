@@ -1,6 +1,7 @@
 $choices-border-radius: var(--rounded-btn, 0.5rem);
 $choices-bg-color: white;
 @import "~choices.js/src/styles/choices";
+
 .choices__inner,
 .is-focused .choices__inner,
 .is-open .choices__inner,

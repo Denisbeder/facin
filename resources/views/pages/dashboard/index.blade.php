@@ -104,7 +104,12 @@
                 <x-card.body>
                     <div class="form-control mb-4">
                         <label class="label label-text" for="author">Autor</label>
-                        <x-select />
+                        <x-select>
+                            <option value="1">Item 1</option>
+                            <option value="2" >Item 2</option>
+                            <option value="3" selected>Item 3</option>
+                            <option value="5">Item 5</option>
+                        </x-select>
                     </div>
 
                    <div class="form-control mb-4">
@@ -114,7 +119,12 @@
                    
                    <div class="form-control">
                         <label class="label label-text" for="categories">Categorias</label>
-                        <x-select.multi />
+                        <x-select multiple>
+                            <option value="tag 1">Tag 1</option>
+                            <option value="tag 2" >Tag 2</option>
+                            <option value="tag 3" selected>Tag 3</option>
+                            <option value="tag 5">Tag 5</option>
+                        </x-select>
                     </div>
                 </x-card.body>
             </x-card>

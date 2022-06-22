@@ -1,6 +1,6 @@
 import Alpine from "alpinejs";
-//import MyComponent from './myComponent'
+import Select from './Select'
 
-//window.MyComponent = MyComponent;
+window.Select = Select;
 
-//Alpine.data('myComponent', MyComponent);
+Alpine.data('Select', Select);
