@@ -112,7 +112,7 @@
                         </x-select>
                     </div>
 
-                   <div class="form-control mb-4">
+                    <div class="form-control mb-4">
                         <label class="label label-text" for="source">Fonte</label>
                         <input type="text" class="input input-bordered" id="source" />
                     </div>
@@ -131,9 +131,40 @@
 
             <x-card>
                 <x-card.body>
-                   Permitir comentarios <br>
-                   Data e hora da postagem <br>
-                   Programar expiracao <br>
+                    <div class="form-control mb-4">                
+                        <label class="cursor-pointer flex items-center">
+                            <input name="content_sensisitivy" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
+                            <span class="label-text ml-3 mr-auto">Permitir comentários</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label" for="published_at">
+                            <span class="label-text">Data e hora da postagem</span>
+                        </label>
+                        <label class="input-group">
+                            <input id="published_at" name="published_at[date]" type="text" class="input input-bordered w-3/5 z-10 text-center" value="25/06/2022" />                    
+                            <span class="z-0"><x-icon name="calendar" class="w-5 h-5" /></span>
+                            <input name="published_at[hour]" type="text" class="input input-bordered w-1/5 z-10 border-r-0 text-center" maxlength="2" value="22" />
+                            <span class="px-1 bg-base-100 border-y z-0 border-x-0">:</span>
+                            <input name="published_at[second]" type="text" class="input input-bordered w-1/5 z-10 border-l-0 text-center" maxlength="2" value="00" />
+                        </label>
+                    </div>
+                    <div x-data="{ expanded: false }" class="transition-all duration-300" x-bind:class="expanded && 'p-2 border rounded-md mt-1 bg-base-200/20'">
+                        <button x-on:click="expanded = !expanded" class="text-sm font-medium">Programar expiração do post</button>
+                        <div x-show="expanded" x-collapse>
+                            <label class="label mt-4" for="unpublished_at">
+                                <span class="label-text">Data e hora do encerramento</span>
+                            </label>
+                            <label class="input-group">
+                                <input id="unpublished_at" name="unpublished_at[date]" type="text" class="input input-bordered w-3/5 z-10 text-center" value="25/06/2022" />                    
+                                <span class="z-0"><x-icon name="calendar" class="w-5 h-5" /></span>
+                                <input name="unpublished_at[hour]" type="text" class="input input-bordered w-1/5 z-10 border-r-0 text-center" maxlength="2" value="22" />
+                                <span class="px-1 bg-base-100 border-y z-0 border-x-0">:</span>
+                                <input name="unpublished_at[second]" type="text" class="input input-bordered w-1/5 z-10 border-l-0 text-center" maxlength="2" value="00" />
+                            </label>
+                        </div>
+                    </div>
                 </x-card.body>
             </x-card>
         </div>       

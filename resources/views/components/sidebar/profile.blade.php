@@ -5,8 +5,7 @@
             <p class="text-sm font-medium text-base-content truncate md:mr-4">Denisbeder Duek Carvalho</p>
             <p class="text-xs font-medium text-base-content/50 group-hover:text-base-content/70 mb-0 transition-colors duration-300">Ver mais opções</p>
         </div>
-        @php $hasNotifications = true; @endphp
-        @if($hasNotifications)
+        @if($hasNotifications = true)
         <div class="badge badge-xs badge-error absolute top-1 left-8 -translate-y-1/2 -translate-x-1/2" x-bind:class="!$store.sidebar.isModeBar() && 'hidden'"></div>
         <div class="relative" x-bind:class="$store.sidebar.isModeBar() && 'hidden'">
             <div class="badge badge-xs badge-error absolute -top-1 -right-0.5"></div>
