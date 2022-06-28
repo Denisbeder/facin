@@ -145,7 +145,7 @@
                         <label class="label" for="published_at">
                             <span class="label-text">Data e hora da postagem</span>
                         </label>
-                        <x-datetime name="published_at" />
+                        <x-datetime name="published_at" updateMinDateTo="[name='unpublished_at[date]']" />
                     </div>
                     <div x-data="{ expanded: false }" class="transition-all duration-300" x-bind:class="expanded && 'p-2 border rounded-md mt-1 bg-base-200/20'">
                         <button x-on:click="expanded = !expanded" class="text-sm font-medium">Programar expiração do post</button>
@@ -153,7 +153,7 @@
                             <label class="label mt-4" for="unpublished_at">
                                 <span class="label-text">Data e hora do encerramento</span>
                             </label>
-                            <x-datetime name="published_at" />
+                            <x-datetime name="unpublished_at" updateMaxDateTo="[name='published_at[date]']" />
                         </div>
                     </div>
                 </x-card.body>

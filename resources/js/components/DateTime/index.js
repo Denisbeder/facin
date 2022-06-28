@@ -3,11 +3,14 @@ export default () => ({
     timeInstance: null,
     init() {
         this.$nextTick(() => {
+            const updateMinDateTo = document.querySelector(this.$refs.date.dataset.updateMinDateTo);
+            const updateMaxDateTo = document.querySelector(this.$refs.date.dataset.updateMaxDateTo);
+
             this.dateInstance = Flatpickr(this.$refs.date, {
                 dateFormat: "d/m/Y",
                 onChange: (selectedDates, dateStr, instance) => {
-                    console.log('change', selectedDates);
-                    this.$dispatch('teste');
+                    updateMinDateTo && this.$nextTick(() => updateMinDateTo._flatpickr.set('minDate', dateStr));
+                    updateMaxDateTo && this.$nextTick(() => updateMaxDateTo._flatpickr.set('maxDate', dateStr));
                 },
             });
 
@@ -21,9 +24,4 @@ export default () => ({
         });
     },
 
-    event: {
-        ['@teste']() {
-            console.log('TESTE');
-        },
-    },
 });

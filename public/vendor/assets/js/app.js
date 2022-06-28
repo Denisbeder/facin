@@ -3083,8 +3083,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   return {
     dateInstance: null,
@@ -3093,12 +3091,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.$nextTick(function () {
+        var updateMinDateTo = document.querySelector(_this.$refs.date.dataset.updateMinDateTo);
+        var updateMaxDateTo = document.querySelector(_this.$refs.date.dataset.updateMaxDateTo);
         _this.dateInstance = Flatpickr(_this.$refs.date, {
           dateFormat: "d/m/Y",
           onChange: function onChange(selectedDates, dateStr, instance) {
-            console.log('change', selectedDates);
-
-            _this.$dispatch('teste');
+            updateMinDateTo && _this.$nextTick(function () {
+              return updateMinDateTo._flatpickr.set('minDate', dateStr);
+            });
+            updateMaxDateTo && _this.$nextTick(function () {
+              return updateMaxDateTo._flatpickr.set('maxDate', dateStr);
+            });
           }
         });
         _this.timeInstance = Flatpickr(_this.$refs.time, {
@@ -3109,10 +3112,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           time_24hr: true
         });
       });
-    },
-    event: _defineProperty({}, '@teste', function teste() {
-      console.log('TESTE');
-    })
+    }
   };
 });
 
