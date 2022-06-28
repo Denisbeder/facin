@@ -2877,6 +2877,10 @@ body[dir="rtl"] .checkbox:checked,
   border-color: hsl(var(--b2, var(--b1))/1);
 }
 
+.flatpickr-day {
+  line-height: 37px;
+}
+
 .datetime {
   display: flex;
   align-items: stretch;

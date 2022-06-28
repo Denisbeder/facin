@@ -153,7 +153,7 @@
                             <label class="label mt-4" for="unpublished_at">
                                 <span class="label-text">Data e hora do encerramento</span>
                             </label>
-                            <x-datetime name="unpublished_at" />
+                            <x-datetime name="published_at" />
                         </div>
                     </div>
                 </x-card.body>

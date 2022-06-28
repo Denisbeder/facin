@@ -3083,6 +3083,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   return {
     dateInstance: null,
@@ -3092,7 +3094,12 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$nextTick(function () {
         _this.dateInstance = Flatpickr(_this.$refs.date, {
-          dateFormat: "d/m/Y"
+          dateFormat: "d/m/Y",
+          onChange: function onChange(selectedDates, dateStr, instance) {
+            console.log('change', selectedDates);
+
+            _this.$dispatch('teste');
+          }
         });
         _this.timeInstance = Flatpickr(_this.$refs.time, {
           inline: true,
@@ -3102,7 +3109,10 @@ __webpack_require__.r(__webpack_exports__);
           time_24hr: true
         });
       });
-    }
+    },
+    event: _defineProperty({}, '@teste', function teste() {
+      console.log('TESTE');
+    })
   };
 });
 

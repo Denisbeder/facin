@@ -1,5 +1,9 @@
 @import "flatpickr/dist/flatpickr.min.css";
 
+.flatpickr-day {
+    line-height: 37px;
+}
+
 .datetime {
     display: flex;
     align-items: stretch;
