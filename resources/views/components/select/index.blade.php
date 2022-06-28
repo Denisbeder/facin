@@ -1,12 +1,21 @@
 @props([
     'multiple' => false, 
-    'disabled' => false
+    'disabled' => false,
+    'choicesOptions' => null,
 ])
 
-<div {{ $attributes }} >
+<div 
+    {{ $attributes }} 
+
+    @if(!is_null($choicesOptions))
+    x-data="Select({{ JS::jsonEncode($choicesOptions) }})"
+    @else
+    x-data="Select"
+    @endif
+>
     <select 
-        data-select
         class="select" 
+        x-ref="select" 
         @if($multiple) 
         multiple 
         @endif

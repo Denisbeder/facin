@@ -1,9 +1,7 @@
 import Choices from "choices.js";
 
-const items = document.querySelectorAll("[data-select]");
-
-items.forEach((item) => {
-    new Choices(item, {
+window.Choices = (element, options = {}) =>
+    new Choices(element, {
         allowHTML: true,
         removeItemButton: true,
         loadingText: "Carregando...",
@@ -16,5 +14,5 @@ items.forEach((item) => {
         maxItemText: (maxItemCount) => {
             return `Somente ${maxItemCount} valores podem ser adicionados`;
         },
+        ...options,
     });
-});
