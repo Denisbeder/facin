@@ -34,7 +34,7 @@
             <x-card>
                 <x-card.body>
                     <h2 class="card-title mb-5">Texto</h2>
-                    <textarea disabled class="textarea input-bordered" placeholder="Digite ou cole seu texto aqui..."></textarea>
+                    <textarea class="textarea input-bordered" placeholder="Digite ou cole seu texto aqui..."></textarea>
                 </x-card.body>
                 <x-card.footer-collapse buttonLabel="Adicionar resumo">
                     <div class="form-control">
@@ -70,8 +70,11 @@
         <div class="w-full md:w-1/3 space-y-10">
             <x-card>
                 <x-card.body>
-                    Destacar na pagina inicial <br>
-                    Adicionar relacionadas <br>
+                    <button class="btn btn-ghost border mb-4 gap-2">
+                        <x-icon name="star" class="w-4 h-4" />
+                        Destacar na página inicial
+                    </button>
+                    <button class="btn btn-ghost border gap-2"><x-icon name="collection" class="w-4 h-4" /> Adicionar relacionados</button>
                 </x-card.body>
             </x-card>
 
@@ -104,7 +107,7 @@
                 <x-card.body>
                     <div class="form-control mb-4">
                         <label class="label label-text" for="author">Autor</label>
-                        <x-select disabled>
+                        <x-select multiple>
                             <option value="1">Item 1</option>
                             <option value="2" >Item 2</option>
                             <option value="3" selected>Item 3</option>
@@ -119,7 +122,7 @@
                    
                    <div class="form-control">
                         <label class="label label-text" for="categories">Categorias</label>
-                        <x-select disabled multiple>
+                        <x-select multiple>
                             <option value="tag 1">Tag 1</option>
                             <option value="tag 2" >Tag 2</option>
                             <option value="tag 3" selected>Tag 3</option>
@@ -142,13 +145,7 @@
                         <label class="label" for="published_at">
                             <span class="label-text">Data e hora da postagem</span>
                         </label>
-                        <label class="input-group">
-                            <input id="published_at" name="published_at[date]" type="text" class="input input-bordered w-3/5 z-10 text-center" value="25/06/2022" />                    
-                            <span class="z-0"><x-icon name="calendar" class="w-5 h-5" /></span>
-                            <input name="published_at[hour]" type="text" class="input input-bordered w-1/5 z-10 border-r-0 text-center" maxlength="2" value="22" />
-                            <span class="px-1 bg-base-100 border-y z-0 border-x-0">:</span>
-                            <input name="published_at[second]" type="text" class="input input-bordered w-1/5 z-10 border-l-0 text-center" maxlength="2" value="00" />
-                        </label>
+                        <x-datetime name="published_at" />
                     </div>
                     <div x-data="{ expanded: false }" class="transition-all duration-300" x-bind:class="expanded && 'p-2 border rounded-md mt-1 bg-base-200/20'">
                         <button x-on:click="expanded = !expanded" class="text-sm font-medium">Programar expiração do post</button>
@@ -156,13 +153,7 @@
                             <label class="label mt-4" for="unpublished_at">
                                 <span class="label-text">Data e hora do encerramento</span>
                             </label>
-                            <label class="input-group">
-                                <input id="unpublished_at" name="unpublished_at[date]" type="text" class="input input-bordered w-3/5 z-10 text-center" value="25/06/2022" />                    
-                                <span class="z-0"><x-icon name="calendar" class="w-5 h-5" /></span>
-                                <input name="unpublished_at[hour]" type="text" class="input input-bordered w-1/5 z-10 border-r-0 text-center" maxlength="2" value="22" />
-                                <span class="px-1 bg-base-100 border-y z-0 border-x-0">:</span>
-                                <input name="unpublished_at[second]" type="text" class="input input-bordered w-1/5 z-10 border-l-0 text-center" maxlength="2" value="00" />
-                            </label>
+                            <x-datetime name="unpublished_at" />
                         </div>
                     </div>
                 </x-card.body>

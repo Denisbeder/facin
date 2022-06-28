@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'choices';
+@import 'flatpickr';
 
 @layer base {
     :root {
@@ -36,6 +37,9 @@
 @layer components {
     .card {
         overflow: unset;
+    }
+    .card-title {
+        @apply text-base;
     }
     .input, .textarea {
         &:focus {
