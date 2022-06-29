@@ -1819,6 +1819,9 @@ body[dir="rtl"] .checkbox:checked,
 .z-20{
   z-index: 20;
 }
+.z-\[1\]{
+  z-index: 1;
+}
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -3025,8 +3028,14 @@ body[dir="rtl"] .checkbox:checked,
 .focus\:z-20:focus{
   z-index: 20;
 }
+.focus\:z-\[2\]:focus{
+  z-index: 2;
+}
 .focus\:z-10:focus{
   z-index: 10;
+}
+.focus\:z-\[1\]:focus{
+  z-index: 1;
 }
 .focus\:border-blue-300:focus{
   --tw-border-opacity: 1;

@@ -3112,20 +3112,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$nextTick(function () {
-        var updateMinDateTo = document.querySelector(_this.$refs.date.dataset.updateMinDateTo);
-        var updateMaxDateTo = document.querySelector(_this.$refs.date.dataset.updateMaxDateTo);
+        var updateDateTimeMinTo = document.querySelector(_this.$refs.date.dataset.updateDateTimeMinTo);
+        var updateDateTimeMaxTo = document.querySelector(_this.$refs.date.dataset.updateDateTimeMaxTo);
         _this.dateInstance = Flatpickr(_this.$refs.date, {
           dateFormat: "d/m/Y",
           onChange: function onChange(selectedDates, dateStr, instance) {
-            updateMinDateTo && _this.$nextTick(function () {
-              updateMinDateTo._flatpickr.set('minDate', dateStr);
+            updateDateTimeMinTo && _this.$nextTick(function () {
+              updateDateTimeMinTo._flatpickr.set('minDate', dateStr);
 
-              _this.setLimitTimeFromUpdateDate(updateMinDateTo, 'maxTime', dateStr);
+              _this.setLimitTimeFromUpdateDate(updateDateTimeMinTo, 'maxTime', dateStr);
             });
-            updateMaxDateTo && _this.$nextTick(function () {
-              updateMaxDateTo._flatpickr.set('maxDate', dateStr);
+            updateDateTimeMaxTo && _this.$nextTick(function () {
+              updateDateTimeMaxTo._flatpickr.set('maxDate', dateStr);
 
-              _this.setLimitTimeFromUpdateDate(updateMaxDateTo, 'minTime', dateStr);
+              _this.setLimitTimeFromUpdateDate(updateDateTimeMaxTo, 'minTime', dateStr);
             });
           }
         });
@@ -3136,11 +3136,90 @@ __webpack_require__.r(__webpack_exports__);
           dateFormat: "H:i",
           time_24hr: true,
           onChange: function onChange(selectedTimes, timeStr, instance) {
-            updateMinDateTo && _this.$nextTick(function () {
-              return _this.setLimitTimeFromUpdateTime(updateMinDateTo, 'minTime', timeStr);
+            updateDateTimeMinTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateDateTimeMinTo, 'minTime', timeStr);
             });
-            updateMaxDateTo && _this.$nextTick(function () {
-              return _this.setLimitTimeFromUpdateTime(updateMaxDateTo, 'maxTime', timeStr);
+            updateDateTimeMaxTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateDateTimeMaxTo, 'maxTime', timeStr);
+            });
+          }
+        });
+      });
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Scheduler/index.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Scheduler/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  return {
+    dateInstance: null,
+    timeInstance: null,
+    getElementTimeFromElementDate: function getElementTimeFromElementDate(element) {
+      return document.querySelector("[name=\"".concat(element.name.replace('[date]', '[time]'), "\"]"));
+    },
+    setLimitTimeFromUpdateDate: function setLimitTimeFromUpdateDate(element, configName, dateStr) {
+      if (element.value != '' && element.value == dateStr) {
+        var elementTime = this.getElementTimeFromElementDate(element);
+        var hourValue = elementTime._flatpickr.hourElement.value;
+        var minuteValue = elementTime._flatpickr.minuteElement.value;
+        var timeAnotherField = "".concat(hourValue, ":").concat(minuteValue);
+        this.timeInstance.set(configName, timeAnotherField);
+      } else {
+        this.timeInstance.set(configName, null);
+      }
+    },
+    setLimitTimeFromUpdateTime: function setLimitTimeFromUpdateTime(element, configName, timeStr) {
+      if (this.$refs.date.value != '' && this.$refs.date.value == element.value) {
+        this.getElementTimeFromElementDate(element)._flatpickr.set(configName, timeStr);
+      } else {
+        this.getElementTimeFromElementDate(element)._flatpickr.set(configName, null);
+      }
+    },
+    init: function init() {
+      var _this = this;
+
+      this.$nextTick(function () {
+        var updateDateTimeMinTo = document.querySelector(_this.$refs.date.dataset.updateDateTimeMinTo);
+        var updateDateTimeMaxTo = document.querySelector(_this.$refs.date.dataset.updateDateTimeMaxTo);
+        _this.dateInstance = Flatpickr(_this.$refs.date, {
+          dateFormat: "d/m/Y",
+          onChange: function onChange(selectedDates, dateStr, instance) {
+            updateDateTimeMinTo && _this.$nextTick(function () {
+              updateDateTimeMinTo._flatpickr.set('minDate', dateStr);
+
+              _this.setLimitTimeFromUpdateDate(updateDateTimeMinTo, 'maxTime', dateStr);
+            });
+            updateDateTimeMaxTo && _this.$nextTick(function () {
+              updateDateTimeMaxTo._flatpickr.set('maxDate', dateStr);
+
+              _this.setLimitTimeFromUpdateDate(updateDateTimeMaxTo, 'minTime', dateStr);
+            });
+          }
+        });
+        _this.timeInstance = Flatpickr(_this.$refs.time, {
+          inline: true,
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          time_24hr: true,
+          onChange: function onChange(selectedTimes, timeStr, instance) {
+            updateDateTimeMinTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateDateTimeMinTo, 'minTime', timeStr);
+            });
+            updateDateTimeMaxTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateDateTimeMaxTo, 'maxTime', timeStr);
             });
           }
         });
@@ -3194,13 +3273,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 /* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Select */ "./resources/js/components/Select/index.js");
 /* harmony import */ var _DateTime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DateTime */ "./resources/js/components/DateTime/index.js");
+/* harmony import */ var _Scheduler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Scheduler */ "./resources/js/components/Scheduler/index.js");
+
 
 
 
 window.Select = _Select__WEBPACK_IMPORTED_MODULE_1__["default"];
 window.DateTime = _DateTime__WEBPACK_IMPORTED_MODULE_2__["default"];
+window.Scheduler = _Scheduler__WEBPACK_IMPORTED_MODULE_3__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].data('Select', _Select__WEBPACK_IMPORTED_MODULE_1__["default"]);
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].data('DateTime', _DateTime__WEBPACK_IMPORTED_MODULE_2__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].data('Scheduler', _Scheduler__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 /***/ }),
 

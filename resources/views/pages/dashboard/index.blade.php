@@ -106,12 +106,12 @@
             <x-card>
                 <x-card.body>
                     <div class="form-control mb-4">
-                        <label class="label label-text" for="author">Autor</label>
+                        <label class="label label-text" for="author">Autores</label>
                         <x-select multiple>
-                            <option value="1">Item 1</option>
-                            <option value="2" >Item 2</option>
-                            <option value="3" selected>Item 3</option>
-                            <option value="5">Item 5</option>
+                            <option value="1">Lucas Mota</option>
+                            <option value="2">Junior Monteiro</option>
+                            <option value="3" selected>Guilherme Soares</option>
+                            <option value="5">João da Silva Sauro</option>
                         </x-select>
                     </div>
 
@@ -123,10 +123,14 @@
                    <div class="form-control">
                         <label class="label label-text" for="categories">Categorias</label>
                         <x-select multiple>
-                            <option value="tag 1">Tag 1</option>
-                            <option value="tag 2" >Tag 2</option>
-                            <option value="tag 3" selected>Tag 3</option>
-                            <option value="tag 5">Tag 5</option>
+                            <option value="brasil">Brasil</option>
+                            <option value="politica" >Política</option>
+                            <option value="esporte" selected>Esporte</option>
+                            <option value="policial">Policial</option>
+                            <option value="mundo">Mundo</option>
+                            <option value="econonomia">Economia</option>
+                            <option value="cidade">Cidade</option>
+                            <option value="estado">Estado</option>
                         </x-select>
                     </div>
                 </x-card.body>
@@ -141,21 +145,7 @@
                         </label>
                     </div>
 
-                    <div class="form-control">
-                        <label class="label" for="published_at">
-                            <span class="label-text">Data e hora da postagem</span>
-                        </label>
-                        <x-datetime name="published_at" updateMinDateTo="[name='unpublished_at[date]']" />
-                    </div>
-                    <div x-data="{ expanded: false }" class="transition-all duration-300" x-bind:class="expanded && 'p-2 border rounded-md mt-1 bg-base-200/20'">
-                        <button x-on:click="expanded = !expanded" class="text-sm font-medium">Programar expiração do post</button>
-                        <div x-show="expanded" x-collapse>
-                            <label class="label mt-4" for="unpublished_at">
-                                <span class="label-text">Data e hora do encerramento</span>
-                            </label>
-                            <x-datetime name="unpublished_at" updateMaxDateTo="[name='published_at[date]']" />
-                        </div>
-                    </div>
+                    <x-scheduler startNameField="published_at" endNameField="expired_at" />
                 </x-card.body>
             </x-card>
         </div>       
