@@ -3087,6 +3087,27 @@ __webpack_require__.r(__webpack_exports__);
   return {
     dateInstance: null,
     timeInstance: null,
+    getElementTimeFromElementDate: function getElementTimeFromElementDate(element) {
+      return document.querySelector("[name=\"".concat(element.name.replace('[date]', '[time]'), "\"]"));
+    },
+    setLimitTimeFromUpdateDate: function setLimitTimeFromUpdateDate(element, configName, dateStr) {
+      if (element.value != '' && element.value == dateStr) {
+        var elementTime = this.getElementTimeFromElementDate(element);
+        var hourValue = elementTime._flatpickr.hourElement.value;
+        var minuteValue = elementTime._flatpickr.minuteElement.value;
+        var timeAnotherField = "".concat(hourValue, ":").concat(minuteValue);
+        this.timeInstance.set(configName, timeAnotherField);
+      } else {
+        this.timeInstance.set(configName, null);
+      }
+    },
+    setLimitTimeFromUpdateTime: function setLimitTimeFromUpdateTime(element, configName, timeStr) {
+      if (this.$refs.date.value != '' && this.$refs.date.value == element.value) {
+        this.getElementTimeFromElementDate(element)._flatpickr.set(configName, timeStr);
+      } else {
+        this.getElementTimeFromElementDate(element)._flatpickr.set(configName, null);
+      }
+    },
     init: function init() {
       var _this = this;
 
@@ -3097,10 +3118,14 @@ __webpack_require__.r(__webpack_exports__);
           dateFormat: "d/m/Y",
           onChange: function onChange(selectedDates, dateStr, instance) {
             updateMinDateTo && _this.$nextTick(function () {
-              return updateMinDateTo._flatpickr.set('minDate', dateStr);
+              updateMinDateTo._flatpickr.set('minDate', dateStr);
+
+              _this.setLimitTimeFromUpdateDate(updateMinDateTo, 'maxTime', dateStr);
             });
             updateMaxDateTo && _this.$nextTick(function () {
-              return updateMaxDateTo._flatpickr.set('maxDate', dateStr);
+              updateMaxDateTo._flatpickr.set('maxDate', dateStr);
+
+              _this.setLimitTimeFromUpdateDate(updateMaxDateTo, 'minTime', dateStr);
             });
           }
         });
@@ -3109,7 +3134,15 @@ __webpack_require__.r(__webpack_exports__);
           enableTime: true,
           noCalendar: true,
           dateFormat: "H:i",
-          time_24hr: true
+          time_24hr: true,
+          onChange: function onChange(selectedTimes, timeStr, instance) {
+            updateMinDateTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateMinDateTo, 'minTime', timeStr);
+            });
+            updateMaxDateTo && _this.$nextTick(function () {
+              return _this.setLimitTimeFromUpdateTime(updateMaxDateTo, 'maxTime', timeStr);
+            });
+          }
         });
       });
     }
