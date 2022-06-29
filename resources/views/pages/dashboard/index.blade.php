@@ -3,6 +3,31 @@
 @section('title', 'Dashboard')
 
 @section('content')
+<x-topbar>
+    <x-slot:title>
+        Criar postagem
+    </x-slot:title>
+
+    <x-slot:actions>
+        <button class="btn btn-ghost border gap-2">
+            <x-icon name="arrow-left" class="w-4 h-4" />
+            <span class="hidden md:inline-flex">Cancelar</span>
+        </button>
+        <button class="btn btn-ghost border gap-2 hidden md:flex">
+            <x-icon name="eye" class="w-4 h-4" />
+            Prévia
+        </button>
+        <button class="btn btn-ghost border gap-2 hidden md:flex">
+            <x-icon name="save" class="w-4 h-4" />
+            Salvar rascunho
+        </button>
+        <button class="btn btn-primary gap-2">
+            <x-icon name="check-circle" class="w-4 h-4" />
+            Publicar
+        </button>
+    </x-slot:actions>
+</x-topbar>
+
 <div class="p-6">
     <div class="flex flex-col md:flex-row gap-10 md:w-9/12 mx-auto">    
         <div class="w-full md:w-2/3 space-y-10">

@@ -30,7 +30,6 @@
             x-bind:class="{
                 'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
             }">
-            <x-topbar />
             <main>
                 @yield('content')
             </main>

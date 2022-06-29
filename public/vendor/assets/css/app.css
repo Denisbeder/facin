@@ -1652,21 +1652,9 @@ body[dir="rtl"] .checkbox:checked,
   min-height: 1.5rem;
   font-size: 0.75rem;
 }
-.btn-sm{
-  height: 2rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  min-height: 2rem;
-  font-size: 0.875rem;
-}
 .btn-square:where(.btn-xs){
   height: 1.5rem;
   width: 1.5rem;
-  padding: 0px;
-}
-.btn-square:where(.btn-sm){
-  height: 2rem;
-  width: 2rem;
   padding: 0px;
 }
 .btn-circle:where(.btn-xs){
@@ -1807,20 +1795,17 @@ body[dir="rtl"] .checkbox:checked,
 .left-3{
   left: 0.75rem;
 }
-.z-0{
-  z-index: 0;
+.z-50{
+  z-index: 50;
 }
 .z-10{
   z-index: 10;
 }
-.z-50{
-  z-index: 50;
-}
 .z-20{
   z-index: 20;
 }
-.z-\[1\]{
-  z-index: 1;
+.z-0{
+  z-index: 0;
 }
 .mx-4{
   margin-left: 1rem;
@@ -1844,6 +1829,12 @@ body[dir="rtl"] .checkbox:checked,
 }
 .-ml-px{
   margin-left: -1px;
+}
+.mt-1{
+  margin-top: 0.25rem;
+}
+.mt-4{
+  margin-top: 1rem;
 }
 .ml-0{
   margin-left: 0px;
@@ -1896,11 +1887,8 @@ body[dir="rtl"] .checkbox:checked,
 .mr-auto{
   margin-right: auto;
 }
-.mt-1{
-  margin-top: 0.25rem;
-}
-.mt-4{
-  margin-top: 1rem;
+.ml-auto{
+  margin-left: auto;
 }
 .-mt-24{
   margin-top: -6rem;
@@ -1938,17 +1926,17 @@ body[dir="rtl"] .checkbox:checked,
 .h-4{
   height: 1rem;
 }
-.h-8{
-  height: 2rem;
+.h-9{
+  height: 2.25rem;
 }
 .h-0{
   height: 0px;
 }
+.h-8{
+  height: 2rem;
+}
 .h-3{
   height: 0.75rem;
-}
-.h-9{
-  height: 2.25rem;
 }
 .h-auto{
   height: auto;
@@ -2055,8 +2043,8 @@ body[dir="rtl"] .checkbox:checked,
   --tw-translate-x: 50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.translate-y-8{
-  --tw-translate-y: 2rem;
+.translate-y-7{
+  --tw-translate-y: 1.75rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-1\/2{
@@ -2128,14 +2116,14 @@ body[dir="rtl"] .checkbox:checked,
 .gap-0{
   gap: 0px;
 }
+.gap-2{
+  gap: 0.5rem;
+}
 .gap-10{
   gap: 2.5rem;
 }
 .gap-4{
   gap: 1rem;
-}
-.gap-2{
-  gap: 0.5rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
@@ -2237,6 +2225,9 @@ body[dir="rtl"] .checkbox:checked,
 .bg-base-300\/60{
   background-color: hsl(var(--b3, var(--b2)) / 0.6);
 }
+.bg-base-200\/20{
+  background-color: hsl(var(--b2, var(--b1)) / 0.2);
+}
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--p) / var(--tw-bg-opacity));
@@ -2250,9 +2241,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .bg-base-200\/40{
   background-color: hsl(var(--b2, var(--b1)) / 0.4);
-}
-.bg-base-200\/20{
-  background-color: hsl(var(--b2, var(--b1)) / 0.2);
 }
 .bg-slate-50{
   --tw-bg-opacity: 1;
@@ -2281,11 +2269,11 @@ body[dir="rtl"] .checkbox:checked,
 .stroke-current{
   stroke: currentColor;
 }
-.p-4{
-  padding: 1rem;
-}
 .p-2{
   padding: 0.5rem;
+}
+.p-4{
+  padding: 1rem;
 }
 .p-0{
   padding: 0px;
@@ -2439,6 +2427,11 @@ body[dir="rtl"] .checkbox:checked,
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity));
 }
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .transition-colors{
   transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
@@ -2453,11 +2446,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .transition-transform{
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.transition-all{
-  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -3025,17 +3013,11 @@ body[dir="rtl"] .checkbox:checked,
 .hover\:overflow-y-overlay:hover {
     overflow-y: overlay;
   }
-.focus\:z-20:focus{
-  z-index: 20;
-}
-.focus\:z-\[2\]:focus{
-  z-index: 2;
+.focus\:z-\[1\]:focus{
+  z-index: 1;
 }
 .focus\:z-10:focus{
   z-index: 10;
-}
-.focus\:z-\[1\]:focus{
-  z-index: 1;
 }
 .focus\:border-blue-300:focus{
   --tw-border-opacity: 1;
@@ -3106,6 +3088,12 @@ body[dir="rtl"] .checkbox:checked,
   }
   .md\:mt-0{
     margin-top: 0px;
+  }
+  .md\:flex{
+    display: flex;
+  }
+  .md\:inline-flex{
+    display: inline-flex;
   }
   .md\:hidden{
     display: none;
