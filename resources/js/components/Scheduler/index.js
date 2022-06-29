@@ -1,58 +1,89 @@
-export default () => ({
-    dateInstance: null,
-    timeInstance: null,
-    getElementTimeFromElementDate(element) {
-        return document.querySelector(`[name="${element.name.replace('[date]', '[time]')}"]`);
+export default (startElementSelector, endElementSelector) => ({
+    startElement: null,
+    endElement: null,
+    getElement(elementSelector) {
+        return document.querySelector(`[name="${elementSelector}"]`);
     },
-    setLimitTimeFromUpdateDate(element, configName, dateStr) {
-        if (element.value != '' && element.value == dateStr) {
-            const elementTime = this.getElementTimeFromElementDate(element);
-            const hourValue = elementTime._flatpickr.hourElement.value;
-            const minuteValue = elementTime._flatpickr.minuteElement.value;
-            const timeAnotherField = `${hourValue}:${minuteValue}`;
-            this.timeInstance.set(configName, timeAnotherField);
+    getFlatpickr(elementField) {
+        return elementField._flatpickr;
+    },
+    startDateFlatpickr() {
+        return this.getFlatpickr(this.startElement.dateField);
+    },
+    startTimeFlatpickr() {
+        return this.getFlatpickr(this.startElement.timeField);
+    },
+    endDateFlatpickr() {
+        return this.getFlatpickr(this.endElement.dateField);
+    },
+    endTimeFlatpickr() {
+        return this.getFlatpickr(this.endElement.timeField);
+    },
+    getDateValue(element) {
+        return this.getFlatpickr(element.dateField).element.value;
+    },
+    getTimeValue(element) {
+        const hourValue = this.getFlatpickr(element.timeField).hourElement.value;
+        const minuteValue = this.getFlatpickr(element.timeField).minuteElement.value;
+        return this.formatTimeValue(hourValue, minuteValue);
+    },
+    formatTimeValue(hourValue, minuteValue) {
+        return `${hourValue}:${minuteValue}`;
+    },
+    setElements(startElementSelector, endElementSelector) {
+        this.startElement = {
+            dateField: this.getElement(`${startElementSelector}[date]`),
+            timeField: this.getElement(`${startElementSelector}[time]`),
+        };
+        
+        this.endElement = {
+            dateField: this.getElement(`${endElementSelector}[date]`),
+            timeField: this.getElement(`${endElementSelector}[time]`),
+        };
+    },
+    setTimeFieldLimit(configName, configValue, flatpickr, elem) {
+        // If dates same equals, expiration time not should be minor that the start time
+        if (this.getDateValue(this.startElement) == this.getDateValue(this.endElement)) {
+            flatpickr.set(configName, configValue);
         } else {
-            this.timeInstance.set(configName, null);                            
+            flatpickr.set(configName, null);
         }
     },
-    setLimitTimeFromUpdateTime(element, configName, timeStr) {
-        if (this.$refs.date.value != '' && this.$refs.date.value == element.value) {
-            this.getElementTimeFromElementDate(element)._flatpickr.set(configName, timeStr);
-        } else {
-            this.getElementTimeFromElementDate(element)._flatpickr.set(configName, null);
-        }
+    timeFieldLimit() {
+        this.setTimeFieldLimit('minTime', this.getTimeValue(this.startElement), this.endTimeFlatpickr(), 'to end');
+        this.setTimeFieldLimit('maxTime', this.getTimeValue(this.endElement), this.startTimeFlatpickr(), 'to start');
     },
-    init() {
-        this.$nextTick(() => {
-            const updateDateTimeMinTo = document.querySelector(this.$refs.date.dataset.updateDateTimeMinTo);
-            const updateDateTimeMaxTo = document.querySelector(this.$refs.date.dataset.updateDateTimeMaxTo);
-            
-            this.dateInstance = Flatpickr(this.$refs.date, {
-                dateFormat: "d/m/Y",
-                onChange: (selectedDates, dateStr, instance) => {
-                    updateDateTimeMinTo && this.$nextTick(() => {
-                        updateDateTimeMinTo._flatpickr.set('minDate', dateStr);
-                        this.setLimitTimeFromUpdateDate(updateDateTimeMinTo, 'maxTime', dateStr);
-                    });
-                    updateDateTimeMaxTo && this.$nextTick(() => {
-                        updateDateTimeMaxTo._flatpickr.set('maxDate', dateStr);
-                        this.setLimitTimeFromUpdateDate(updateDateTimeMaxTo, 'minTime', dateStr);
-                    });
-                },
-            });
+    handleStartFields() {
+        this.startDateFlatpickr().config.onChange.push((selected, currentValue, instance) => {
+            // The date to expiration not should be minor that start date
+            this.endDateFlatpickr().set('minDate', currentValue);
+            this.timeFieldLimit();
+        });
 
-            this.timeInstance = Flatpickr(this.$refs.time, {
-                inline: true,
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                onChange: (selectedTimes, timeStr, instance) => {
-                    updateDateTimeMinTo && this.$nextTick(() => this.setLimitTimeFromUpdateTime(updateDateTimeMinTo, 'minTime', timeStr));
-                    updateDateTimeMaxTo && this.$nextTick(() => this.setLimitTimeFromUpdateTime(updateDateTimeMaxTo, 'maxTime', timeStr));
-                }
-            });
+        this.startTimeFlatpickr().config.onChange.push(() => {
+            this.timeFieldLimit();
         });
     },
+    handleEndFields() {
+        this.endDateFlatpickr().config.onChange.push((selected, currentValue, instance) => {
+            // The date to start not should be major that termination date
+            this.startDateFlatpickr().set('maxDate', currentValue);
+            this.timeFieldLimit();
+        });
 
+        this.endTimeFlatpickr().config.onChange.push(() => {
+            this.timeFieldLimit();
+        });
+    },
+    async init() {
+        await this.$nextTick(); // wait DOM 
+        
+        this.setElements(startElementSelector, endElementSelector);
+
+        // Start Fields Handle
+        this.handleStartFields();
+
+        // End Fields Handle
+        this.handleEndFields();
+    },
 });

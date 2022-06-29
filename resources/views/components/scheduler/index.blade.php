@@ -5,7 +5,7 @@
     'endNameField',
 ])
 
-<div>
+<div x-data="Scheduler('{{ $startNameField }}', '{{ $endNameField }}')">
     <div class="form-control">
         <label class="label" for="{{ $startNameField }}[date]">
             <span class="label-text">{{ $startLabel ?? 'Data e hora do início' }}</span>
