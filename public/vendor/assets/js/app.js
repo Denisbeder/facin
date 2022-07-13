@@ -3150,9 +3150,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getDateValue: function getDateValue(element) {
       return this.getFlatpickr(element.dateField).element.value;
     },
+    getHourValue: function getHourValue(element) {
+      return this.getFlatpickr(element.timeField).hourElement.value;
+    },
+    getMinuteValue: function getMinuteValue(element) {
+      return this.getFlatpickr(element.timeField).minuteElement.value;
+    },
     getTimeValue: function getTimeValue(element) {
-      var hourValue = this.getFlatpickr(element.timeField).hourElement.value;
-      var minuteValue = this.getFlatpickr(element.timeField).minuteElement.value;
+      var hourValue = this.getHourValue(element);
+      var minuteValue = this.getMinuteValue(element);
       return this.formatTimeValue(hourValue, minuteValue);
     },
     formatTimeValue: function formatTimeValue(hourValue, minuteValue) {
@@ -3168,17 +3174,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         timeField: this.getElement("".concat(endElementSelector, "[time]"))
       };
     },
-    setTimeFieldLimit: function setTimeFieldLimit(configName, configValue, flatpickr, elem) {
-      // If dates same equals, expiration time not should be minor that the start time
-      if (this.getDateValue(this.startElement) == this.getDateValue(this.endElement)) {
-        flatpickr.set(configName, configValue);
+    handleTimeFieldLimit: function handleTimeFieldLimit(configName, configValue, flatpickr) {
+      var startDate = this.getDateValue(this.startElement);
+      var endDate = this.getDateValue(this.endElement);
+      var startHour = Number(this.getHourValue(this.startElement));
+      var endHour = Number(this.getHourValue(this.endElement)); // If dates same equals, expiration time not should be minor that the start time
+
+      if (startDate == endDate && (endDate != '' || endDate != '')) {
+        flatpickr.set(configName, configValue); // Force hour fix when expiration hour is minor that start hour in the same day
+
+        if (endHour < startHour) {
+          flatpickr.hourElement.value = startHour + 1;
+        }
       } else {
         flatpickr.set(configName, null);
       }
     },
-    timeFieldLimit: function timeFieldLimit() {
-      this.setTimeFieldLimit('minTime', this.getTimeValue(this.startElement), this.endTimeFlatpickr(), 'to end');
-      this.setTimeFieldLimit('maxTime', this.getTimeValue(this.endElement), this.startTimeFlatpickr(), 'to start');
+    setTimeFieldLimit: function setTimeFieldLimit() {
+      this.handleTimeFieldLimit('minTime', this.getTimeValue(this.startElement), this.endTimeFlatpickr());
+      this.handleTimeFieldLimit('maxTime', this.getTimeValue(this.endElement), this.startTimeFlatpickr());
     },
     handleStartFields: function handleStartFields() {
       var _this = this;
@@ -3187,10 +3201,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // The date to expiration not should be minor that start date
         _this.endDateFlatpickr().set('minDate', currentValue);
 
-        _this.timeFieldLimit();
+        _this.setTimeFieldLimit();
       });
       this.startTimeFlatpickr().config.onChange.push(function () {
-        _this.timeFieldLimit();
+        _this.setTimeFieldLimit();
       });
     },
     handleEndFields: function handleEndFields() {
@@ -3200,10 +3214,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // The date to start not should be major that termination date
         _this2.startDateFlatpickr().set('maxDate', currentValue);
 
-        _this2.timeFieldLimit();
+        _this2.setTimeFieldLimit();
       });
       this.endTimeFlatpickr().config.onChange.push(function () {
-        _this2.timeFieldLimit();
+        _this2.setTimeFieldLimit();
       });
     },
     init: function init() {

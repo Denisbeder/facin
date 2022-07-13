@@ -9,19 +9,19 @@
     </x-slot:title>
 
     <x-slot:actions>
-        <button class="btn btn-ghost border gap-2">
+        <button class="btn min-h-max h-10 btn-ghost border gap-2">
             <x-icon name="arrow-left" class="w-4 h-4" />
             <span class="hidden md:inline-flex">Cancelar</span>
         </button>
-        <button class="btn btn-ghost border gap-2 hidden md:flex">
+        <button class="btn min-h-max h-10 btn-ghost border gap-2 hidden md:flex">
             <x-icon name="eye" class="w-4 h-4" />
             Prévia
         </button>
-        <button class="btn btn-ghost border gap-2 hidden md:flex">
+        <button class="btn min-h-max h-10 btn-ghost border gap-2 hidden md:flex">
             <x-icon name="save" class="w-4 h-4" />
             Salvar rascunho
         </button>
-        <button class="btn btn-primary gap-2">
+        <button class="btn min-h-max h-10 btn-primary gap-2">
             <x-icon name="check-circle" class="w-4 h-4" />
             Publicar
         </button>

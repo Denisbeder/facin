@@ -36,6 +36,8 @@
         </div>
     </div>
 
+    @yield('modal')
+
     @livewireScripts
     <script src="{{ asset('vendor/assets/js/app.js') }}"></script>
 </body>
