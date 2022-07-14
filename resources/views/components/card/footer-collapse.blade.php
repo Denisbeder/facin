@@ -12,7 +12,7 @@
         </button>
     </div>
 
-    <x-card.footer class="pb-8">
+    <x-card.footer class="pb-8 rounded-b-box">
         <x-card.body class="pb-0" x-show="expanded" x-collapse>
             {{ $slot }}
         </x-card.body>

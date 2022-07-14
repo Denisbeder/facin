@@ -13,22 +13,24 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::redirect('/', '/dashboard')->name('app.index');
 
 //Route::middleware('auth')->group(function () {
-    // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Post
-    Route::get('/post', [PostController::class, 'index'])->name('post.index');
-    Route::post('/post', [PostController::class, 'store'])->name('post.store');
-    //Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit')->where('post', '[0-9]+');
-    //Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update')->where('post', '[0-9]+');
-    Route::delete('/post/{post}', [PostController::class, 'delete'])->name('post.delete')->where('post', '[0-9]+');
+// Post
+Route::get('/post', [PostController::class, 'index'])->name('post.index');
+Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
+//Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit')->where('post', '[0-9]+');
+//Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update')->where('post', '[0-9]+');
+Route::delete('/post/{post}', [PostController::class, 'delete'])->name('post.delete')->where('post', '[0-9]+');
 
-    // User
-    Route::get('/user', [UserController::class, 'index'])->name('user.index');
-    Route::post('/user', [UserController::class, 'store'])->name('user.store');
-    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->where('user', '[0-9]+');
-    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update')->where('user', '[0-9]+');
-    //Route::delete('/user/{user}', [UserController::class, 'delete'])->name('user.delete')->where('user', '[0-9]+');
+// User
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user', [UserController::class, 'store'])->name('user.store');
+Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->where('user', '[0-9]+');
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update')->where('user', '[0-9]+');
+//Route::delete('/user/{user}', [UserController::class, 'delete'])->name('user.delete')->where('user', '[0-9]+');
 //});
 
 Route::get('/teste', function () {

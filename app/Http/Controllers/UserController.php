@@ -14,6 +14,11 @@ class UserController extends Controller
         return view('pages.user.index');
     }
 
+    public function create(): View
+    {
+        return view('pages.user.form');
+    }
+
     public function store(Request $request): RedirectResponse
     {
         User::create($request->input());

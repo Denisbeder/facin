@@ -38,7 +38,7 @@
 
     <x-sidebar.nav.header>Contas</x-sidebar.nav.header>
     <x-sidebar.nav class="mb-5">   
-        <x-sidebar.nav.item icon="lock-closed" title="Usuários do sistema" label="Usuários do sistema" />
+        <x-sidebar.nav.item href="/user" icon="lock-closed" title="Usuários do sistema" label="Usuários do sistema" />
         <x-sidebar.nav.item icon="users" title="Usuários do cliente" label="Usuários do cliente" />
     </x-sidebar.nav>
 

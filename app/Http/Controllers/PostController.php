@@ -14,6 +14,11 @@ class PostController extends Controller
         return view('pages.post.index');
     }
 
+    public function create(): View
+    {
+        return view('pages.post.form');
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $request->merge(['user_id' => $request->user()->id]);

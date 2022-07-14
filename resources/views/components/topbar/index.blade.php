@@ -16,7 +16,7 @@
         <h1 class="text-xl font-semibold">{{ $title }}</h1>
         
         @if($actions)
-        <div class="flex items-center gap-2 ml-auto">
+        <div class="flex items-center gap-2 ml-auto topbar-actions-btn">
             {{ $actions }}
         </div>
         @endif

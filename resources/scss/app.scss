@@ -38,8 +38,11 @@
     .card {
         overflow: unset;
     }
-    .card-title {
-        @apply text-base;
+    .card-title + small {
+        @apply text-base-content/60;
+    }
+    .label {
+        @apply px-0;
     }
     .input, .textarea {
         &:focus {
@@ -48,6 +51,12 @@
     }
     .border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
         @apply border-base-content/10;
+    }
+
+    .topbar-actions-btn {
+        .btn {
+            @apply min-h-max h-10;
+        }
     }
 }
 
