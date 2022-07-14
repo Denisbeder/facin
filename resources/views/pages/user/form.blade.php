@@ -44,180 +44,208 @@
                     </div>
                 </div>
 
-                <div class="p-4 border mt-5 rounded-box">
+                <div class="mt-5">
                     <div class="card-title text-base mb-4">Permissões</div>
-                    @php
-                        $permissions = [
-                            [
-                                'model' => 'post', 
-                                'label' => 'Postagens', 
-                                'actions' => [
-                                    ['label' => 'Listar tudo', 'value' => 'list'],
-                                    ['label' => 'Listar somente do usuário logado', 'value' => 'list-only-user'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'page', 
-                                'label' => 'Páginas', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'comment', 
-                                'label' => 'Comentários', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'banner', 
-                                'label' => 'Banners', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'survey', 
-                                'label' => 'Enquetes', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'schedule', 
-                                'label' => 'Agendamentos', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'hightlight', 
-                                'label' => 'Destaques de capa', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'related', 
-                                'label' => 'Relacionados', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'category', 
-                                'label' => 'Categorias', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'menu', 
-                                'label' => 'Menus', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'users', 
-                                'label' => 'Usuários do sistema', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'users', 
-                                'label' => 'Usuários do site', 
-                                'actions' => [
-                                    ['label' => 'Listar', 'value' => 'list'],
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                    ['label' => 'Criar', 'value' => 'create'],
-                                    ['label' => 'Editar', 'value' => 'edit'],
-                                    ['label' => 'Deletar', 'value' => 'delete'],
-                                ]
-                            ],
-                            [
-                                'model' => 'log', 
-                                'label' => 'Logs', 
-                                'actions' => [
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                ]
-                            ],
-                            [
-                                'model' => 'queue', 
-                                'label' => 'Filas', 
-                                'actions' => [
-                                    ['label' => 'Visualizar detalhes', 'value' => 'show'],
-                                ]
-                            ],
-                            [
-                                'model' => 'dashboard', 
-                                'label' => 'Visão geral', 
-                                'actions' => [
-                                    ['label' => 'Métricas', 'value' => 'metrics'],
-                                ]
-                            ],
-                        ];
-                    @endphp
-                    <div class="space-y-4">
-                        @foreach ($permissions as $permission)
-                        <div class="form-control">
-                            <label class="label label-text font-semibold">{{ $permission['label'] }}</label> 
-                            <div class="flex gap-8">
-                                @foreach ($permission['actions'] as $permissionAction)
-                                <label class="cursor-pointer flex items-start">
-                                    <input name="persissions[{{ $permission['model'] }}]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
-                                    <span class="label-text ml-3 mr-auto">{{ $permissionAction['label'] }}</span>
-                                </label>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col w-1/2 p-4 border rounded-box">
+                            <div class="card-title text-base mb-4">
+                                Gerenciar todos conteúdos
+                                <div class="tooltip" data-tip="Essas permissões definem que esse usuário pederá manusear tudo que existir cadastrado baseados nas permissões selecionadas abaixo.">
+                                    <x-icon name="question-mark-circle" class="w-4 h-4" />
+                                </div>
+                            </div>
+                            @php
+                                $permissions = [
+                                    [
+                                        'model' => 'page.1', 
+                                        'label' => 'Página: Notícias', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'post', 
+                                        'label' => 'Postagens', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'page', 
+                                        'label' => 'Páginas', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'comment', 
+                                        'label' => 'Comentários', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'banner', 
+                                        'label' => 'Banners', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'survey', 
+                                        'label' => 'Enquetes', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'schedule', 
+                                        'label' => 'Agendamentos', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'hightlight', 
+                                        'label' => 'Destaques de capa', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'related', 
+                                        'label' => 'Relacionados', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'category', 
+                                        'label' => 'Categorias', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'menu', 
+                                        'label' => 'Menus', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'users', 
+                                        'label' => 'Usuários do sistema', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'users', 
+                                        'label' => 'Usuários do site', 
+                                        'actions' => [
+                                            ['label' => 'Listar', 'value' => 'list'],
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                            ['label' => 'Criar', 'value' => 'create'],
+                                            ['label' => 'Editar', 'value' => 'edit'],
+                                            ['label' => 'Deletar', 'value' => 'delete'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'log', 
+                                        'label' => 'Logs', 
+                                        'actions' => [
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'queue', 
+                                        'label' => 'Filas', 
+                                        'actions' => [
+                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
+                                        ]
+                                    ],
+                                    [
+                                        'model' => 'dashboard', 
+                                        'label' => 'Visão geral', 
+                                        'actions' => [
+                                            ['label' => 'Métricas', 'value' => 'metrics'],
+                                        ]
+                                    ],
+                                ];
+                            @endphp
+                            <div class="space-y-4">
+                                @foreach ($permissions as $permission)
+                                <div class="form-control">
+                                    <label class="label label-text font-semibold">{{ $permission['label'] }}</label> 
+                                    <div class="flex flex-col gap-1">
+                                        @foreach ($permission['actions'] as $permissionAction)
+                                        <label class="cursor-pointer flex items-start">
+                                            <input name="persissions[{{ $permission['model'] }}]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
+                                            <span class="label-text ml-3 mr-auto">{{ $permissionAction['label'] }}</span>
+                                        </label>
+                                        @endforeach
+                                    </div>
+                                </div>                    
                                 @endforeach
                             </div>
-                        </div>                    
-                        @endforeach
+                        </div>
+                        <div class="flex flex-col w-1/2 p-4 border rounded-box">
+                            <div class="card-title text-base mb-4">
+                                Gerenciar próprio conteúdo
+                                <div class="tooltip" data-tip="Essas permissões definem que esse usuário somente poderá manusear o conteúdo gerado ele mesmo baseados nas permissões selecionadas abaixo.">
+                                    <x-icon name="question-mark-circle" class="w-4 h-4" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </x-card.body>
