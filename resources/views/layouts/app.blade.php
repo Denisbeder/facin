@@ -14,7 +14,7 @@
 </head>
 <body class="bg-base-200/40">
     <div x-cloak x-data class="flex">
-        <aside class="h-screen flex flex-col z-20 transition-[width,transform] duration-300 bg-base-100 border-r"
+        <aside class="h-screen flex flex-col z-50 transition-[width,transform] duration-300 bg-base-100 border-r"
             x-bind:class="{
                 'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(), 
                 'w-64': $store.sidebar.isModeFull(), 
