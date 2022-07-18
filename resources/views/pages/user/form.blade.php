@@ -46,22 +46,13 @@
 
                 <div class="mt-5">
                     <div class="card-title text-base mb-4">Permissões</div>
-                    <div class="flex gap-4">
-                        <div class="flex flex-col w-1/2 p-4 border rounded-box">
-                            <div class="card-title text-base mb-4">
-                                Gerenciar todos conteúdos
-                                <div class="tooltip" data-tip="Essas permissões definem que esse usuário pederá manusear tudo que existir cadastrado baseados nas permissões selecionadas abaixo.">
-                                    <x-icon name="question-mark-circle" class="w-4 h-4" />
-                                </div>
-                            </div>
-                            @php
+                    @php
                                 $permissions = [
                                     [
                                         'model' => 'page.1', 
                                         'label' => 'Página: Notícias', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -72,7 +63,6 @@
                                         'label' => 'Postagens', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -83,7 +73,6 @@
                                         'label' => 'Páginas', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -94,7 +83,6 @@
                                         'label' => 'Comentários', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -105,7 +93,6 @@
                                         'label' => 'Banners', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -116,7 +103,6 @@
                                         'label' => 'Enquetes', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -127,7 +113,6 @@
                                         'label' => 'Agendamentos', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -138,7 +123,6 @@
                                         'label' => 'Destaques de capa', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -149,7 +133,6 @@
                                         'label' => 'Relacionados', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -160,7 +143,6 @@
                                         'label' => 'Categorias', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -171,7 +153,6 @@
                                         'label' => 'Menus', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -182,7 +163,6 @@
                                         'label' => 'Usuários do sistema', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -193,7 +173,6 @@
                                         'label' => 'Usuários do site', 
                                         'actions' => [
                                             ['label' => 'Listar', 'value' => 'list'],
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                             ['label' => 'Criar', 'value' => 'create'],
                                             ['label' => 'Editar', 'value' => 'edit'],
                                             ['label' => 'Deletar', 'value' => 'delete'],
@@ -203,14 +182,12 @@
                                         'model' => 'log', 
                                         'label' => 'Logs', 
                                         'actions' => [
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                         ]
                                     ],
                                     [
                                         'model' => 'queue', 
                                         'label' => 'Filas', 
                                         'actions' => [
-                                            ['label' => 'Visualizar detalhes', 'value' => 'show'],
                                         ]
                                     ],
                                     [
@@ -224,29 +201,45 @@
                             @endphp
                             <div class="space-y-4">
                                 @foreach ($permissions as $permission)
-                                <div class="form-control">
-                                    <label class="label label-text font-semibold">{{ $permission['label'] }}</label> 
-                                    <div class="flex flex-col gap-1">
-                                        @foreach ($permission['actions'] as $permissionAction)
-                                        <label class="cursor-pointer flex items-start">
-                                            <input name="persissions[{{ $permission['model'] }}]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
-                                            <span class="label-text ml-3 mr-auto">{{ $permissionAction['label'] }}</span>
-                                        </label>
-                                        @endforeach
-                                    </div>
+                                <div class="form-control border rounded-box">                            
+                                    <table class="table table-zebra table-compact w-full">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="5" class="text-center bg-base-300">{{ $permission['label'] }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th width="10%"> </th>
+                                                @foreach ($permission['actions'] as $permissionAction)
+                                                <th class="text-center">{{ $permissionAction['label'] }}</th>
+                                                @endforeach
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>PRÓPRIO</th>
+                                                @foreach ($permission['actions'] as $permissionAction)
+                                                <td>
+                                                    <label class="flex w-full items-center justify-center cursor-pointer group">
+                                                        <input name="persissions[{{ $permission['model'] }}][owner]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary" />
+                                                    </label>
+                                                </td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <th>OUTROS</th>
+                                                @foreach ($permission['actions'] as $permissionAction)
+                                                <td> 
+                                                    <label class="flex w-full items-center justify-center cursor-pointer group">
+                                                        <input name="persissions[{{ $permission['model'] }}][others]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary" />
+                                                    </label>
+                                                </td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>                    
                                 @endforeach
-                            </div>
-                        </div>
-                        <div class="flex flex-col w-1/2 p-4 border rounded-box">
-                            <div class="card-title text-base mb-4">
-                                Gerenciar próprio conteúdo
-                                <div class="tooltip" data-tip="Essas permissões definem que esse usuário somente poderá manusear o conteúdo gerado ele mesmo baseados nas permissões selecionadas abaixo.">
-                                    <x-icon name="question-mark-circle" class="w-4 h-4" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div>  
                 </div>
             </x-card.body>
         </x-card>
