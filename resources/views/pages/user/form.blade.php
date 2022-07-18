@@ -199,7 +199,7 @@
                             ],
                         ];
                     @endphp
-                    <div class="space-y-4">
+                    <div class="grid grid-cols-3 gap-4">
                         @foreach ($permissions as $permission)
                         <div class="form-control border rounded-box">                            
                             <table class="table table-zebra table-compact w-full">

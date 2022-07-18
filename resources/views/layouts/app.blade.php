@@ -10,7 +10,8 @@
     <title>{{ config('app.name') }}</title>
     @endif
     @livewireStyles
-    <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet"> --}}
+    @vite('resources/scss/app.scss', 'vendor/assets')
 </head>
 <body class="bg-base-200/40">
     <div x-cloak x-data class="flex">
@@ -39,6 +40,7 @@
     @yield('modal')
 
     @livewireScripts
-    <script src="{{ asset('vendor/assets/js/app.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/assets/js/app.js') }}"></script> --}}
+    @vite('resources/js/app.js', 'vendor/assets')
 </body>
 </html>
