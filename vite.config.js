@@ -5,6 +5,11 @@ export default defineConfig({
     build: {
         assetsDir: "",
     },
+    server: {
+        hmr: {
+            host: "localhost",
+        },
+    },
     plugins: [
         laravel({
             input: ["resources/scss/app.scss", "resources/js/app.js"],

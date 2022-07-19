@@ -52,7 +52,11 @@
     .border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
         @apply border-base-content/10;
     }
-
+    .table :where(thead, tfoot) :where(th, td), 
+    .table-zebra tbody tr:nth-child(even) th, 
+    .table-zebra tbody tr:nth-child(even) td {
+        --tw-bg-opacity: .35;
+    }
     .topbar-actions-btn {
         .btn {
             @apply min-h-max h-10;
