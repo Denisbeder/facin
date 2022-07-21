@@ -3,15 +3,21 @@
 @section('title', 'Usuários')
 
 @section('content')
-    <x-topbar fixed>
-        <x-slot name="title">Usuários</x-slot>
-        <x-slot name="right">
-            <x-button icon="plus-circle" label="New" />
-        </x-slot>
+    <x-topbar>
+        <x-slot:title>
+            Usuários
+        </x-slot:title>
+
+        <x-slot:actions>
+            <a href="/user/create" class="btn btn-primary gap-2">
+                <x-icon name="plus-circle" class="w-4 h-4" />
+                Novo
+            </a>
+        </x-slot:actions>
     </x-topbar>
 
-    <div class="p-6 flex justify-center">
-        <x-flex-list class="max-w-4xl">
+    <div class="p-6 md:p-10">
+        <x-flex-list class="max-w-5xl mx-auto">
             <x-flex-list.row asHeader>
                 <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
                 <x-flex-list.cell class="flex-[2]">E-mail</x-flex-list.cell>
@@ -39,13 +45,18 @@
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="md:justify-end" header="Ações">
-                    <x-button.group size="2xs">
-                        <x-button label="Edit" icon="edit-alt" variant="outline-light" />
-                        <x-dropdown variant="outline-light">
-                            <x-dropdown.item href="/" label="Delete" />
-                            <x-dropdown.item href="/" label="Show" />
-                        </x-dropdown.item>
-                    </x-button.group>
+                    <div class="group flex">
+                        <button class="btn btn-xs btn-ghost border rounded-r-none">Editar</button>
+                        <div class="dropdown dropdown-end -ml-px">
+                            <label tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
+                                <x-icon name="chevron-down" class="w-4 h-4" />
+                            </label>
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a class="px-3 py-1">Item 1</a></li>
+                                <li><a class="px-3 py-1">Item 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </x-flex-list.cell>
             </x-flex-list.row>
 
@@ -69,13 +80,18 @@
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="md:justify-end" header="Ações">
-                    <x-button.group size="2xs">
-                        <x-button label="Edit" icon="edit-alt" variant="outline-light" />
-                        <x-dropdown variant="outline-light">
-                            <x-dropdown.item href="/" label="Delete" />
-                            <x-dropdown.item href="/" label="Show" />
-                        </x-dropdown.item>
-                    </x-button.group>
+                    <div class="group flex">
+                        <button class="btn btn-xs btn-ghost border rounded-r-none">Editar</button>
+                        <div class="dropdown dropdown-end -ml-px">
+                            <label tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
+                                <x-icon name="chevron-down" class="w-4 h-4" />
+                            </label>
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a class="px-3 py-1">Item 1</a></li>
+                                <li><a class="px-3 py-1">Item 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </x-flex-list.cell>
             </x-flex-list.row>
             @endfor

@@ -22,35 +22,42 @@
             </ul>
         </div>
     </div>
-    <x-card class="mx-auto max-w-xs md:max-w-sm -mt-24">
-        <form action="/login" method="POST" autocomplete="off">
-            <x-card.body class="!p-10">
-                @csrf
-                <div class="flex items-center flex-col mb-10 text-center">
-                    <h3 class="font-bold text-lg mb-3">Bem vindo de volta</h3>
-                    <p>Entre com as credenciais de acesso da sua conta</p>
-                </div>
-                <x-form.control>
-                    <x-form.label for="email" label="E-mail" />
-                    <x-form.input.text name="email" useHasError />
-                </x-form.control>
 
-                <x-form.control>
-                    <x-form.label for="password" label="Senha" />
-                    <x-form.input.text type="password" name="password" useHasError />
-                </x-form.control>
+    <x-card class="mx-auto max-w-xs md:max-w-md -mt-24">
+        <x-card.body>
+            <form action="/login" method="POST" autocomplete="off">
+                <x-card.body>
+                    @csrf
+                    <div class="flex items-center flex-col mb-10 text-center">
+                        <h3 class="font-bold text-lg mb-3">Bem vindo de volta</h3>
+                        <p>Entre com as credenciais de acesso da sua conta</p>
+                    </div>
 
-                <x-form.control>
-                    <x-form.input.checkbox name="remember" value="1" rightLabel="Lembrar-me" classLabel="text-base" />
-                </x-form.control>
+                    <div class="form-control mb-4">
+                        <label class="label label-text" for="email">E-mail</label>
+                        <input type="email" name="email" class="input input-bordered" id="email" />
+                    </div>
 
-                <x-form.control>
-                <x-button label="ENVIAR" class="w-full" />
-                </x-form.control>
+                    <div class="form-control mb-4">
+                        <label class="label label-text" for="password">Senha</label>
+                        <input type="password" name="password" class="input input-bordered" id="password" />
+                    </div>
 
-                <a href="" class="block text-center text-sm hover:text-indigo-500 transition-colors duration-300">Esqueceu sua senha?</a>
-            </x-card.body>
-        </form>
+                    <div class="form-control mb-4">
+                        <label class="cursor-pointer flex items-center">
+                            <input name="remember" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
+                            <span class="label-text ml-3 mr-auto">Lembrar-me</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control mb-4">
+                        <button class="btn btn-primary">ENVIAR</button>
+                    </div>
+
+                    <a href="" class="block text-center text-sm hover:text-indigo-500 transition-colors duration-300">Esqueceu sua senha?</a>
+                </x-card.body>
+            </form>
+        </x-card.body>
     </x-card>
 </section>
 @endsection

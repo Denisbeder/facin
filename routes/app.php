@@ -1,9 +1,9 @@
 <?php
 
-use App\Enums\PostState;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -31,8 +31,12 @@ Route::post('/user', [UserController::class, 'store'])->name('user.store');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->where('user', '[0-9]+');
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update')->where('user', '[0-9]+');
 //Route::delete('/user/{user}', [UserController::class, 'delete'])->name('user.delete')->where('user', '[0-9]+');
-//});
 
-Route::get('/teste', function () {
-    dd(collect(\App\Enums\State::cases())->pluck('value')->toArray());
-});
+// Author
+Route::get('/author', [AuthorController::class, 'index'])->name('author.index');
+Route::get('/author/create', [AuthorController::class, 'create'])->name('author.create');
+Route::post('/author', [AuthorController::class, 'store'])->name('author.store');
+Route::get('/author/{user}/edit', [AuthorController::class, 'edit'])->name('author.edit')->where('user', '[0-9]+');
+Route::put('/author/{user}', [AuthorController::class, 'update'])->name('author.update')->where('user', '[0-9]+');
+    //Route::delete('/author/{user}', [AuthorController::class, 'delete'])->name('author.delete')->where('user', '[0-9]+');
+//});

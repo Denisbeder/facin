@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title', 'Criar usuário')
 
 @section('content')
 <x-topbar>
@@ -20,8 +20,8 @@
     </x-slot:actions>
 </x-topbar>
 
-<div class="p-6">
-    <div class="flex flex-col gap-10 md:w-7/12 mx-auto">    
+<div class="p-6 md:p-10">
+    <div class="flex flex-col gap-10 md:max-w-2xl mx-auto">    
         <x-card class="w-full">
             <x-card.body>
                 <h2 class="card-title mb-2">Credenciais de acesso</h2>
@@ -32,7 +32,7 @@
                     <input type="email" name="email" class="input input-bordered" id="email" />
                 </div>
 
-                <div class="form-control gap-4 flex flex-row mb-4">
+                <div class="form-control gap-4 flex md:flex-row mb-4">
                     <div class="form-control flex-1">
                         <label class="label label-text" for="password">Senha</label>
                         <input type="password" class="input input-bordered" id="password" />
@@ -256,118 +256,6 @@
                             <a href="#" class="btn">Yay!</a>
                         </div>
                     </div>
-                    </div>
-                </div>
-            </x-card.body>
-        </x-card>
-
-        <x-card class="w-full">
-            <x-card.body>
-                <h2 class="card-title mb-2">Perfil</h2>
-                <small class="flex mb-5">Essas informações serão exibidas publicamente, portanto, tenha cuidado com o que você compartilha.</small>
-
-                <div class="form-control mb-4">
-                    <label for="photo" class="block label label-text">Foto</label>
-                    <div class="mt-1 flex items-center">
-                        <span class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                        <x-avatar class="h-full w-full text-gray-300" />
-                        </span>
-                        <button type="button" class="btn btn-sm btn-ghost border ml-4">Mudar</button>
-                        <p class="text-xs flex-initial text-base-content/30 select-none ml-2">PNG, JPG, GIF até 2MB</p>
-                    </div>
-                </div>
-
-                <div class="form-control mb-4">
-                    <label class="label label-text" for="profile_email">E-mail</label>
-                    <input type="email" name="profile_email" class="input input-bordered" id="profile_email" />
-                </div>
-
-                <div class="form-control mb-4">
-                    <label class="label label-text" for="about">Sobre</label>
-                    <textarea class="textarea input-bordered" id="about"></textarea>
-                </div>
-
-                <div class="form-control">
-                    <label class="label label-text" for="social[facebook]">Redes sociais</label>
-
-                    @php
-                        $social = [
-                            ['icon' => 'whatsapp', 'color' => 'text-green-500', 'label' => 'Whatsapp'],
-                            ['icon' => 'telegram', 'color' => 'text-sky-500', 'label' => 'Telegram'],
-                            ['icon' => 'instagram', 'color' => 'text-fuchsia-500', 'label' => 'Instagram'],
-                            ['icon' => 'tiktok', 'color' => 'text-slate-600', 'label' => 'TikTok'],
-                            ['icon' => 'facebook', 'color' => 'text-blue-500', 'label' => 'Facebook'],
-                            ['icon' => 'twitter', 'color' => 'text-sky-400', 'label' => 'Twitter'],
-                            ['icon' => 'youtube', 'color' => 'text-red-500', 'label' => 'Youtube'],
-                        ];
-                    @endphp
-                    @foreach ($social as $item)
-                        <div class="form-control mb-2">
-                            <label class="input-group input-group-sm">
-                                <span class="px-2.5">
-                                    <x-dynamic-component component="icon.{{ $item['icon'] }}" class="w-5 h-5 {{ $item['color'] }}" />
-                                </span>
-                                <input type="url" name="social[{{ strtolower($item['label']) }}]" placeholder="Cole uma URL do {{ $item['label'] }}" class="input input-bordered input-sm flex-1" />
-                            </label>
-                        </div> 
-                    @endforeach               
-                </div>
-            </x-card.body>
-        </x-card>
-
-        <x-card class="w-full">
-            <x-card.body>
-                <h2 class="card-title mb-2">Informações pessoais</h2>
-                <small class="flex mb-5">Use um endereço permanente onde possa receber e-mails.</small>
-
-                <div class="form-control mb-4 gap-4 flex flex-row">
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="first_name">Nome</label>
-                        <input type="text" class="input input-bordered" id="first_name" />
-                    </div>
-
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="last_name">Sobrenome</label>
-                        <input type="text" class="input input-bordered" id="last_name" />
-                    </div>
-                </div>
-
-                <div class="form-control mb-4">
-                    <label class="label label-text" for="people_email">E-mail</label>
-                    <input type="email" name="people_email" class="input input-bordered" id="people_email" />
-                </div>
-
-                <div class="form-control mb-4 gap-4 flex flex-row">
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="zipcode">CEP</label>
-                        <input type="text" class="input input-bordered" id="zipcode" />
-                    </div>
-
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="state_id">Estado</label>
-                        <input type="text" class="input input-bordered" id="state_id" />
-                    </div>
-                    
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="city_id">Cidade</label>
-                        <input type="text" class="input input-bordered" id="city_id" />
-                    </div>                    
-                </div>
-
-                <div class="form-control gap-4 flex flex-row">
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="street">Rua</label>
-                        <input type="text" class="input input-bordered" id="street" />
-                    </div>
-
-                    <div class="form-control flex-initial">
-                        <label class="label label-text" for="number">Número</label>
-                        <input type="text" class="input input-bordered" id="number" />
-                    </div>
-
-                    <div class="form-control flex-1">
-                        <label class="label label-text" for="district">Bairro</label>
-                        <input type="text" class="input input-bordered" id="district" />
                     </div>
                 </div>
             </x-card.body>

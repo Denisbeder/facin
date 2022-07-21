@@ -34,6 +34,7 @@
         <x-sidebar.nav.item icon="link" title="Posts relacionados" label="Posts relacionados" />
         <x-sidebar.nav.item icon="tag" title="Categorias" label="Categorias" />
         <x-sidebar.nav.item icon="menu-alt-1" title="Menus" label="Menus" />
+        <x-sidebar.nav.item href="/author" icon="user-circle" title="Autores" label="Autores" />
     </x-sidebar.nav>
 
     <x-sidebar.nav.header>Contas</x-sidebar.nav.header>

@@ -10,11 +10,13 @@
         <title>{{ config('app.name') }}</title>
     @endif
     @livewireStyles
-    <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/assets/css/app.css') }}" rel="stylesheet"> --}}
+    @vite('resources/scss/app.scss', 'vendor/assets')
 </head>
 <body>
     @yield('content')
     @livewireScripts
-    <script src="{{ asset('vendor/assets/js/app.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/assets/js/app.js') }}"></script> --}}
+    @vite('resources/js/app.js', 'vendor/assets')
 </body>
 </html>
