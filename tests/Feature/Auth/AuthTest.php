@@ -2,8 +2,9 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -55,16 +56,16 @@ class AuthTest extends TestCase
 
     public function test_authenticated_user_can_access_protected_route()
     {
-        $user = \App\Models\User::factory()->create();
+        $user = User::factory()->create();
 
-        /** @var \Illuminate\Contracts\Auth\Authenticatable $user */
+        /** @var Authenticatable $user */
         $response = $this->actingAs($user)->get(route('post.index'));
         $response->assertOk();
     }
 
     public function test_user_can_make_login_and_is_redirected_to_dashboard_route()
     {
-        $user = \App\Models\User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->post(route('login.authenticate'), [
             'email' => $user->email,
@@ -80,7 +81,7 @@ class AuthTest extends TestCase
 
     public function test_user_after_logout_should_not_have_access_to_a_protected_route()
     {
-        $user = \App\Models\User::factory()->create();
+        $user = User::factory()->create();
 
         // make login
         $response = $this->post(route('login.authenticate'), [
@@ -100,7 +101,7 @@ class AuthTest extends TestCase
         $response = $this->get(route('logout'));
         $response->assertStatus(302);
 
-        // after logout of user he try access user.index again and is he has redirected to login route
+        // after logout of user him try access user.index again and is he has redirected to route of login
         $response = $this->get(route('user.index'));
         $response->assertStatus(302);
         $response->assertRedirect('login');

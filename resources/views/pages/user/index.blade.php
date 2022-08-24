@@ -16,7 +16,7 @@
         </x-slot:actions>
     </x-topbar>
 
-    <div class="p-6 md:p-10">
+    <div class="px-6 py-6 md:py-10">
         <x-flex-list class="max-w-5xl mx-auto">
             <x-flex-list.row asHeader>
                 <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
@@ -48,10 +48,10 @@
                     <div class="group flex">
                         <button class="btn btn-xs btn-ghost border rounded-r-none">Editar</button>
                         <div class="dropdown dropdown-end -ml-px">
-                            <label tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
+                            <button tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
                                 <x-icon name="chevron-down" class="w-4 h-4" />
-                            </label>
-                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            </button>
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-1">
                                 <li><a class="px-3 py-1">Item 1</a></li>
                                 <li><a class="px-3 py-1">Item 2</a></li>
                             </ul>
@@ -83,10 +83,10 @@
                     <div class="group flex">
                         <button class="btn btn-xs btn-ghost border rounded-r-none">Editar</button>
                         <div class="dropdown dropdown-end -ml-px">
-                            <label tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
+                            <button tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
                                 <x-icon name="chevron-down" class="w-4 h-4" />
-                            </label>
-                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            </button>
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-1">
                                 <li><a class="px-3 py-1">Item 1</a></li>
                                 <li><a class="px-3 py-1">Item 2</a></li>
                             </ul>

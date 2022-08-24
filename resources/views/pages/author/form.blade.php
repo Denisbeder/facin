@@ -20,8 +20,8 @@
     </x-slot:actions>
 </x-topbar>
 
-<div class="p-6 md:p-10">
-    <div class="flex flex-col gap-10 md:max-w-2xl mx-auto">    
+<div class="px-6 py-6 md:py-10">
+    <div class="flex flex-col gap-10 md:max-w-2xl mx-auto">
         <x-card class="w-full">
             <x-card.body>
                 <h2 class="card-title mb-2">Perfil</h2>
@@ -41,7 +41,7 @@
                 <div class="form-control mb-4 gap-4 flex md:flex-row">
                     <div class="form-control flex-1">
                         <label class="label label-text" for="name">Nome</label>
-                        <input type="name" name="name" class="input input-bordered" id="name" />
+                        <input type="text" name="name" class="input input-bordered" id="name" />
                     </div>
 
                     <div class="form-control flex-1">
@@ -73,13 +73,13 @@
                     @foreach ($social as $item)
                         <div class="form-control mb-2">
                             <label class="input-group input-group-sm">
-                                <span class="px-2.5">
+                                <span class="w-10 p-0">
                                     <x-dynamic-component component="icon.{{ $item['icon'] }}" class="w-5 h-5 {{ $item['color'] }}" />
                                 </span>
-                                <input type="url" name="social[{{ strtolower($item['label']) }}]" placeholder="Cole uma URL do {{ $item['label'] }}" class="input input-bordered input-sm flex-1" />
+                                <input type="url" name="social[{{ strtolower($item['label']) }}]" placeholder="Cole uma URL do {{ $item['label'] }}" class="pl-10 input input-bordered input-sm flex-1" />
                             </label>
-                        </div> 
-                    @endforeach               
+                        </div>
+                    @endforeach
                 </div>
             </x-card.body>
         </x-card>

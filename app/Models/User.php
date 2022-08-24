@@ -25,7 +25,7 @@ class User extends AuthUser implements Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'active',
+        'deactivated',
         'name',
         'email',
         'password',
@@ -47,9 +47,16 @@ class User extends AuthUser implements Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'active' => 'boolean',
+        'deactivated' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
+
+    protected function deactivated(): Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => is_null($value) ? 0 : $value,
+        );
+    }
 
     protected function password(): Attribute
     {

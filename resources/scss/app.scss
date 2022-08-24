@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'choices'; 
+@import 'choices';
 @import 'flatpickr';
 
 @layer base {
@@ -14,7 +14,7 @@
     * {
         scrollbar-width: thin;
     }
-    
+
     ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -49,11 +49,30 @@
             @apply outline-offset-0;
         }
     }
-    .border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
+    /*.border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
         @apply border-base-content/10;
+    }*/
+    .input-group {
+        @apply relative;
+
+        > *, > .input {
+            border-radius: var(--rounded-btn, 0.5rem);
+        }
+
+        :where(span) {
+            @apply bg-transparent absolute inset-y-0 flex items-center justify-center;
+        }
+
+        :where(span:first-child) {
+            @apply left-0;
+        }
+
+        :where(span:last-child) {
+            @apply right-0;
+        }
     }
-    .table :where(thead, tfoot) :where(th, td), 
-    .table-zebra tbody tr:nth-child(even) th, 
+    .table :where(thead, tfoot) :where(th, td),
+    .table-zebra tbody tr:nth-child(even) th,
     .table-zebra tbody tr:nth-child(even) td {
         --tw-bg-opacity: .35;
     }

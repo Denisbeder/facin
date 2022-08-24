@@ -28,8 +28,8 @@
     </x-slot:actions>
 </x-topbar>
 
-<div class="p-6">
-    <div class="flex flex-col md:flex-row gap-10 md:w-9/12 mx-auto">    
+<div class="px-6 py-6 md:py-10">
+    <div class="flex flex-col md:flex-row gap-10 md:w-9/12 mx-auto">
         <div class="w-full md:w-2/3 space-y-10">
             <x-card>
                 <x-card.body>
@@ -73,7 +73,7 @@
                 <x-card.body>
                     <h2 class="card-title text-base mb-1">Otimização SEO</h2>
                     <p class="text-base-content/50 text-sm mb-5">SEO (Search Egine Optimization) ajuda a melhorar o ranqueamento nos mecanismos de buscas como exemplo, o Google.</p>
-                    
+
                     <div class="form-control mb-4">
                         <label class="label label-text" for="seo_title">SEO Título</label>
                         <input type="text" class="input input-bordered" id="seo_title" />
@@ -113,14 +113,14 @@
                     </div>
                 </x-card.body>
                 <x-card.footer class="px-8 py-5">
-                    <div class="form-control mb-2">                
+                    <div class="form-control mb-2">
                         <label class="cursor-pointer flex items-center">
                             <input name="use_image_inside" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
                             <span class="label-text ml-3 mr-auto">Mostrar imagem de capa dentro da postagem</span>
                         </label>
                     </div>
 
-                    <div class="form-control">                
+                    <div class="form-control">
                         <label class="cursor-pointer flex items-center">
                             <input name="content_sensisitivy" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
                             <span class="label-text ml-3 mr-auto">Imagem com conteúdo sensível</span>
@@ -145,7 +145,7 @@
                         <label class="label label-text" for="source">Fonte</label>
                         <input type="text" class="input input-bordered" id="source" />
                     </div>
-                   
+
                    <div class="form-control">
                         <label class="label label-text" for="categories">Categorias</label>
                         <x-select multiple>
@@ -164,7 +164,7 @@
 
             <x-card>
                 <x-card.body>
-                    <div class="form-control mb-4">                
+                    <div class="form-control mb-4">
                         <label class="cursor-pointer flex items-center">
                             <input name="content_sensisitivy" value="1" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary" />
                             <span class="label-text ml-3 mr-auto">Permitir comentários</span>
@@ -174,7 +174,7 @@
                     <x-scheduler startNameField="published_at" endNameField="expired_at" />
                 </x-card.body>
             </x-card>
-        </div>       
+        </div>
     </div>
 </div>
 @endsection

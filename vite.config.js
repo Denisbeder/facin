@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 import laravel from "laravel-vite-plugin";
 
 export default defineConfig({
@@ -16,11 +17,11 @@ export default defineConfig({
             buildDirectory: "vendor/assets",
             refresh: ["resources/routes/**", "routes/**", "resources/views/**"],
         }),
-        /* copy({
+        viteStaticCopy({
             targets: [
-                { src: "resources/img/**", dest: "public/vendor/assets" },
-                { src: "resources/svg/**", dest: "public/vendor/assets" },
+                { src: "resources/img/**", dest: "img" },
+                { src: "resources/svg/**", dest: "svg" },
             ],
-        }), */
+        }),
     ],
 });
