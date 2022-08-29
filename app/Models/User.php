@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\UserDeactivated;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -47,21 +48,21 @@ class User extends AuthUser implements Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'deactivated' => 'boolean',
+        'deactivated' => UserDeactivated::class,
         'email_verified_at' => 'datetime',
     ];
 
     protected function deactivated(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => is_null($value) ? 0 : $value,
+            set: fn($value) => is_null($value) ? UserDeactivated::DEACTIVATED->value : UserDeactivated::ACTIVATED->value,
         );
     }
 
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => bcrypt($value),
+            set: fn($value) => bcrypt($value),
         );
     }
 

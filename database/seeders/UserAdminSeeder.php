@@ -16,7 +16,7 @@ class UserAdminSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'active' => 1,
+            'deactivated' => 1,
             'name' => 'Denisbeder',
             'email' => 'denisbeder@gmail.com',
             'password' => 'ddc010',

@@ -1,16 +1,17 @@
-<div>
+<form wire:submit.prevent="save" wire:loading.attr="disabled" wire:target="save">
     <x-topbar>
         <x-slot:title>
             Criar usuário
         </x-slot:title>
 
         <x-slot:actions>
-            <button class="btn btn-ghost border gap-2">
-                <x-icon name="arrow-left" class="w-4 h-4" />
+            <a href="/user" class="btn btn-ghost border-slate-300 gap-2" wire:loading.class="disabled:btn-ghost disabled:border-slate-200 disabled:text-slate-300">
+                <x-icon name="arrow-left" class="w-4 h-4"/>
                 <span class="hidden md:inline-flex">Cancelar</span>
-            </button>
-            <button wire:click="save" class="btn btn-primary gap-2">
-                <x-icon name="check-circle" class="w-4 h-4" />
+            </a>
+            <button type="submit" class="btn btn-primary gap-2" wire:loading.class="disabled:btn-primary">
+                <x-icon name="check-circle" class="w-4 h-4" wire:loading.remove wire:target="save" />
+                <x-icon.spinner class="w-4 h-4" wire:loading wire:target="save" />
                 Salvar
             </button>
         </x-slot:actions>
@@ -28,11 +29,17 @@
                             'label label-text',
                             'text-error' => $errors->has('name'),
                         ])>Nome</label>
-                        <input wire:model.lazy="name" type="text" name="name" id="name" @class([
-                            'input input-bordered',
-                            'input-error' => $errors->has('name'),
-                            'text-error' => $errors->has('name'),
-                        ]) />
+                        <input
+                            wire:model.lazy="name"
+                            type="text"
+                            name="name"
+                            id="name"
+                            @class([
+                                'input input-bordered',
+                                'input-error' => $errors->has('name'),
+                                'text-error' => $errors->has('name'),
+                            ])
+                        />
                         @error('name')
                         <div class="label">
                             <span class="label-text-alt text-error">{{ $message }}</span>
@@ -45,11 +52,17 @@
                             'label label-text',
                             'text-error' => $errors->has('email'),
                         ])>E-mail</label>
-                        <input wire:model.lazy="email" type="email" name="email" id="email" @class([
-                            'input input-bordered',
-                            'input-error' => $errors->has('email'),
-                            'text-error' => $errors->has('email'),
-                        ]) />
+                        <input
+                            wire:model.lazy="email"
+                            type="email"
+                            name="email"
+                            id="email"
+                            @class([
+                                'input input-bordered',
+                                'input-error' => $errors->has('email'),
+                                'text-error' => $errors->has('email'),
+                            ])
+                        />
                         @error('email')
                         <div class="label">
                             <span class="label-text-alt text-error">{{ $message }}</span>
@@ -63,11 +76,16 @@
                                 'label label-text',
                                 'text-error' => $errors->has('password'),
                             ])>Senha</label>
-                            <input wire:model.lazy="password" type="password" id="password" @class([
-                                'input input-bordered',
-                                'input-error' => $errors->has('password'),
-                                'text-error' => $errors->has('password'),
-                            ]) />
+                            <input
+                                wire:model.lazy="password"
+                                type="password"
+                                id="password"
+                                @class([
+                                    'input input-bordered',
+                                    'input-error' => $errors->has('password'),
+                                    'text-error' => $errors->has('password'),
+                                ])
+                            />
                             @error('password')
                             <div class="label">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
@@ -80,11 +98,16 @@
                                 'label label-text',
                                 'text-error' => $errors->has('passwordConfirmation'),
                             ])>Confirmar senha</label>
-                            <input wire:model.lazy="passwordConfirmation" type="password" id="password_confirmation" @class([
-                                'input input-bordered',
-                                'input-error' => $errors->has('passwordConfirmation'),
-                                'text-error' => $errors->has('passwordConfirmation'),
-                            ]) />
+                            <input
+                                wire:model.lazy="passwordConfirmation"
+                                type="password"
+                                id="password_confirmation"
+                                @class([
+                                    'input input-bordered',
+                                    'input-error' => $errors->has('passwordConfirmation'),
+                                    'text-error' => $errors->has('passwordConfirmation'),
+                                ])
+                            />
                             @error('passwordConfirmation')
                             <div class="label">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
@@ -95,18 +118,26 @@
 
                     <div class="form-control mb-4">
                         <label class="label cursor-pointer flex justify-start mr-auto">
-                            <input wire:model.defer="deactivated" type="checkbox" class="toggle"  />
-                            <span @class([
-                                'label-text ml-3',
-                                'text-error' => $errors->has('deactivated'),
-                            ])>Remover acesso temporariamente</span>
+                            <input
+                                wire:model.defer="deactivated"
+                                type="checkbox"
+                                class="toggle"
+                            />
+                            <span
+                                wire:loading.class="text-base-content/50"
+                                wire:target="save"
+                                @class([
+                                    'label-text ml-3',
+                                    'text-error' => $errors->has('deactivated'),
+                                ])
+                            >Remover acesso temporariamente</span>
                         </label>
                     </div>
 
                     <div class="form-control mt-3">
                         <!-- The button to open modal -->
                         <a href="#modal-permissions" class="btn btn-ghost border gap-2">
-                            <x-icon name="identification" class="w-4 h-4" />
+                            <x-icon name="identification" class="w-4 h-4"/>
                             Selecionar permissões
                         </a>
                         <!-- Put this part before </body> tag -->
@@ -273,10 +304,11 @@
                                             <table class="table table-zebra table-compact w-full">
                                                 <thead>
                                                 <tr>
-                                                    <th colspan="5" class="text-center bg-base-300/60">{{ $permission['label'] }}</th>
+                                                    <th colspan="5"
+                                                        class="text-center bg-base-300/60">{{ $permission['label'] }}</th>
                                                 </tr>
                                                 <tr>
-                                                    <th width="10%"> </th>
+                                                    <th width="10%"></th>
                                                     @foreach ($permission['actions'] as $permissionAction)
                                                         <th class="text-center">{{ $permissionAction['label'] }}</th>
                                                     @endforeach
@@ -287,8 +319,13 @@
                                                     <th>PRÓPRIO</th>
                                                     @foreach ($permission['actions'] as $permissionAction)
                                                         <td>
-                                                            <label class="flex w-full items-center justify-center cursor-pointer group">
-                                                                <input name="persissions[{{ $permission['model'] }}][owner]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary" />
+                                                            <label
+                                                                class="flex w-full items-center justify-center cursor-pointer group">
+                                                                <input
+                                                                    name="persissions[{{ $permission['model'] }}][owner]"
+                                                                    value="{{ $permissionAction['value'] }}"
+                                                                    type="checkbox"
+                                                                    class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary"/>
                                                             </label>
                                                         </td>
                                                     @endforeach
@@ -298,8 +335,13 @@
                                                     @foreach ($permission['actions'] as $permissionAction)
                                                         <td>
                                                             @if($permissionAction['value'] !== 'create')
-                                                                <label class="flex w-full items-center justify-center cursor-pointer group">
-                                                                    <input name="persissions[{{ $permission['model'] }}][others]" value="{{ $permissionAction['value'] }}" type="checkbox" class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary" />
+                                                                <label
+                                                                    class="flex w-full items-center justify-center cursor-pointer group">
+                                                                    <input
+                                                                        name="persissions[{{ $permission['model'] }}][others]"
+                                                                        value="{{ $permissionAction['value'] }}"
+                                                                        type="checkbox"
+                                                                        class="checkbox checkbox-xs transition-colors duration-300 group-hover:checkbox-primary"/>
                                                                 </label>
                                                             @endif
                                                         </td>
@@ -323,24 +365,29 @@
             <x-card class="w-full">
                 <x-card.body>
                     <h2 class="card-title mb-2">Notificações</h2>
-                    <small class="flex mb-5">Sempre informaremos sobre mudanças importantes, mas você escolhe o que mais deseja receber.</small>
+                    <small class="flex mb-5">Sempre informaremos sobre mudanças importantes, mas você escolhe o que mais
+                        deseja receber.</small>
 
                     <div class="card-title text-base mb-4">Por e-mail</div>
                     <div class="form-control mb-4">
                         <label class="cursor-pointer flex items-start">
-                            <input name="notifications[email]" value="comments" type="checkbox" checked="checked" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
+                            <input name="notifications[email]" value="comments" type="checkbox" checked="checked"
+                                   class="checkbox checkbox-xs checkbox-primary mt-0.5"/>
                             <div class="label-text ml-3 mr-auto flex-col flex">
                                 Comentários
-                                <small class="text-base-content/60">Seja notificado quando alguém postar um comentário em uma postagem.</small>
+                                <small class="text-base-content/60">Seja notificado quando alguém postar um comentário
+                                    em uma postagem.</small>
                             </div>
                         </label>
                     </div>
                     <div class="form-control">
                         <label class="cursor-pointer flex items-start">
-                            <input name="notifications[email]" value="comments" type="checkbox" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
+                            <input name="notifications[email]" value="comments" type="checkbox"
+                                   class="checkbox checkbox-xs checkbox-primary mt-0.5"/>
                             <div class="label-text ml-3 mr-auto flex-col flex">
                                 Ações de clientes no site
-                                <small class="text-base-content/60">Seja notificado quando algum cliente criar ou deletar algo oferecido gratuitamente ao público.</small>
+                                <small class="text-base-content/60">Seja notificado quando algum cliente criar ou
+                                    deletar algo oferecido gratuitamente ao público.</small>
                             </div>
                         </label>
                     </div>
@@ -348,10 +395,12 @@
                     <div class="card-title text-base mb-4 mt-5">Por SMS</div>
                     <div class="form-control mb-4">
                         <label class="cursor-pointer flex items-start">
-                            <input name="notifications[sms]" value="comments" type="checkbox" class="checkbox checkbox-xs checkbox-primary mt-0.5" />
+                            <input name="notifications[sms]" value="comments" type="checkbox"
+                                   class="checkbox checkbox-xs checkbox-primary mt-0.5"/>
                             <div class="label-text ml-3 mr-auto flex-col flex">
                                 Comentários
-                                <small class="text-base-content/60">Seja notificado quando alguém postar um comentário em uma postagem.</small>
+                                <small class="text-base-content/60">Seja notificado quando alguém postar um comentário
+                                    em uma postagem.</small>
                             </div>
                         </label>
                     </div>
@@ -359,4 +408,4 @@
             </x-card>
         </div>
     </div>
-</div>
+</form>

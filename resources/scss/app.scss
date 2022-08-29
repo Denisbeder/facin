@@ -52,6 +52,9 @@
     /*.border, .border-x, .border-y, .border-b, .border-t, .border-l, .border-r, .input-bordered {
         @apply border-base-content/10;
     }*/
+    input:read-only {
+        @apply border-base-content/10 text-base-content/40;
+    }
     .input-group {
         @apply relative;
 

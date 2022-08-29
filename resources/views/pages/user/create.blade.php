@@ -3,5 +3,5 @@
 @section('title', 'Criar usuário')
 
 @section('content')
-    <livewire:user.form-component />
+    <livewire:user.create-component />
 @endsection

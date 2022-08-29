@@ -16,23 +16,16 @@ class UserController extends Controller
 
     public function create(): View
     {
-        return view('pages.user.form');
-    }
-
-    public function store(Request $request): RedirectResponse
-    {
-        User::create($request->input());
-        return back();
+        return view('pages.user.create');
     }
 
     public function edit(User $user): View
     {
-        return view('pages.user.form', compact('user'));
+        return view('pages.user.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request): RedirectResponse
+    public function show(User $user): View
     {
-        $user->update($request->input());
-        return back();
+        return view('pages.user.show', compact('user'));
     }
 }

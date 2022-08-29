@@ -17,17 +17,17 @@
     <div x-cloak x-data class="flex">
         <aside class="h-screen flex flex-col z-50 transition-[width,transform] duration-300 bg-base-100 border-r"
             x-bind:class="{
-                'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(), 
-                'w-64': $store.sidebar.isModeFull(), 
-                'w-[68px]': $store.sidebar.isModeBar(), 
-                'w-64 fixed inset-0 -translate-x-64': $store.sidebar.isModeMobile(), 
+                'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(),
+                'w-64': $store.sidebar.isModeFull(),
+                'w-[68px]': $store.sidebar.isModeBar(),
+                'w-64 fixed inset-0 -translate-x-64': $store.sidebar.isModeMobile(),
                 '!translate-x-0': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
             }"
         >
             <x-sidebar />
         </aside>
-        
-        <div class="flex flex-1 flex-col transition-[padding-left,transform] duration-300" 
+
+        <div class="flex flex-1 flex-col transition-[padding-left,transform] duration-300"
             x-bind:class="{
                 'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
             }">
@@ -38,6 +38,9 @@
     </div>
 
     @yield('modal')
+
+    <x-toast />
+
 
     @livewireScripts
     {{-- <script src="{{ asset('vendor/assets/js/app.js') }}"></script> --}}

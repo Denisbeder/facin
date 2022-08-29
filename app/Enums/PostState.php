@@ -13,11 +13,11 @@ enum PostState: string
     public function presenter(): string
     {
         return match ($this) {
-            PostState::DRAFT => 'Rascunho',
-            PostState::PUBLISHED => 'Publicado',
-            PostState::UNPUBLISHED => 'Não publicado',
-            PostState::SCHEDULED => 'Programado',
-            PostState::EXPIRED => 'Expirado',
+            self::DRAFT => 'Rascunho',
+            self::PUBLISHED => 'Publicado',
+            self::UNPUBLISHED => 'Não publicado',
+            self::SCHEDULED => 'Programado',
+            self::EXPIRED => 'Expirado',
         };
     }
 }
