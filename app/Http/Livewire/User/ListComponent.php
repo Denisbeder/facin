@@ -20,11 +20,6 @@ class ListComponent extends Component
 
     private LengthAwarePaginator $users;
 
-    public function boot(): void
-    {
-        $this->users = $this->users();
-    }
-
     public function updatedPerPage($value): void
     {
         $this->resetPage();
@@ -34,7 +29,7 @@ class ListComponent extends Component
 
     public function updatedSelected($value): void
     {
-        if (count($this->selected) === $this->users->count()) {
+        if (count($this->selected) === $this->users()->count()) {
             $this->selectAll = true;
 
             return;
@@ -46,7 +41,10 @@ class ListComponent extends Component
     public function updatedSelectAll($value): void
     {
         if ($value) {
-            $this->selected = $this->users->getCollection()->pluck('id')->toArray();
+            $this->selected = $this->users()
+                ->getCollection()
+                ->pluck('id')
+                ->toArray(); // CAUSE DUPLICATE QUERY
 
             return;
         }
@@ -62,7 +60,7 @@ class ListComponent extends Component
     public function render(): View
     {
         return view('livewire.user.list-component', [
-            'users' => $this->users
+            'users' => $this->users()
         ]);
     }
 }
