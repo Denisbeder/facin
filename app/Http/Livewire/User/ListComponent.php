@@ -21,6 +21,8 @@ class ListComponent extends Component
     public function updatedPerPage($value): void
     {
         $this->resetPage();
+        $this->selected = [];
+        $this->selectAll = false;
     }
 
     public function updatedSelected($value): void
