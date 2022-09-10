@@ -18,8 +18,8 @@ enum UserDeactivated: int
     public function getStyles(): string
     {
         return match ($this) {
-            self::DEACTIVATED => 'text-base-content/40',
-            self::ACTIVATED => '',
+            self::DEACTIVATED => 'badge badge-error gap-2 text-neutral-content leading-normal',
+            self::ACTIVATED => 'badge badge-success gap-2 text-neutral-content leading-normal',
         };
     }
 }
