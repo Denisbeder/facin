@@ -4,8 +4,8 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
+use Livewire\Redirector;
 
 class CreateComponent extends Component
 {
@@ -26,7 +26,7 @@ class CreateComponent extends Component
         'passwordConfirmation' => ['required', 'min:6', 'same:password', 'string']
     ];
 
-    public function save(): RedirectResponse
+    public function save(): Redirector
     {
         $this->validate();
 
@@ -41,7 +41,8 @@ class CreateComponent extends Component
 
         $this->dispatchBrowserEvent('notify', ['content' => 'Registro foi salvo', 'type' => 'success']);
 
-        return redirect()->route('user.edit', [$user]);
+        //return redirect()->route('user.edit', [$user]);
+        return redirect()->route('user.index');
     }
 
     public function render(): View
