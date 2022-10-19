@@ -2,13 +2,26 @@
     <x-flex-list>
         <x-flex-list.row asHeader>
             <x-flex-list.cell class="flex-initial">
-                <input type="checkbox" class="checkbox checkbox-xs" wire:model="selectAll" />
+                <input type="checkbox" class="checkbox checkbox-xs" wire:model="selectPage" />
             </x-flex-list.cell>
             <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
             <x-flex-list.cell class="flex-[2]">E-mail</x-flex-list.cell>
             <x-flex-list.cell>Estado</x-flex-list.cell>
             <x-flex-list.cell></x-flex-list.cell>
         </x-flex-list.row>
+
+        @if($selectPage)
+        <x-flex-list.row class="bg-base-300">
+            <x-flex-list.cell>
+                @unless($selectAll)
+                    Você tem <strong class="mx-1">{{ $users->count() }}</strong> registros selecionados, você gostaria de selecionar todos os <strong class="ml-1">{{ $users->total() }}</strong>?
+                    <button class="btn btn-xs ml-2" wire:click="selectAll">Selecionar todos</button>
+                @else
+                    Você selecionou todos os <strong class="mx-1">{{ $users->total() }}</strong> registros.
+                @endunless
+            </x-flex-list.cell>
+        </x-flex-list.row>
+        @endif
 
         @foreach($users as $user)
             <x-flex-list.row>
