@@ -10,7 +10,7 @@
             <x-flex-list.cell></x-flex-list.cell>
         </x-flex-list.row>
 
-        @if($selectPage)
+        @if($canSelectAll)
         <x-flex-list.row class="bg-base-300">
             <x-flex-list.cell>
                 @unless($selectAll)
@@ -24,7 +24,7 @@
         @endif
 
         @foreach($users as $user)
-            <x-flex-list.row>
+            <x-flex-list.row wire:key="{{ $user->id }}">
                 <x-flex-list.cell class="flex-initial">
                     <input type="checkbox" class="checkbox checkbox-xs" value="{{ $user->id }}" wire:model="selected" />
                 </x-flex-list.cell>

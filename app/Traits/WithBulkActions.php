@@ -8,9 +8,11 @@ trait WithBulkActions
 
     public bool $selectAll = false;
 
-    public array $selected = [];
+    public bool $canSelectAll = false;
 
-    public function renderingWithBulkActions(): void
+    public $selected = [];
+
+    public function renderedWithBulkActions(): void
     {
         $this->applySelectAll();
     }
@@ -19,6 +21,7 @@ trait WithBulkActions
     {
         if ($value) {
             $this->selectPageData();
+            $this->canSelectAll = true;
             return;
         }
 
@@ -26,20 +29,27 @@ trait WithBulkActions
         $this->selectAll = false;
     }
 
-    public function updatedSelected(): void
+    public function updatedSelected($value): void
     {
+        if ($this->data->count() === count($this->selected)) {
+            $this->selectPage = true;
+            return;
+        }
+
         $this->selectPage = false;
         $this->selectAll = false;
+        $this->canSelectAll = false;
     }
 
     public function selectPageData(): void
     {
-        $this->selected = $this->data->pluck('id')->toArray();
+        $this->selected = $this->data->pluck('id')->map(fn($id) => (string)$id);
     }
 
     public function selectAll(): void
     {
         $this->selectAll = true;
+        $this->selectPage = true;
     }
 
     public function applySelectAll(): void
