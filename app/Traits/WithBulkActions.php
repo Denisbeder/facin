@@ -27,6 +27,7 @@ trait WithBulkActions
 
         $this->selected = [];
         $this->selectAll = false;
+        $this->canSelectAll = false;
     }
 
     public function updatedSelected($value): void
@@ -50,6 +51,12 @@ trait WithBulkActions
     {
         $this->selectAll = true;
         $this->selectPage = true;
+    }
+
+    public function selectAllDismiss(): void
+    {
+        $this->selectAll = false;
+        $this->canSelectAll = false;
     }
 
     public function applySelectAll(): void

@@ -16,6 +16,7 @@
                 @unless($selectAll)
                     Você tem <strong class="mx-1">{{ $users->count() }}</strong> registros selecionados, você gostaria de selecionar todos os <strong class="ml-1">{{ $users->total() }}</strong>?
                     <button class="btn btn-xs ml-2" wire:click="selectAll">Selecionar todos</button>
+                    <button class="btn btn-xs ml-2" wire:click="selectAllDismiss">Não selecionar</button>
                 @else
                     Você selecionou todos os <strong class="mx-1">{{ $users->total() }}</strong> registros.
                 @endunless
