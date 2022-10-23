@@ -1,68 +1,161 @@
-<?php
+<?php /** @noinspection TypeUnsafeArraySearchInspection */
 
 namespace App\Traits;
 
 trait WithBulkActions
 {
-    public bool $selectPage = false;
-
     public bool $selectAll = false;
 
-    public bool $canSelectAll = false;
+    public array $selectAllExcept = [];
 
-    public $selected = [];
+    public array $selectedPages = [];
+
+    public array $selectedKeys = [];
+
+    public array $debugs = [];
+
+    // Initializes
 
     public function renderedWithBulkActions(): void
     {
         $this->applySelectAll();
+        $this->handleSelectedCurrentPage();
+
+        //$this->debugs[] = 'current page: ' . $this->page;
+        //$this->debugs[] = '#################################################################';
+        //$this->debugs[] = '[RESULT ACTUAL][selectAll] ' . (($this->selectAll) ? 'TRUE' : 'FALSE');
+        //$this->debugs[] = '[RESULT ACTUAL][selectAllExcept] ' . json_encode($this->selectAllExcept);
+        //$this->debugs[] = '[RESULT ACTUAL][selectedPages] ' . json_encode($this->selectedPages);
+        //$this->debugs[] = '[RESULT ACTUAL][selectedKeys] ' . json_encode($this->selectedKeys);
     }
 
-    public function updatedSelectPage($value): void
+    // Properties
+
+    public function updatingSelectedPages(): void
     {
-        if ($value) {
-            $this->selectPageData();
-            $this->canSelectAll = true;
+        if (!in_array($this->page, $this->selectedPages)) {
+            $this->selectCurrentPageKeys();
+            $this->selectAllExcept = $this->removeItems($this->selectAllExcept, $this->getCurrentPageKeys());
             return;
         }
 
-        $this->selected = [];
-        $this->selectAll = false;
-        $this->canSelectAll = false;
+        $this->unselectCurrentPageKeys();
+
+        $this->selectAllExcept = $this->addItems($this->selectAllExcept, $this->getCurrentPageKeys());
     }
 
-    public function updatedSelected($value): void
+    public function updatingSelectedKeys($value): void
     {
-        if ($this->data->count() === count($this->selected)) {
-            $this->selectPage = true;
-            return;
+        $this->addSelectAllExceptKeys($value);
+    }
+
+    public function updatedSelectedKeys($value): void
+    {
+        $this->removeSelectAllExceptKeys($value);
+    }
+
+    // Actions
+
+    public function handleSelectedCurrentPage(): void
+    {
+        if (!array_every($this->getCurrentPageKeys(), fn ($key) => in_array($key, $this->selectedKeys))) {
+            $this->forceUnselectCurrentPage();
+        } else {
+            $this->forceSelectCurrentPage();
         }
-
-        $this->selectPage = false;
-        $this->selectAll = false;
-        $this->canSelectAll = false;
     }
 
-    public function selectPageData(): void
+    public function forceSelectCurrentPage(): void
     {
-        $this->selected = $this->data->pluck('id')->map(fn($id) => (string)$id);
+        $this->selectedPages = $this->addItems($this->selectedPages, $this->page);
+    }
+
+    public function forceUnselectCurrentPage(): void
+    {
+        $this->selectedPages = $this->removeItems($this->selectedPages, $this->page);
+    }
+
+    public function selectCurrentPageKeys(): void
+    {
+        $this->selectedKeys = $this->addItems($this->selectedKeys, $this->getCurrentPageKeys());
+    }
+
+    public function unselectCurrentPageKeys(): void
+    {
+        $this->selectedKeys = $this->removeItems($this->selectedKeys, $this->getCurrentPageKeys());
+    }
+
+    public function addSelectAllExceptKeys(array $updatingSelectedKeys): void
+    {
+        if ($this->selectAll) {
+            $diff = array_diff($this->selectedKeys, $updatingSelectedKeys);
+            $this->selectAllExcept = $this->addItems($this->selectAllExcept, $diff);
+        }
+    }
+
+    public function removeSelectAllExceptKeys(array $updatedSelectedKeys): void
+    {
+        if ($this->selectAll) {
+            $intersect = array_intersect($this->selectAllExcept, $updatedSelectedKeys);
+            $this->selectAllExcept = $this->removeItems($this->selectAllExcept, $intersect);
+        }
     }
 
     public function selectAll(): void
     {
         $this->selectAll = true;
-        $this->selectPage = true;
+        $this->selectedPages = $this->addItems($this->selectedPages, range(1, $this->data->lastPage()));
+        $this->selectAllExcept = [];
     }
 
-    public function selectAllDismiss(): void
+    public function unselectAll(): void
     {
         $this->selectAll = false;
-        $this->canSelectAll = false;
+        $this->selectedPages = [];
+        $this->selectedKeys = [];
+        $this->selectAllExcept = [];
     }
 
     public function applySelectAll(): void
     {
         if ($this->selectAll) {
-            $this->selectPageData();
+            $keys = $this->removeItems($this->getCurrentPageKeys(), $this->selectAllExcept);
+            $this->selectedKeys = $keys;
         }
+    }
+
+    // Utils
+
+    private function addItems(array $source, array|string|int $items): array
+    {
+        $items = !is_array($items) ? [$items] : $items;
+
+        $unique = array_unique([
+            ...$source,
+            ...$items
+        ], SORT_STRING);
+
+        return $this->ensureConvertKeysToStrings([...$unique]);
+    }
+
+    private function removeItems(array $source, array|string|int $items): array
+    {
+        $items = !is_array($items) ? [$items] : $items;
+        $filter = array_filter($source, static fn ($value) => !in_array($value, $items));
+
+        return $this->ensureConvertKeysToStrings([...$filter]);
+    }
+
+    private function ensureConvertKeysToStrings(array $array): array
+    {
+        return array_map(fn ($value) => (string)$value, $array);
+    }
+
+    private function getCurrentPageKeys(): array
+    {
+        return $this
+            ->data
+            ->pluck('id')
+            ->toArray();
     }
 }

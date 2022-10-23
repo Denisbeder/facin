@@ -1,24 +1,36 @@
 <section class="max-w-5xl mx-auto">
+    <ul class="mb-3">
+        @foreach($debugs as $k => $debug)
+            <li>{{ $debug }}</li>
+            @php $this->$debug = []; @endphp
+        @endforeach
+    </ul>
     <x-flex-list>
         <x-flex-list.row asHeader>
             <x-flex-list.cell class="flex-initial">
-                <input type="checkbox" class="checkbox checkbox-xs" wire:model="selectPage" />
+                <input
+                    type="checkbox"
+                    class="checkbox checkbox-xs"
+                    value="{{ $page }}"
+                    wire:model="selectedPages" />
             </x-flex-list.cell>
+            <x-flex-list.cell class="flex-initial">#</x-flex-list.cell>
             <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
             <x-flex-list.cell class="flex-[2]">E-mail</x-flex-list.cell>
             <x-flex-list.cell>Estado</x-flex-list.cell>
             <x-flex-list.cell></x-flex-list.cell>
         </x-flex-list.row>
 
-        @if($canSelectAll)
+        @if($selectedKeys || $selectAll)
         <x-flex-list.row class="bg-base-300">
             <x-flex-list.cell>
-                @unless($selectAll)
-                    Você tem <strong class="mx-1">{{ $users->count() }}</strong> registros selecionados, você gostaria de selecionar todos os <strong class="ml-1">{{ $users->total() }}</strong>?
-                    <button class="btn btn-xs ml-2" wire:click="selectAll">Selecionar todos</button>
-                    <button class="btn btn-xs ml-2" wire:click="selectAllDismiss">Não selecionar</button>
-                @else
+                @if($selectAll && empty($selectAllExcept))
                     Você selecionou todos os <strong class="mx-1">{{ $users->total() }}</strong> registros.
+                    <button class="btn btn-xs ml-2" wire:click="unselectAll">Desmarcar todos</button>
+                @else
+                    Você tem <strong class="mx-1">{{ ($selectAll && !empty($selectAllExcept)) ? $users->total() - count($selectAllExcept) : count($selectedKeys) }}</strong> registros selecionados, você gostaria de selecionar todos os <strong class="ml-1">{{ $users->total() }}</strong>?
+                    <button class="btn btn-xs ml-2" wire:click="selectAll">Selecionar todos</button>
+                    <button class="btn btn-xs ml-2" wire:click="unselectAll">Desmarcar todos</button>
                 @endunless
             </x-flex-list.cell>
         </x-flex-list.row>
@@ -27,7 +39,15 @@
         @foreach($users as $user)
             <x-flex-list.row wire:key="{{ $user->id }}">
                 <x-flex-list.cell class="flex-initial">
-                    <input type="checkbox" class="checkbox checkbox-xs" value="{{ $user->id }}" wire:model="selected" />
+                    <input
+                        type="checkbox"
+                        class="checkbox checkbox-xs"
+                        value="{{ $user->id }}"
+                        wire:model="selectedKeys" />
+                </x-flex-list.cell>
+
+                <x-flex-list.cell class="flex-initial" header="#" >
+                    {{ $user->id }}
                 </x-flex-list.cell>
 
                 <x-flex-list.cell class="flex-[2]">
@@ -67,6 +87,7 @@
     <div class="flex">
         <div class="flex-initial mr-4">
             <select class="select w-full max-w-xs" wire:model="perPage">
+                <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="25">25</option>

@@ -11,3 +11,11 @@ if (!function_exists('array_to_attributes')) {
         return new HtmlString(implode(' ', $items));
     }
 }
+
+if (!function_exists('array_every')) {
+    function array_every(array $array, callable $fn)
+    {
+        return (bool)array_product(array_map($fn, $array));
+    }
+}
+

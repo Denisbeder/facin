@@ -25,7 +25,7 @@ class ListComponent extends Component
 
     public function getDataProperty(): LengthAwarePaginator
     {
-        return $this->applyPagination($this->dataQuery->latest());
+        return $this->applyPagination($this->dataQuery->latest('id'));
     }
 
     public function render(): View
