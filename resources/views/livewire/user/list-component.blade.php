@@ -2,9 +2,23 @@
     <ul class="mb-3">
         @foreach($debugs as $k => $debug)
             <li>{{ $debug }}</li>
-            @php $this->$debug = []; @endphp
         @endforeach
+        @php $this->debugs = []; @endphp
     </ul>
+
+    @if($selectedKeys || $selectAll)
+    <div class="mb-5">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn btn-ghost btn-outline btn-xs m-1">Ações em massa</label>
+            <div tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <button class="btn btn-xs btn-error" wire:click="deleteSelectedKeys">Deletar selecionados</button>
+                <button class="btn btn-xs btn-ghost btn-outline mt-1">Desativar</button>
+                <button class="btn btn-xs btn-ghost btn-outline mt-1">Ativar</button>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <x-flex-list>
         <x-flex-list.row asHeader>
             <x-flex-list.cell class="flex-initial">

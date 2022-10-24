@@ -12,21 +12,12 @@ trait WithBulkActions
 
     public array $selectedKeys = [];
 
-    public array $debugs = [];
-
     // Initializes
 
     public function renderedWithBulkActions(): void
     {
         $this->applySelectAll();
-        $this->handleSelectedCurrentPage();
-
-        //$this->debugs[] = 'current page: ' . $this->page;
-        //$this->debugs[] = '#################################################################';
-        //$this->debugs[] = '[RESULT ACTUAL][selectAll] ' . (($this->selectAll) ? 'TRUE' : 'FALSE');
-        //$this->debugs[] = '[RESULT ACTUAL][selectAllExcept] ' . json_encode($this->selectAllExcept);
-        //$this->debugs[] = '[RESULT ACTUAL][selectedPages] ' . json_encode($this->selectedPages);
-        //$this->debugs[] = '[RESULT ACTUAL][selectedKeys] ' . json_encode($this->selectedKeys);
+        $this->applySelectedCurrentPage();
     }
 
     // Properties
@@ -56,7 +47,7 @@ trait WithBulkActions
 
     // Actions
 
-    public function handleSelectedCurrentPage(): void
+    public function applySelectedCurrentPage(): void
     {
         if (!array_every($this->getCurrentPageKeys(), fn ($key) => in_array($key, $this->selectedKeys))) {
             $this->forceUnselectCurrentPage();
@@ -110,6 +101,11 @@ trait WithBulkActions
 
     public function unselectAll(): void
     {
+        $this->clear();
+    }
+
+    public function clear(): void
+    {
         $this->selectAll = false;
         $this->selectedPages = [];
         $this->selectedKeys = [];
@@ -122,6 +118,23 @@ trait WithBulkActions
             $keys = $this->removeItems($this->getCurrentPageKeys(), $this->selectAllExcept);
             $this->selectedKeys = $keys;
         }
+    }
+
+    public function deleteSelectedKeys(): void
+    {
+        if (empty($this->selectedKeys)) {
+            return;
+        }
+
+        $query = (clone $this->dataQuery);
+
+        if ($this->selectAll) {
+            $query->whereKeyNot($this->selectAllExcept)->delete();
+        } else {
+            $query->whereKey($this->selectedKeys)->delete();
+        }
+
+        $this->clear();
     }
 
     // Utils

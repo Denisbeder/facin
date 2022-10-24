@@ -12,6 +12,8 @@ trait WithPerPagePagination
 
     public int $perPage = 15;
 
+    public array $debugs = [];
+
     public function initializeWithPerPagePagination(): void
     {
         $this->perPage = session()->get('perPage', $this->perPage);
@@ -20,6 +22,8 @@ trait WithPerPagePagination
     public function updatedPerPage($value): void
     {
         session()->put('perPage', $value);
+
+        $this->gotoPage(1);
     }
 
     public function applyPagination(Builder $query): LengthAwarePaginator
