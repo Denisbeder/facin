@@ -12,6 +12,8 @@ trait WithPerPagePagination
 
     public int $perPage = 15;
 
+    public ?int $lastPage;
+
     public array $debugs = [];
 
     public function initializeWithPerPagePagination(): void
@@ -19,15 +21,26 @@ trait WithPerPagePagination
         $this->perPage = session()->get('perPage', $this->perPage);
     }
 
+    public function renderedWithPerPagePagination(): void
+    {
+        if ($this->page > $this->lastPage) {
+            $pathInfo = trim(request()?->getPathInfo(), '/');
+            $url = request('fingerprint.path', $pathInfo) . '?page=' . $this->lastPage;
+            redirect($url);
+        }
+    }
+
     public function updatedPerPage($value): void
     {
         session()->put('perPage', $value);
-
-        $this->gotoPage(1);
     }
 
     public function applyPagination(Builder $query): LengthAwarePaginator
     {
-        return $query->paginate($this->perPage);
+        $paginate = $query->paginate($this->perPage);
+
+        $this->lastPage = $paginate->lastPage();
+
+        return $paginate;
     }
 }
