@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Illuminate\Contracts\Database\Query\Builder;
+
 trait WithBulkActions
 {
     public bool $selectAll = false;
@@ -49,11 +51,12 @@ trait WithBulkActions
 
     public function applySelectedCurrentPage(): void
     {
-        if (!array_every($this->getCurrentPageKeys(), fn ($key) => in_array($key, $this->selectedKeys))) {
-            $this->forceUnselectCurrentPage();
-        } else {
+        if (count($this->getCurrentPageKeys()) > 0 && array_every($this->getCurrentPageKeys(), fn ($key) => in_array($key, $this->selectedKeys))) {
             $this->forceSelectCurrentPage();
+            return;
         }
+
+        $this->forceUnselectCurrentPage();
     }
 
     public function forceSelectCurrentPage(): void
@@ -101,10 +104,10 @@ trait WithBulkActions
 
     public function unselectAll(): void
     {
-        $this->clear();
+        $this->clearAllSelected();
     }
 
-    public function clear(): void
+    public function clearAllSelected(): void
     {
         $this->selectAll = false;
         $this->selectedPages = [];
@@ -118,23 +121,6 @@ trait WithBulkActions
             $keys = $this->removeItems($this->getCurrentPageKeys(), $this->selectAllExcept);
             $this->selectedKeys = $keys;
         }
-    }
-
-    public function deleteSelectedKeys(): void
-    {
-        if (empty($this->selectedKeys)) {
-            return;
-        }
-
-        $query = (clone $this->dataQuery);
-
-        if ($this->selectAll) {
-            $query->whereKeyNot($this->selectAllExcept)->delete();
-        } else {
-            $query->whereKey($this->selectedKeys)->delete();
-        }
-
-        $this->clear();
     }
 
     // Utils
