@@ -38,11 +38,16 @@
         @if($selectedKeys || $selectAll)
         <x-flex-list.row class="bg-base-300">
             <x-flex-list.cell>
-                @if($selectAll && empty($selectAllExcept))
+                @if($selectAll && empty($selectAllExcept) || count($selectedKeys) === $users->total())
                     Você selecionou todos os <strong class="mx-1">{{ $users->total() }}</strong> registros.
                     <button class="btn btn-xs ml-2" wire:click="unselectAll">Desmarcar todos</button>
                 @else
-                    Você tem <strong class="mx-1">{{ ($selectAll && !empty($selectAllExcept)) ? $users->total() - count($selectAllExcept) : count($selectedKeys) }}</strong> registros selecionados, você gostaria de selecionar todos os <strong class="ml-1">{{ $users->total() }}</strong>?
+                    Você tem
+                    <strong class="mx-1">
+                        {{ ($selectAll && !empty($selectAllExcept)) ? $users->total() - count($selectAllExcept) : count($selectedKeys) }}
+                    </strong>
+                    registros selecionados, você gostaria de selecionar todos os
+                    <strong class="ml-1">{{ $users->total() }}</strong>?
                     <button class="btn btn-xs ml-2" wire:click="selectAll">Selecionar todos</button>
                     <button class="btn btn-xs ml-2" wire:click="unselectAll">Desmarcar todos</button>
                 @endunless
