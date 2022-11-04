@@ -26,6 +26,11 @@ trait WithOrdering
         $this->orders = $orders;
     }
 
+    public function clearOrders(): void
+    {
+        $this->orders = [];
+    }
+
     public function orderBy(string $field): void
     {
         if (!isset($this->orders[$field])) {

@@ -33,7 +33,14 @@
             <x-flex-list.cell ordeable wire:click="orderBy('email')" :direction="$orders['email'] ?? null" class="flex-[2]">E-mail</x-flex-list.cell>
             <x-flex-list.cell ordeable wire:click="orderBy('deactivated')" :direction="$orders['deactivated'] ?? null">Estado</x-flex-list.cell>
             <x-flex-list.cell ordeable wire:click="orderBy('created_at')" :direction="$orders['created_at'] ?? null" class="flex-[2]">Criado em</x-flex-list.cell>
-            <x-flex-list.cell></x-flex-list.cell>
+            <x-flex-list.cell>
+                @if(!empty($this->orders))
+                    <button class="ml-auto p-0 flex" wire:click="clearOrders()" title="Limpar ordenação">
+                        <x-icon name="menu-alt-2" class="w-4 h-4" />
+                        <x-icon name="x-circle" class="w-4 h-4 -ml-1 -mt-1" />
+                    </button>
+                @endif
+            </x-flex-list.cell>
         </x-flex-list.row>
 
         @if($selectedKeys || $selectAll)

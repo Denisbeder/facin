@@ -23,7 +23,7 @@ class ListComponent extends Component
 
     public function mount(): void
     {
-        $this->defaultOrder = ['created_at' => 'asc'];
+        $this->defaultOrder = ['created_at' => 'desc'];
     }
 
     public function getQueryProperty(): Builder
