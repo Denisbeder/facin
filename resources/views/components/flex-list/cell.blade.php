@@ -1,4 +1,8 @@
-@aware(['asHeader' => false])
+@aware([
+    'asHeader' => false,
+    'ordeable' => false,
+    'direction' => null,
+ ])
 
 @php
     $classList = [
@@ -14,5 +18,18 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => Arr::toCssClasses($classList)]) }} data-header="{{ $header ?? null }}">
-    {{ $slot }}
+    @unless($ordeable)
+        {{ $slot }}
+    @else
+        <button type="button" class="flex items-center text-slate-500 text-xs font-bold uppercase" >
+            {{ $slot }}
+            @if($direction === 'asc')
+                <x-icon name="chevron-up" class="ml-1 w-3 h-3" />
+            @endif
+
+            @if($direction === 'desc')
+                <x-icon name="chevron-down" class="ml-1 w-3 h-3" />
+            @endif
+        </button>
+    @endunless
 </div>

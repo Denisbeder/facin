@@ -28,10 +28,11 @@
                     value="{{ $page }}"
                     wire:model="selectedPages" />
             </x-flex-list.cell>
-            <x-flex-list.cell class="flex-initial">#</x-flex-list.cell>
-            <x-flex-list.cell class="flex-[2]">Nome completo</x-flex-list.cell>
-            <x-flex-list.cell class="flex-[2]">E-mail</x-flex-list.cell>
-            <x-flex-list.cell>Estado</x-flex-list.cell>
+            <x-flex-list.cell ordeable wire:click="orderBy('id')" :direction="$orders['id'] ?? null" class="flex-initial">#</x-flex-list.cell>
+            <x-flex-list.cell ordeable wire:click="orderBy('name')" :direction="$orders['name'] ?? null" class="flex-[2]">Nome completo</x-flex-list.cell>
+            <x-flex-list.cell ordeable wire:click="orderBy('email')" :direction="$orders['email'] ?? null" class="flex-[2]">E-mail</x-flex-list.cell>
+            <x-flex-list.cell ordeable wire:click="orderBy('deactivated')" :direction="$orders['deactivated'] ?? null">Estado</x-flex-list.cell>
+            <x-flex-list.cell ordeable wire:click="orderBy('created_at')" :direction="$orders['created_at'] ?? null" class="flex-[2]">Criado em</x-flex-list.cell>
             <x-flex-list.cell></x-flex-list.cell>
         </x-flex-list.row>
 
@@ -84,12 +85,16 @@
                     </span>
                 </x-flex-list.cell>
 
+                <x-flex-list.cell class="flex-[2]" header="Criado em">
+                    {{ $user->created_at->format('d/m/Y H:i:s') }}
+                </x-flex-list.cell>
+
                 <x-flex-list.cell class="md:justify-end" header="Ações">
                     <div class="group flex">
                         <button class="btn btn-xs btn-ghost border rounded-r-none">Editar</button>
                         <div class="dropdown dropdown-end -ml-px">
                             <button tabindex="0" class="btn btn-xs btn-ghost border rounded-l-none">
-                                <x-icon name="chevron-down" class="w-4 h-4"/>
+                                <x-icon name="chevron-down" class="w-4 h-4" />
                             </button>
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-1">
                                 <li><a class="px-3 py-1">Item 1</a></li>

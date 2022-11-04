@@ -6,6 +6,7 @@ use App\Actions\UserDelete;
 use App\Actions\UserDeleteAll;
 use App\Models\User;
 use App\Traits\WithBulkActions;
+use App\Traits\WithOrdering;
 use App\Traits\WithPerPagePagination;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\View\View;
@@ -18,16 +19,23 @@ use Livewire\Component;
  */
 class ListComponent extends Component
 {
-    use WithPerPagePagination, WithBulkActions;
+    use WithPerPagePagination, WithBulkActions, WithOrdering;
+
+    public function mount(): void
+    {
+        $this->defaultOrder = ['created_at' => 'asc'];
+    }
 
     public function getQueryProperty(): Builder
     {
-        return User::query();
+        $query = User::query();
+
+        return $this->applyOrdering($query);
     }
 
     public function getDataProperty(): LengthAwarePaginator
     {
-        return $this->applyPagination($this->query->latest('id'));
+        return $this->applyPagination($this->query);
     }
 
     public function deleteSelectedKeys(): void

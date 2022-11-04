@@ -17,6 +17,8 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $now =  $this->faker->dateTime;
+
         return [
             'deactivated' => $this->faker->randomElement([null,1]),
             'name' => $this->faker->name(),
@@ -24,6 +26,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => 'password',
             'remember_token' => Str::random(10),
+            'created_at' => $now,
+            'updated_at' => $now,
         ];
     }
 
