@@ -21,14 +21,12 @@ class ListComponent extends Component
 {
     use WithPerPagePagination, WithBulkActions, WithOrdering;
 
-    public function mount(): void
-    {
-        $this->defaultOrder = ['created_at' => 'desc'];
-    }
+    public $search;
 
     public function getQueryProperty(): Builder
     {
         $query = User::query();
+        $query = $this->applyFilters($query);
 
         return $this->applyOrdering($query);
     }
@@ -36,6 +34,16 @@ class ListComponent extends Component
     public function getDataProperty(): LengthAwarePaginator
     {
         return $this->applyPagination($this->query);
+    }
+
+    public function applyFilters(Builder $query): Builder
+    {
+        return $query
+            ->when($this->search, function ($query, $value) {
+                return $query
+                    ->where('name', 'like', "%{$value}%")
+                    ->orWhere('email', 'like', "%{$value}%");
+        });
     }
 
     public function deleteSelectedKeys(): void
@@ -55,6 +63,7 @@ class ListComponent extends Component
 
     public function render(): View
     {
+        //sleep(3);
         return view('livewire.user.list-component', [
             'users' => $this->data
         ]);

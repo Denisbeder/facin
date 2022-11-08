@@ -6,14 +6,14 @@ use Illuminate\Contracts\Database\Query\Builder;
 
 trait WithOrdering
 {
-    public array $orders = [];
+    public array $order = [];
 
     public array $defaultOrder = ['id' => 'desc'];
 
     public function queryStringWithOrdering(): array
     {
         return [
-            'orders' => [
+            'order' => [
                 'except' => $this->defaultOrder
             ]
         ];
@@ -21,29 +21,29 @@ trait WithOrdering
 
     public function renderingWithOrdering(): void
     {
-        $orders = array_filter($this->orders, static fn ($value) => !empty($value) && in_array($value, ['asc', 'desc']));
+        $order = array_filter($this->order, static fn ($value) => !empty($value) && in_array($value, ['asc', 'desc']));
 
-        $this->orders = $orders;
+        $this->order = $order;
     }
 
-    public function clearOrders(): void
+    public function clearOrder(): void
     {
-        $this->orders = [];
+        $this->order = [];
     }
 
     public function orderBy(string $field): void
     {
-        if (!isset($this->orders[$field])) {
-            $this->orders[$field] = 'asc';
+        if (!isset($this->order[$field])) {
+            $this->order[$field] = 'asc';
             return;
         }
 
-        if ($this->orders[$field] === 'asc') {
-            $this->orders[$field] = 'desc';
+        if ($this->order[$field] === 'asc') {
+            $this->order[$field] = 'desc';
             return;
         }
 
-        unset($this->orders[$field]);
+        unset($this->order[$field]);
     }
 
     public function applyDefaultOrdering(Builder $query): Builder
@@ -56,11 +56,11 @@ trait WithOrdering
 
     public function applyOrdering(Builder $query): Builder
     {
-        if (empty($this->orders)) {
+        if (empty($this->order)) {
             return $this->applyDefaultOrdering($query);
         }
 
-        foreach ($this->orders as $field => $direction) {
+        foreach ($this->order as $field => $direction) {
             $query->orderBy($field, $direction);
         }
 
