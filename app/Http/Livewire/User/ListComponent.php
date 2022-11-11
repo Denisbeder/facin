@@ -21,6 +21,8 @@ class ListComponent extends Component
 {
     use WithPerPagePagination, WithBulkActions, WithOrdering;
 
+    protected $listeners = ['deleteItem'];
+
     public $search;
 
     public function getQueryProperty(): Builder
@@ -61,9 +63,23 @@ class ListComponent extends Component
         $this->clearAllSelected();
     }
 
+    public function deleteItem(int $id): void
+    {
+        UserDelete::run([$id]);
+
+        $this->emit('closeDialogDelete');
+    }
+
+    public function confirmDelete($id): void
+    {
+        $args = $this->getName() . ':deleteItem:' . $id;
+
+        $this->emit('openDialogDelete', $args);
+    }
+
     public function render(): View
     {
-        //sleep(3);
+        sleep(10);
         return view('livewire.user.list-component', [
             'users' => $this->data
         ]);
