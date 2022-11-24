@@ -118,7 +118,7 @@
                                 <x-icon name="chevron-down" class="w-4 h-4"/>
                             </button>
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-1">
-                                <li><button wire:click="confirmDelete({{ $user->id }})" class="px-3 py-1">Delete</button></li>
+                                <li><button wire:click="$emit('openDialogDelete', '{{ $this->confirmDeleteSerialize($user->id) }}')" class="px-3 py-1">Delete</button></li>
                                 <li><a class="px-3 py-1">Visualizar</a></li>
                             </ul>
                         </div>

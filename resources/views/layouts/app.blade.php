@@ -13,7 +13,10 @@
     @vite('resources/scss/app.scss', 'vendor/assets')
 </head>
 <body class="bg-base-200/40">
-    <div x-cloak x-data class="flex">
+    <div wire:offline>
+        You are now offline.
+    </div>
+    <div x-cloak x-data="App" class="flex">
         <aside class="h-screen flex flex-col z-50 transition-[width,transform] duration-300 bg-base-100 border-r"
             x-bind:class="{
                 'sticky top-0': $store.sidebar.isModeFull() || $store.sidebar.isModeBar(),
@@ -31,6 +34,8 @@
                 'translate-x-64 min-w-screen': $store.sidebar.isModeMobile() && $store.sidebar.isOpenOffCanvas
             }">
             <main>
+                <button x-bind="openWithDialog">=========================DIALOG=========================</button>
+                <button x-bind="confirmDialog" data-success="ss">=========================CONFIRM=========================</button>
                 @yield('content')
             </main>
         </div>

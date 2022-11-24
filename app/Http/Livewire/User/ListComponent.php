@@ -70,16 +70,14 @@ class ListComponent extends Component
         $this->emit('closeDialogDelete');
     }
 
-    public function confirmDelete($id): void
+    public function confirmDeleteSerialize($id): string
     {
-        $args = $this->getName() . ':deleteItem:' . $id;
-
-        $this->emit('openDialogDelete', $args);
+        return self::getName() . ':deleteItem:' . $id;
     }
 
     public function render(): View
     {
-        sleep(10);
+        //sleep(10);
         return view('livewire.user.list-component', [
             'users' => $this->data
         ]);
