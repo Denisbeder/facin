@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
@@ -9,7 +9,11 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ['resources/scss/app.scss', 'resources/js/app.js'],
+            input: [
+                'resources/assets/scss/app.scss',
+                'resources/assets/js/app.js',
+                'resources/assets/svg/logo.svg',
+            ],
             refresh: true,
         }),
     ],
