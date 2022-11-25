@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    @hasSection('title')
+        <title>{{ config('app.name') }} - @yield('title')</title>
+    @else
+        <title>{{ config('app.name') }}</title>
+    @endif
     @vite('resources/scss/app.scss')
 </head>
 <body class="h-full">
