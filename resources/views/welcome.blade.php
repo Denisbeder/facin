@@ -10,13 +10,7 @@
                     <label for="search-field" class="sr-only">Search</label>
                     <div class="relative w-full text-gray-400 focus-within:text-gray-600">
                         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                            <!-- Heroicon name: mini/magnifying-glass -->
-                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                 fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                      d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                                      clip-rule="evenodd"/>
-                            </svg>
+                            <x-icon.magnifying-glass class="h-5 w-5" />
                         </div>
                         <input id="search-field"
                                class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
@@ -29,7 +23,58 @@
             </div>
         </div>
         <div class="-mx-4 mt-8 overflow-hidden ring-1 ring-gray-200 sm:-mx-6 md:mx-0 md:rounded-lg">
-            <table class="min-w-full divide-y divide-gray-300">
+            <x-table>
+                <x-slot:head>
+                    <x-table.head-checkbox-cell />
+
+                    <x-table.head-cell order>
+                        NOME
+                    </x-table.head-cell>
+
+                    <x-table.head-cell order>
+                        TÍTULO
+                    </x-table.head-cell>
+
+                    <x-table.head-cell order>
+                        E-MAIL
+                    </x-table.head-cell>
+
+                    <x-table.head-cell order>
+                        FUNÇÃO
+                    </x-table.head-cell>
+
+                    <x-table.head-cell />
+                </x-slot:head>
+
+                <x-slot:body>
+                    @for($i = 0; $i < 10; $i++)
+                        <x-table.body-row>
+                            <x-table.body-checkbox-cell />
+
+                            <x-table.body-cell>
+                                Lindsay Walton
+                            </x-table.body-cell>
+
+                            <x-table.body-cell>
+                                Front-end Developer
+                            </x-table.body-cell>
+
+                            <x-table.body-cell>
+                                email@email.com
+                            </x-table.body-cell>
+
+                            <x-table.body-cell>
+                                Membro
+                            </x-table.body-cell>
+
+                            <x-table.body-cell class="text-right">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                            </x-table.body-cell>
+                        </x-table.body-row>
+                    @endfor
+                </x-slot:body>
+            </x-table>
+            {{--<table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="relative w-12 px-6 sm:w-16 sm:px-8">
@@ -115,7 +160,7 @@
                     </tr>
                     @endfor
                 </tbody>
-            </table>
+            </table>--}}
         </div>
 
         <x-pagination />
