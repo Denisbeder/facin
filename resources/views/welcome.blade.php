@@ -48,8 +48,8 @@
 
                 <x-slot:body>
                     @for($i = 0; $i < 10; $i++)
-                        <x-table.body-row>
-                            <x-table.body-checkbox-cell />
+                        <x-table.body-row :selected="in_array($i, [3,4,7])">
+                            <x-table.body-checkbox-cell :selected="in_array($i, [3,4,7])" />
 
                             <x-table.body-cell>
                                 Lindsay Walton

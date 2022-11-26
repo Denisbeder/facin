@@ -1,6 +1,4 @@
-@props([
-    'order' => false
-])
+@props(['order' => false])
 
 <th scope="col" {{ $attributes->merge(['class' => 'py-3.5 px-3 text-left text-sm font-semibold text-gray-900 last:pr-6 first:pl-6']) }}>
     @if($order)
