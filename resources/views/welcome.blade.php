@@ -46,19 +46,19 @@
                 <x-slot:head>
                     <x-table.head-checkbox-cell />
 
-                    <x-table.head-cell order>
+                    <x-table.head-cell ordeable>
                         NOME
                     </x-table.head-cell>
 
-                    <x-table.head-cell order>
+                    <x-table.head-cell ordeable direction="asc">
                         TÍTULO
                     </x-table.head-cell>
 
-                    <x-table.head-cell order>
+                    <x-table.head-cell ordeable>
                         E-MAIL
                     </x-table.head-cell>
 
-                    <x-table.head-cell order>
+                    <x-table.head-cell ordeable>
                         FUNÇÃO
                     </x-table.head-cell>
 
