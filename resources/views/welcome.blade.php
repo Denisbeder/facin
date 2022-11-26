@@ -51,7 +51,7 @@
                         <x-table.body-row :selected="in_array($i, [3,4,7])">
                             <x-table.body-checkbox-cell :selected="in_array($i, [3,4,7])" />
 
-                            <x-table.body-cell>
+                            <x-table.body-cell class="font-semibold text-gray-900">
                                 Lindsay Walton
                             </x-table.body-cell>
 
