@@ -12,7 +12,7 @@
         'whitespace-nowrap',
         'inline-flex',
         'items-center',
-        'font-semibold',
+        'font-medium',
         'focus:ring-indigo-500',
     ];
 
@@ -33,21 +33,21 @@
     ];
 
     $classLeftIcon = [
-        '-ml-0.5 mr-2 h-4 w-4' => in_array($size, ['xs', 'sm']), // xs | sm
-        '-ml-1 mr-2 h-5 w-5' => $size === 'md', // md
+        '-ml-0.5 mr-2 h-3 w-3' => in_array($size, ['xs', 'sm']), // xs | sm
+        '-ml-1 mr-2 h-4 w-4' => $size === 'md', // md
         '-ml-1 mr-3 h-5 w-5' => in_array($size, ['lg', 'xl']), // lg | xl
     ];
 
     $classRightIcon = [
-        'ml-2 -mr-0.5 h-4 w-4' => in_array($size, ['xs', 'sm']), // xs | sm
-        'ml-2 -mr-1 h-5 w-5' => $size === 'md', // md
+        'ml-2 -mr-0.5 h-3 w-3' => in_array($size, ['xs', 'sm']), // xs | sm
+        'ml-2 -mr-1 h-4 w-4' => $size === 'md', // md
         'ml-3 -mr-1 h-5 w-5' => in_array($size, ['lg', 'xl']), // lg | xl
     ];
 
     $classColor = [
         'text-white border-transparent bg-indigo-600 hover:bg-indigo-700' => $color === 'primary', // Primary Indigo
         'text-indigo-700 border-transparent bg-indigo-100 hover:bg-indigo-200' => $color === 'secondary', // Secondary Indigo
-        'text-gray-700 border-gray-300 bg-white hover:bg-gray-50' => $color === 'white', // White
+        'text-gray-700 border-gray-200 bg-white hover:bg-gray-50' => $color === 'white', // White
     ];
 
     $classList = [
@@ -66,6 +66,6 @@
     {{ $slot }}
 
     @if($rightIcon)
-        <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classRightIcon) />
+        <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />
     @endif
 </{{ $tag }}>

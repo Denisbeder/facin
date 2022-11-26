@@ -4,22 +4,41 @@
 
 @section('content')
     <div class="px-4 sm:px-6">
+        <nav class="flex mb-2" aria-label="Breadcrumb">
+            <ol role="list" class="flex items-center space-x-4">
+                <li>
+                    <div class="flex">
+                        <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-700">Usuários</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <x-icon.chevron-right class="h-4 w-4 flex-shrink-0 text-gray-400" />
+                        <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Registros</a>
+                    </div>
+                </li>
+            </ol>
+        </nav>
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-                <form class="flex w-full md:ml-0" action="#" method="GET">
-                    <label for="search-field" class="sr-only">Search</label>
-                    <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                            <x-icon.magnifying-glass class="h-5 w-5" />
-                        </div>
-                        <input id="search-field"
-                               class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
-                               placeholder="Search" type="search" name="search">
-                    </div>
-                </form>
+                <h2 class="text-2xl font-semibold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Usuários</h2>
             </div>
-            <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                <x-button href="#" leftIcon="plus" type="submit">Novo</x-button>
+            <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex gap-4">
+                <x-dropdown label="Ações">
+                    <x-slot:items>
+                        <x-dropdown.item href="#">Deletar</x-dropdown.item>
+                        <x-dropdown.item href="#">Ativar</x-dropdown.item>
+                        <x-dropdown.item href="#">Desativar</x-dropdown.item>
+                    </x-slot:items>
+                </x-dropdown>
+                <x-button color="white">
+                    <x-icon.funnel class="w-4 h-4" />
+                </x-button>
+                <form class="flex w-full md:ml-0" action="#" method="GET">
+                    <label for="search-field" class="sr-only">Buscar</label>
+                    <x-input.text rightIcon="magnifying-glass" id="search-field" placeholder="Buscar" type="search" name="search" />
+                </form>
+                <x-button href="#" leftIcon="plus">Novo</x-button>
             </div>
         </div>
         <div class="-mx-4 mt-8 overflow-hidden ring-1 ring-gray-200 sm:-mx-6 md:mx-0 md:rounded-lg">
