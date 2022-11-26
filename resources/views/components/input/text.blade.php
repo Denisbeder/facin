@@ -7,6 +7,7 @@
 
 @php
     $classList = [
+        'transition-color duration-300',
         'block',
         'w-full',
         'rounded-md',

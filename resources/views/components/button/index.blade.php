@@ -9,6 +9,7 @@
     $tag = $attributes->has('href') ? 'a' : 'button';
 
     $classBase = [
+        'transition-color duration-300',
         'whitespace-nowrap',
         'inline-flex',
         'items-center',
@@ -59,13 +60,13 @@
 @endphp
 
 <{{ $tag }} {{ $attributes->class($classList) }}>
-    @if($leftIcon)
-        <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
-    @endif
+@if($leftIcon)
+    <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
+@endif
 
-    {{ $slot }}
+{{ $slot }}
 
-    @if($rightIcon)
-        <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />
-    @endif
+@if($rightIcon)
+    <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />
+@endif
 </{{ $tag }}>

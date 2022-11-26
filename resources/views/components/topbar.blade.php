@@ -11,55 +11,48 @@
         </svg>
     </button>
     <div class="flex flex-1 justify-between px-6">
-        <div class="flex flex-1">
-            
+        <div class="flex flex-1 items-center">
+            <a href="#" class="group block flex-shrink-0">
+                <div class="flex items-center">
+                    <x-avatar class="inline-block h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&h=256&q=80"
+                              alt=""/>
+                    <div class="ml-3 hidden md:block">
+                        {{--<x-badge color="green" class="group-hover:bg-green-300">Ativo</x-badge>--}}
+                        <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Volkswagen</p>
+                        <span class="text-xs font-medium text-gray-500 group-hover:text-indigo-500 flex items-center gap-1">
+                            www.volkswagen.com.br
+                            <x-icon.arrow-top-right-on-square class="w-3 h-3" />
+                        </span>
+                    </div>
+                </div>
+            </a>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
             <button type="button"
                     class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                <span class="sr-only">View notifications</span>
-                <!-- Heroicon name: outline/bell -->
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
-                </svg>
+                <span class="sr-only">Ver notificações</span>
+                <x-icon.bell class="h-5 w-5"  />
             </button>
 
             <!-- Profile dropdown -->
             <div x-data x-menu class="relative ml-3">
-                <button x-menu:button type="button"
-                        class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full"
-                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                         alt="">
-                </button>
+                <x-dropdown>
+                    <button type="button"
+                            class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        <span class="sr-only">Abrir menu do usuário</span>
+                        <x-avatar
+                            class="h-10 w-10 rounded-full"
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="" />
+                    </button>
 
-                <div
-                    x-menu:items
-                    x-transition.origin.top.right
-                    x-cloak
-                    class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
-                    tabindex="-1">
-                    <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a x-menu:item href="#"
-                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                       role="menuitem" tabindex="-1"
-                       id="user-menu-item-0">Your Profile</a>
-
-                    <a x-menu:item href="#"
-                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                       role="menuitem" tabindex="-1"
-                       id="user-menu-item-1">Settings</a>
-
-                    <a x-menu:item href="#"
-                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                       role="menuitem" tabindex="-1"
-                       id="user-menu-item-2">Sign out</a>
-                </div>
+                    <x-slot:items>
+                        <x-dropdown.item href="#">Sue perfil</x-dropdown.item>
+                        <x-dropdown.item href="#">Configurações</x-dropdown.item>
+                        <x-dropdown.item href="#">Sair</x-dropdown.item>
+                    </x-slot:items>
+                </x-dropdown>
             </div>
         </div>
     </div>
