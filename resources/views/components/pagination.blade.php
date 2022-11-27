@@ -4,8 +4,13 @@
         <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
     </div>
     <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <x-input.select label="Por página" />
-        <div>
+        <div class="flex items-center gap-2">
+            <x-select3 name="per_page" selected="15" :options="[
+                ['value' => 10, 'label' => '10', 'id' => 10, 'disabled' => false],
+                ['value' => 15, 'label' => '15', 'id' => 15, 'disabled' => false],
+                ['value' => 20, 'label' => '20', 'id' => 20, 'disabled' => true],
+                ['value' => 30, 'label' => '30', 'id' => 30, 'disabled' => false],
+            ]" />
             <p class="text-sm text-gray-700">
                 Mostrando
                 <span class="font-medium">1</span>
