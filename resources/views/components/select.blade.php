@@ -88,6 +88,7 @@
                     'font-semibold' => $isSelected($option) && !$isDisabled($option),
                     'cursor-not-allowed' => $isDisabled($option),
                     'block',
+                    'whitespace-nowrap',
                     'py-1',
                     'pl-3',
                     'pr-9',
