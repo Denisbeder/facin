@@ -5,13 +5,13 @@
     </div>
     <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div class="flex items-center gap-2">
-            <x-select name="per_page" selected="15" :options="[
+            <x-select name="per_page" direction="left-top" selected="15" :options="[
                 ['value' => 10, 'label' => '10', 'disabled' => false],
                 ['value' => 15, 'label' => '15', 'disabled' => false],
                 ['value' => 20, 'label' => '20', 'disabled' => true],
                 ['value' => 30, 'label' => '30', 'disabled' => false],
                 ['value' => 50, 'label' => '50', 'disabled' => true],
-                ['value' => 100, 'label' => '100', 'disabled' => true],
+                ['value' => 100, 'label' => '100 zaoooo', 'disabled' => true],
             ]" />
             <p class="text-sm text-gray-700">
                 Mostrando

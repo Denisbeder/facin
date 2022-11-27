@@ -1,6 +1,7 @@
 @props([
     'name' => null,
     'selected' => false,
+    'direction' => 'right-bottom', // left-bottom, left-top, right-bottom, right-top
     'options'
 ])
 
@@ -31,8 +32,42 @@
         @endforeach
     </x-button>
 
-    <ul x-menu:items x-transition.origin.top.right
-        class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-gray-200 focus:outline-none sm:text-sm"
+    <ul x-menu:items
+        @if($direction === 'right-bottom')
+        x-transition.origin.bottom.right
+        @endif
+
+        @if($direction === 'left-bottom')
+            x-transition.origin.bottom.left
+        @endif
+
+        @if($direction === 'right-top')
+            x-transition.origin.top.right
+        @endif
+
+        @if($direction === 'left-bottom')
+            x-transition.origin.top.left
+        @endif
+
+        @class([
+        'absolute',
+        'z-10',
+        'bottom-full left-0 mb-1' => $direction === 'left-top',
+        'bottom-full right-0 mb-1' => $direction === 'right-top',
+        'mt-1 right-0' => $direction === 'right-bottom',
+        'mt-1 left-0' => $direction === 'left-bottom',
+        'max-h-60',
+        'overflow-auto',
+        'rounded-md',
+        'bg-white',
+        'py-1',
+        'text-base',
+        'shadow-lg',
+        'ring-1',
+        'ring-gray-200',
+        'focus:outline-none',
+        'sm:text-sm',
+        ])
         tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
 
         @foreach($options as $option)
