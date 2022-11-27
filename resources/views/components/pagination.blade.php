@@ -5,7 +5,7 @@
     </div>
     <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div class="flex items-center gap-2">
-            <x-select3 name="per_page" selected="15" :options="[
+            <x-select name="per_page" selected="15" :options="[
                 ['value' => 10, 'label' => '10', 'id' => 10, 'disabled' => false],
                 ['value' => 15, 'label' => '15', 'id' => 15, 'disabled' => false],
                 ['value' => 20, 'label' => '20', 'id' => 20, 'disabled' => true],
