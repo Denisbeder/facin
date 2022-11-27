@@ -22,7 +22,7 @@
               aria-expanded="true" aria-labelledby="listbox-label">
         @foreach($options as $option)
             <input
-                class="h-auto w-auto border-0 text-gray-700 !bg-none !bg-transparent appearance-none hidden checked:block after:inline-block after:content-[attr(title)]"
+                class="h-auto w-auto border-0 text-gray-700 !bg-none !bg-transparent !focus:outline-0 !focus:ring-0 appearance-none hidden checked:block after:inline-block after:content-[attr(title)]"
                 type="radio"
                 name="{{ $name }}"
                 id="{{ $key }}_{{ $option['value'] }}"
@@ -33,21 +33,10 @@
     </x-button>
 
     <ul x-menu:items
-        @if($direction === 'right-bottom')
-        x-transition.origin.bottom.right
-        @endif
-
-        @if($direction === 'left-bottom')
-            x-transition.origin.bottom.left
-        @endif
-
-        @if($direction === 'right-top')
-            x-transition.origin.top.right
-        @endif
-
-        @if($direction === 'left-bottom')
-            x-transition.origin.top.left
-        @endif
+        @if($direction === 'right-bottom') x-transition.origin.bottom.right @endif
+        @if($direction === 'left-bottom') x-transition.origin.bottom.left @endif
+        @if($direction === 'right-top') x-transition.origin.top.right @endif
+        @if($direction === 'left-top') x-transition.origin.top.left @endif
 
         @class([
         'absolute',
@@ -93,7 +82,7 @@
                     'pl-3',
                     'pr-9',
                     //'truncate',
-                ]) for="{{ $key }}_{{ $option['value'] }}" @if(!$isDisabled($option)) @click="__close()" @endif>
+                ]) for="{{ $key }}_{{ $option['value'] }}" @click="__close()">
                     {{ $option['label'] }}
                 </label>
 
