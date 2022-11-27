@@ -24,7 +24,7 @@
     }
 }" >
     <div x-menu class="relative" x-init="$watch('__isOpen', value => {
-        document.querySelector('#select_item_{{ $key }}_' + $data.selected).classList.add('text-white', 'bg-indigo-600');
+        document.querySelector('#select_item_{{ $key }}_' + $data.selected)?.classList.add('text-white', 'bg-indigo-600');
     })">
         <x-button x-menu:button color="white" rightIcon="chevron-up-down" class="cursor-default" aria-haspopup="listbox"
                   aria-expanded="true" aria-labelledby="listbox-label">
