@@ -33,14 +33,14 @@
     </x-button>
 
     <ul x-menu:items
-        @if($direction === 'right-bottom') x-transition.origin.bottom.right @endif
-        @if($direction === 'left-bottom') x-transition.origin.bottom.left @endif
-        @if($direction === 'right-top') x-transition.origin.top.right @endif
-        @if($direction === 'left-top') x-transition.origin.top.left @endif
+        @if($direction === 'right-bottom') x-transition.origin.top.right @endif
+        @if($direction === 'left-bottom') x-transition.origin.top.left @endif
+        @if($direction === 'right-top') x-transition.origin.bottom.right @endif
+        @if($direction === 'left-top') x-transition.origin.bottom.left @endif
 
         @class([
         'absolute',
-        'z-10',
+        'z-30',
         'bottom-full left-0 mb-1' => $direction === 'left-top',
         'bottom-full right-0 mb-1' => $direction === 'right-top',
         'mt-1 right-0' => $direction === 'right-bottom',
