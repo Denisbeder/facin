@@ -19,7 +19,7 @@
 @endphp
 
 @if($disabled)
-    <x-button color="white" rightIcon="chevron-up-down" class="cursor-default" ::disabled="{{ Js::from($disabled) }}">
+    <x-button color="white" rightIcon="chevron-up-down" class="cursor-default" :disabled="$disabled">
         {{ head(array_filter($options, static fn ($option) => $isSelected($option)))['label'] }}
     </x-button>
 @else

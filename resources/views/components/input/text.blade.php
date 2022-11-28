@@ -1,4 +1,5 @@
 @props([
+    'disabled' => false,
     'leftIcon' => false,
     'rightIcon' => false,
     'leftAddon' => false,
@@ -14,6 +15,7 @@
         'border-gray-200',
         'focus:border-indigo-500',
         'focus:ring-indigo-500',
+        'disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500',
         'sm:text-sm',
         'pl-10' => $leftIcon,
         'pr-10' => $rightIcon,
@@ -34,7 +36,7 @@
             </div>
         @endif
 
-        <input {{ $attributes->class($classList) }}>
+        <input @disabled($disabled) {{ $attributes->class($classList) }}>
 
         @if($rightIcon || $rightAddon)
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">

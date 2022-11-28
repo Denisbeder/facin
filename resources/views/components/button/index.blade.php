@@ -1,4 +1,5 @@
 @props([
+    'disabled' => false,
     'size' => 'md',
     'color' => 'primary',
     'leftIcon' => false,
@@ -60,7 +61,7 @@
     ];
 @endphp
 
-<{{ $tag }} {{ $attributes->class($classList) }}>
+<{{ $tag }} @disabled($disabled) {{ $attributes->class($classList) }}>
 @if($leftIcon)
     <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
 @endif
