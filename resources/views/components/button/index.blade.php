@@ -15,6 +15,7 @@
         'items-center',
         'font-medium',
         'focus:ring-indigo-500',
+        'disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500',
     ];
 
     $classStyle = [
