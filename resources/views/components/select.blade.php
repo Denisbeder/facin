@@ -17,15 +17,16 @@
     $isSelected = static fn ($option) => (string)$option['value'] === (string)$selected;
 @endphp
 
-<div x-data="{
+<div id="{{ $key }}" x-data="{
     selected: {{ Js::from((string)$selected) }},
     isSelected(value) {
         return this.selected === value;
     }
 }" >
-    <div x-menu class="relative" x-init="$watch('__isOpen', value => {
-        document.querySelector('#select_item_{{ $key }}_' + $data.selected)?.classList.add('text-white', 'bg-indigo-600');
-    })">
+    <div x-menu class="relative"
+         x-init="$watch('__isOpen', value => {
+            document.querySelector('#select_item_{{ $key }}_' + $data.selected)?.classList.add('text-white', 'bg-indigo-600');
+        })">
         <x-button x-menu:button color="white" rightIcon="chevron-up-down" class="cursor-default" aria-haspopup="listbox"
                   aria-expanded="true" aria-labelledby="listbox-label">
             @foreach($options as $option)
@@ -108,7 +109,7 @@
                         {{ $option['label'] }}
                     </label>
 
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-4" :class="{ 'hidden': !isSelected({{ Js::from((string)$option['value']) }}) }">
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-4" :class="{ 'hidden': !isSelected({{ Js::from((string)$option['value']) }}) || {{ Js::from($isDisabled($option)) }} }">
                         <x-icon.check class="h-4 w-4"/>
                     </span>
                 </li>
