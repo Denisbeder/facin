@@ -17,7 +17,7 @@
     $isSelected = static fn ($option) => (string)$option['value'] === (string)$selected;
 @endphp
 
-<div id="{{ $key }}" x-data="{
+<div id="select_container_{{ $key }}" x-data="{
     selected: {{ Js::from((string)$selected) }},
     isSelected(value) {
         return this.selected === value;
