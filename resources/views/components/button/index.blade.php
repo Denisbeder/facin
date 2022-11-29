@@ -13,6 +13,7 @@
         'transition-color duration-300',
         'whitespace-nowrap',
         'inline-flex',
+        'justify-between',
         'items-center',
         'font-medium',
         'focus:ring-indigo-500',
@@ -36,15 +37,15 @@
     ];
 
     $classLeftIcon = [
-        '-ml-0.5 mr-2 h-3 w-3' => in_array($size, ['xs', 'sm']), // xs | sm
-        '-ml-1 mr-2 h-4 w-4' => $size === 'md', // md
-        '-ml-1 mr-3 h-5 w-5' => in_array($size, ['lg', 'xl']), // lg | xl
+        '-ml-0.5 mr-2 h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
+        '-ml-1 mr-2 h-4 w-4 shrink-0' => $size === 'md', // md
+        '-ml-1 mr-3 h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
     ];
 
     $classRightIcon = [
-        'ml-2 -mr-0.5 h-3 w-3' => in_array($size, ['xs', 'sm']), // xs | sm
-        'ml-2 -mr-1 h-4 w-4' => $size === 'md', // md
-        'ml-3 -mr-1 h-5 w-5' => in_array($size, ['lg', 'xl']), // lg | xl
+        'ml-2 -mr-0.5 h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
+        'ml-2 -mr-1 h-4 w-4 shrink-0' => $size === 'md', // md
+        'ml-3 -mr-1 h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
     ];
 
     $classColor = [
@@ -66,9 +67,7 @@
         <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
     @endif
 
-    <span @class(['flex w-full', 'mr-auto' => $leftIcon])>
-        {{ $slot }}
-    </span>
+    {{ $slot }}
 
     @if($rightIcon)
         <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />

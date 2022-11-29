@@ -13,5 +13,7 @@
     aria-haspopup="{{ $key }}_listbox"
     ::aria-expanded="__isOpen ? 'true' : 'false'" aria-labelledby="{{ $key }}_listbox_label"
 >
-    {{ $slot }}
+    <div class="truncate text-clip">
+        {{ $slot }}
+    </div>
 </x-button>

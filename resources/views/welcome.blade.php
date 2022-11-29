@@ -22,7 +22,7 @@
                     <label for="search-field" class="sr-only">Buscar</label>
                     <x-input.text rightIcon="magnifying-glass" id="search-field" placeholder="Buscar" type="search" name="search" />
                 </form>
-                <x-button href="#" leftIcon="plus">Novo</x-button>
+                <x-button href="#" leftIcon="plus" rightIcon="plus">Novo</x-button>
             </x-slot:actions>
         </x-page-heading>
 
