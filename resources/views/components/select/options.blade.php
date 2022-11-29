@@ -16,6 +16,8 @@
         'mt-1 right-0' => $direction === 'right-bottom',
         'mt-1 left-0' => $direction === 'left-bottom',
         'max-h-60',
+        'w-full',
+        'min-w-fit',
         'overflow-auto',
         'rounded-md',
         'bg-white',

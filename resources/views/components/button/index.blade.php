@@ -62,13 +62,15 @@
 @endphp
 
 <{{ $tag }} @disabled($disabled) {{ $attributes->class($classList) }}>
-@if($leftIcon)
-    <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
-@endif
+    @if($leftIcon)
+        <x-dynamic-component component="icon.{{ $leftIcon }}" @class($classLeftIcon) />
+    @endif
 
-{{ $slot }}
+    <span @class(['flex w-full', 'mr-auto' => $leftIcon])>
+        {{ $slot }}
+    </span>
 
-@if($rightIcon)
-    <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />
-@endif
+    @if($rightIcon)
+        <x-dynamic-component component="icon.{{ $rightIcon }}" @class($classRightIcon) />
+    @endif
 </{{ $tag }}>

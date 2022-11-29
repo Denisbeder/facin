@@ -30,6 +30,7 @@
     </x-button>
 @else
     <div
+        {{ $attributes->class(['w-full']) }}
         id="{{ $key }}"
         x-data="{
             selected: {{ Js::from((string)$selected) }},
@@ -40,7 +41,7 @@
     >
         <div
             x-menu
-            class="relative"
+            class="relative w-full"
             x-init="$watch('__isOpen', value => {
                 document.querySelector(`#{{ $key }}_option_${$data.selected}`)?.classList.add('text-white', 'bg-indigo-600');
             })"
