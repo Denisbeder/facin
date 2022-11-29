@@ -13,6 +13,28 @@
                 ['value' => 50, 'label' => '50', 'disabled' => true],
                 ['value' => 100, 'label' => '100 zaoooo', 'disabled' => true],
             ]" />
+            <x-select name="per_page2" disabled direction="left-top" :options="[
+                ['value' => 10, 'label' => '10', 'disabled' => false],
+                ['value' => 15, 'label' => '15', 'disabled' => false],
+                ['value' => 20, 'label' => '20', 'disabled' => true],
+                ['value' => 30, 'label' => '30', 'disabled' => false],
+                ['value' => 50, 'label' => '50', 'disabled' => true],
+                ['value' => 100, 'label' => '100 zaoooo', 'disabled' => true],
+            ]" />
+
+            <x-select name="per_page2" disabled direction="left-top" selected="222" :options="[
+                ['value' => 10, 'label' => '10', 'disabled' => false],
+                ['value' => 15, 'label' => '15', 'disabled' => false],
+                ['value' => 20, 'label' => '20', 'disabled' => true],
+                ['value' => 30, 'label' => '30', 'disabled' => false],
+                ['value' => 50, 'label' => '50', 'disabled' => true],
+                ['value' => 100, 'label' => '100 zaoooo', 'disabled' => true],
+            ]" />
+
+            <x-select name="per_page2" disabled direction="left-top" selected="222" :options="[]" />
+
+            <x-select name="per_page2" disabled direction="left-top"  :options="[]" />
+            <x-select name="per_page2" direction="left-top"  :options="[]" />
             <p class="text-sm text-gray-700">
                 Mostrando
                 <span class="font-medium">1</span>
