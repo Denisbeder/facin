@@ -15,7 +15,7 @@
                     ['value' => 100, 'label' => '100', 'disabled' => false],
                 ]" />
             </div>
-            <p class="text-sm text-gray-700 mr-auto">
+            <p class="text-sm text-gray-700">
                 Mostrando
                 <span class="font-medium">1</span>
                 de
