@@ -10,7 +10,6 @@
     $classListOption = [
        'transition duration-300',
        'relative',
-       'text-gray-900',
        'cursor-default',
        'select-none',
        'hover:text-white' => !$isDisabled($option),
