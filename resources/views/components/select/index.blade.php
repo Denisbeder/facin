@@ -81,7 +81,7 @@
                         :disabled="{{ Js::from($option['disabled'] ?? false) }}"
                         :class="{
                             'bg-indigo-600 text-white': $listboxOption.isActive,
-                            'text-gray-900': ! $listboxOption.isActive,
+                            'text-gray-900': !$listboxOption.isActive,
                             'opacity-50 cursor-not-allowed': $listboxOption.isDisabled,
                         }"
                         class="whitespace-nowrap flex items-center cursor-default justify-between gap-2 w-full px-4 py-2 text-sm transition-colors duration-300"

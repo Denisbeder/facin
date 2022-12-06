@@ -79,4 +79,14 @@
         </x-table>
         <x-pagination />
     </div>
+
+    {{--<x-dialog.alert title="Deletar registro">
+        Tem certeza de que deseja desativar sua conta?
+        Todos os seus dados serão removidos permanentemente de nossos servidores para sempre.
+        Essa ação não pode ser desfeita.
+    </x-dialog.alert>--}}
+
+    <x-dialog.modal title="Criar registro">
+        Criar
+    </x-dialog.modal>
 @endsection
