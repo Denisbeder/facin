@@ -1,10 +1,10 @@
 import './bootstrap';
-import alpine from 'alpinejs';
-import focus from '@alpinejs/focus';
-import ui from '@alpinejs/ui';
+import Alpine from 'alpinejs';
+import AlpineFocus from '@alpinejs/focus';
+import AlpineUI from '@alpinejs/ui';
 
-window.alpine = alpine;
+window.alpine = Alpine;
 
-alpine.plugin(focus);
-alpine.plugin(ui);
+alpine.plugin(AlpineFocus);
+alpine.plugin(AlpineUI);
 alpine.start();

@@ -1,6 +1,6 @@
-<x-dialog>
+<x-dialog {{ $attributes }}>
     @isset($title)
-    <x-slot:title>{{ $title }}</x-slot:title>
+    <x-slot:title class="mb-2">{{ $title }}</x-slot:title>
     @endisset
 
     <x-slot:icon class="bg-red-100">
@@ -15,7 +15,7 @@
         <x-button href="#" color="danger">
             Ok
         </x-button>
-        <x-button color="white">
+        <x-button color="white" x-on:click="$dialog.close()">
             Cancelar
         </x-button>
     </x-slot:buttons>
