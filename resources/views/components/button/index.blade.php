@@ -4,6 +4,7 @@
     'color' => 'primary',
     'leftIcon' => false,
     'rightIcon' => false,
+    'rounded' => true,
 ])
 
 @php
@@ -22,7 +23,7 @@
     ];
 
     $classStyle = [
-        'rounded',
+        'rounded' => $rounded,
         'border',
         'focus:outline-none',
         'focus:ring-2',
@@ -38,15 +39,23 @@
     ];
 
     $classLeftIcon = [
-        '-ml-0.5 mr-2 h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
-        '-ml-1 mr-2 h-4 w-4 shrink-0' => $size === 'md', // md
-        '-ml-1 mr-3 h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
+        'h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
+        'h-4 w-4 shrink-0' => $size === 'md', // md
+        'h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
+
+        '-ml-0.5 mr-2' => in_array($size, ['xs', 'sm']) && $slot->isNotEmpty(), // xs | sm
+        '-ml-1 mr-2' => $size === 'md' && $slot->isNotEmpty(), // md
+        '-ml-1 mr-3' => in_array($size, ['lg', 'xl']) && $slot->isNotEmpty(), // lg | xl
     ];
 
     $classRightIcon = [
-        'ml-2 -mr-0.5 h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
-        'ml-2 -mr-1 h-4 w-4 shrink-0' => $size === 'md', // md
-        'ml-3 -mr-1 h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
+        'h-3 w-3 shrink-0' => in_array($size, ['xs', 'sm']), // xs | sm
+        'h-4 w-4 min-h-max shrink-0' => $size === 'md', // md
+        'h-5 w-5 shrink-0' => in_array($size, ['lg', 'xl']), // lg | xl
+
+        '-mr-0.5 ml-2' => in_array($size, ['xs', 'sm']) && $slot->isNotEmpty(), // xs | sm
+        '-mr-1 ml-2' => $size === 'md' && $slot->isNotEmpty(), // md
+        '-mr-1 ml-3' => in_array($size, ['lg', 'xl']) && $slot->isNotEmpty(), // lg | xl
     ];
 
     $classColor = [

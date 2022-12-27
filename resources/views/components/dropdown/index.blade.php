@@ -1,7 +1,7 @@
 @props(['label' => null])
 
 <div x-data x-menu {{ $attributes->merge(['class' => 'relative inline-block text-left']) }}>
-    <div x-menu:button>
+    <div class="flex items-stretch min-h-full" x-menu:button>
         @if($slot->isEmpty())
             <x-button rightIcon="chevron-down" color="white">{{ $label }}</x-button>
         @else

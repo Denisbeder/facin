@@ -48,7 +48,7 @@
                     </button>
 
                     <x-slot:items>
-                        <x-dropdown.item href="#">Sue perfil</x-dropdown.item>
+                        <x-dropdown.item href="#">Seu perfil</x-dropdown.item>
                         <x-dropdown.item href="#">Configurações</x-dropdown.item>
                         <x-dropdown.item href="#">Sair</x-dropdown.item>
                     </x-slot:items>

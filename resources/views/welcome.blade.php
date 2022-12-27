@@ -26,7 +26,7 @@
                         <label for="search-field" class="sr-only">Buscar</label>
                         <x-input.text rightIcon="magnifying-glass" id="search-field" placeholder="Buscar" type="search" name="search" />
                     </form>
-                    <x-button href="#" leftIcon="plus" rightIcon="plus">Novo</x-button>
+                    <x-button href="#" rightIcon="plus">Novo</x-button>
                 </x-slot:actions>
             </x-page-heading>
 
@@ -75,8 +75,17 @@
                             </x-table.body-cell>
 
                             <x-table.body-cell class="text-right items-center flex justify-end gap-1">
-                                <button class="text-indigo-600 hover:text-indigo-900">Editar<span class="sr-only">Editar</span></button>
-                                <button class="text-red-600 hover:text-red-900" x-on:click="modalDeleteAlert = 11"><x-icon.trash class="w-4 h-4" /><span class="sr-only">Deletar</span></button>
+                                <x-button.group>
+                                    <x-button.group.item size="xs" class="!py-1">Editar</x-button.group.item>
+                                    <x-dropdown class="-ml-px">
+                                        <x-button.group.item size="xs" rightIcon="chevron-down" color="white" class="!rounded-l-none self-stretch !px-1.5" />
+                                        <x-slot:items>
+                                            <x-dropdown.item href="#">Visualizar</x-dropdown.item>
+                                            <x-dropdown.item href="#">Detalhes</x-dropdown.item>
+                                            <x-dropdown.item href="#">Deletar</x-dropdown.item>
+                                        </x-slot:items>
+                                    </x-dropdown>
+                                </x-button.group>
                             </x-table.body-cell>
                         </x-table.body-row>
                     @endfor
