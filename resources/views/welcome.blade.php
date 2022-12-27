@@ -82,7 +82,7 @@
                                         <x-slot:items>
                                             <x-dropdown.item href="#">Visualizar</x-dropdown.item>
                                             <x-dropdown.item href="#">Detalhes</x-dropdown.item>
-                                            <x-dropdown.item href="#">Deletar</x-dropdown.item>
+                                            <x-dropdown.item x-on:click="modalDeleteAlert = 11">Deletar</x-dropdown.item>
                                         </x-slot:items>
                                     </x-dropdown>
                                 </x-button.group>

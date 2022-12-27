@@ -11,6 +11,7 @@
     $tag = $attributes->has('href') ? 'a' : 'button';
 
     $classBase = [
+        'cursor-pointer',
         'transition-color duration-300',
         'whitespace-nowrap',
         'inline-flex',
