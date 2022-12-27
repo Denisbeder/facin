@@ -24,9 +24,9 @@
 
                     <form class="flex w-full md:ml-0" action="#" method="GET">
                         <label for="search-field" class="sr-only">Buscar</label>
-                        <x-input.text rightIcon="magnifying-glass" id="search-field" placeholder="Buscar" type="search" name="search" />
+                        <x-input.text leftIcon="magnifying-glass" id="search-field" placeholder="Buscar" type="search" name="search" />
                     </form>
-                    <x-button href="#" rightIcon="plus">Novo</x-button>
+                    <x-button href="/users-form" leftIcon="plus">Novo</x-button>
                 </x-slot:actions>
             </x-page-heading>
 

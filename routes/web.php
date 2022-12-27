@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('datatable');
+});
+
+Route::get('/users-form', function () {
+    return view('users-form');
 });

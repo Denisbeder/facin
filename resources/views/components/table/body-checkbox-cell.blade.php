@@ -4,5 +4,5 @@
     @if($selected)
     <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
     @endif
-    <x-input.checkbox :selected="$selected" />
+    <x-input.checkbox :selected="$selected" class="absolute left-4 top-1/2 -mt-2" />
 </td>

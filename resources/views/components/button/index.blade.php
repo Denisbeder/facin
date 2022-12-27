@@ -24,7 +24,7 @@
     ];
 
     $classStyle = [
-        'rounded' => $rounded,
+        'rounded-md' => $rounded,
         'border',
         'focus:outline-none',
         'focus:ring-2',

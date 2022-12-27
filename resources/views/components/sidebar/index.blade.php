@@ -7,10 +7,15 @@
             <x-sidebar.nav-item href="#" icon="home" label="Visão geral" active />
             <x-sidebar.nav-item href="#" icon="document" label="Páginas" />
             <x-sidebar.nav-item href="#" icon="pencil" label="Postagens" />
+            <x-sidebar.nav-item href="#" icon="link" label="Posts relacionados" />
             <x-sidebar.nav-item href="#" icon="rectangle-stack" label="Categorias" />
-            <x-sidebar.nav-item href="#" icon="calendar" label="Agendamentos" />
+            <x-sidebar.nav-item href="#" icon="user-circle" label="Autores" />
+            <x-sidebar.nav-item href="#" icon="clock" label="Agendamentos" />
             <x-sidebar.nav-item href="#" icon="chat-bubble-left" label="Comentários" />
+            <x-sidebar.nav-item href="#" icon="star" label="Destaques da Home" />
+            <x-sidebar.nav-item href="#" icon="bars-3" label="Menus" />
             <x-sidebar.nav-item href="#" icon="users" label="Usuários" />
+            <x-sidebar.nav-item href="#" icon="cube" label="Dropshipping" />
             <x-sidebar.nav-item href="#" icon="banknotes" label="Cobrança" />
         </nav>
     </div>

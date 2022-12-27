@@ -19,7 +19,7 @@
     <div class="sm:flex-auto">
         <h2 class="text-2xl font-semibold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">{{ $title }}</h2>
     </div>
-    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex gap-4">
+    <div {{ $actions->attributes->merge(['class' => 'mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex gap-4']) }}>
         {{ $actions }}
     </div>
 </div>
