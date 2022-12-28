@@ -1,7 +1,28 @@
 @props(['hasNotification' => false])
 
+@php
+    $hasSrc = $attributes->has('src');
+    $hasSize = (bool)preg_match('/[h|w]-\d+/', $attributes->get('class'));
+
+    $classListPlaceholderAvatar = [
+        'w-10 h-10' => !$hasSize,
+        'inline-block',
+        'overflow-hidden',
+        'rounded-full',
+        'bg-gray-100',
+    ];
+@endphp
+
 <span class="relative inline-block">
-    <img {{ $attributes }}>
+    @if($hasSrc)
+        <img {{ $attributes }}>
+    @else
+        <span {{ $attributes->class($classListPlaceholderAvatar) }}>
+          <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </span>
+    @endif
 
     @if($hasNotification)
         <span class="absolute top-0 right-0 block h-1.5 w-1.5 rounded-full bg-gray-300 ring-2 ring-white"></span>

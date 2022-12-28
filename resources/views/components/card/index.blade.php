@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'divide-y divide-gray-200 overflow-hidden rounded-md bg-white border border-gray-200']) }}>
+<div {{ $attributes->merge(['class' => 'divide-y divide-gray-200 rounded-md bg-white border border-gray-200']) }}>
     @isset($header)
         <div {{ $header->attributes->merge(['class' => 'px-4 py-5 sm:px-6']) }}>
             {{ $header }}

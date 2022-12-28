@@ -13,7 +13,6 @@
                     </x-slot:actions>
                 </x-page-heading>
 
-
                 <x-card class="mt-8">
                     <x-slot:body>
                         <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">

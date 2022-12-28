@@ -15,7 +15,7 @@
         'transition-color duration-300',
         'whitespace-nowrap',
         'inline-flex',
-        'justify-evenly',
+        'justify-between',
         'items-center',
         'font-medium',
         'text-center',

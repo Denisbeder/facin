@@ -34,6 +34,7 @@
         'divide-y',
         'divide-gray-100',
         'rounded-md',
+        'overflow-hidden',
         'outline-none',
     ];
 @endphp
@@ -61,7 +62,7 @@
                 x-listbox:button
                 color="white"
                 rightIcon="chevron-up-down"
-                class="cursor-default w-full"
+                class="cursor-default w-full hover:bg-white px-3"
             >
                 <span x-text="value ? value.label : '{{ $firstOptionLabel }}'" class="truncate text-clip"></span>
             </x-button>

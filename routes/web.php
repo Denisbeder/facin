@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/users-form', function () {
     return view('users-form');
 });
+
+Route::get('/authors-form', function () {
+    return view('authors-form');
+});
+
+Route::get('/categories-form', function () {
+    return view('categories-form');
+});
