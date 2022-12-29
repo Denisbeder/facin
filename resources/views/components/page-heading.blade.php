@@ -15,11 +15,13 @@
         </li>
     </ol>
 </nav>
-<div class="sm:flex sm:items-center">
+<div class="sm:flex sm:items-center mb-8">
     <div class="sm:flex-auto">
         <h2 class="text-2xl font-semibold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">{{ $title }}</h2>
     </div>
+    @isset($actions)
     <div {{ $actions->attributes->merge(['class' => 'mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex gap-4']) }}>
         {{ $actions }}
     </div>
+    @endisset
 </div>

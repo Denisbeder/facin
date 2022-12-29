@@ -4,7 +4,7 @@
 
 @section('content')
     <form>
-        <div class="px-4 sm:px-6 max-w-2xl mx-auto">
+        <x-container class="max-w-2xl mx-auto">
             <x-page-heading title="Criar autor">
                 <x-slot:actions class="justify-between">
                     <x-button href="/" color="white" leftIcon="arrow-small-left">Cancelar</x-button>
@@ -12,10 +12,10 @@
                 </x-slot:actions>
             </x-page-heading>
 
-            <x-card class="mt-8">
+            <x-card>
                 <x-slot:body>
                     <div class="grid grid-cols-1 gap-y-6 gap-x-4">
-                        <div class="col">
+                        <div class="col-auto">
                             <x-label for="photo">Foto</x-label>
                             <div class="mt-1 flex items-center">
                                 <x-avatar class="h-12 w-12" />
@@ -23,28 +23,28 @@
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-auto">
                             <x-label for="name">Nome</x-label>
                             <div class="mt-1 w-full">
                                 <x-input.text id="name" name="name" type="text" autocomplete="off"/>
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-auto">
                             <x-label for="email">E-mail</x-label>
                             <div class="mt-1 w-full">
                                 <x-input.text id="email" name="email" type="email" autocomplete="off"/>
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-auto">
                             <x-label for="email">Sobre</x-label>
                             <div class="mt-1 w-full">
                                 <x-input.textarea rows="4" />
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-auto">
                             @php
                                 $social = [
                                     ['icon' => 'whatsapp', 'color' => 'text-green-500', 'label' => 'Whatsapp'],
@@ -74,6 +74,6 @@
                     </div>
                 </x-slot:body>
             </x-card>
-        </div>
+        </x-container>
     </form>
 @endsection

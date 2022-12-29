@@ -7,7 +7,7 @@
             modalFilter: false,
             modalDeleteAlert: false,
         }">
-        <div class="px-4 sm:px-6">
+        <x-container>
             <x-page-heading title="Usuários">
                 <x-slot:actions>
                     <x-dropdown label="Ações">
@@ -92,7 +92,7 @@
                 </x-slot:body>
             </x-table>
             <x-pagination />
-        </div>
+        </x-container>
 
         <x-dialog.alert x-model="modalDeleteAlert" title="Deletar registro">
             Tem certeza de que deseja desativar sua conta?

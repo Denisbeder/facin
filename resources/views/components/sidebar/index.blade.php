@@ -12,7 +12,7 @@
             <x-sidebar.nav-item href="/authors-form" icon="user-circle" label="Autores" />
             <x-sidebar.nav-item href="#" icon="clock" label="Agendamentos" />
             <x-sidebar.nav-item href="#" icon="chat-bubble-left" label="Comentários" />
-            <x-sidebar.nav-item href="#" icon="star" label="Destaques da Home" />
+            <x-sidebar.nav-item href="/home-hightlights" icon="star" label="Destaques da Home" />
             <x-sidebar.nav-item href="#" icon="bars-3" label="Menus" />
             <x-sidebar.nav-item href="/" icon="users" label="Usuários" />
             <x-sidebar.nav-item href="#" icon="cube" label="Dropshipping" />

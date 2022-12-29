@@ -28,3 +28,7 @@ Route::get('/authors-form', function () {
 Route::get('/categories-form', function () {
     return view('categories-form');
 });
+
+Route::get('/home-hightlights', function () {
+    return view('home-hightlights');
+});

@@ -5,7 +5,7 @@
 @section('content')
     <div x-data="{modalPermissions: false}">
         <form>
-            <div class="px-4 sm:px-6 max-w-2xl mx-auto">
+            <x-container class="max-w-2xl mx-auto">
                 <x-page-heading title="Criar usuário">
                     <x-slot:actions class="justify-between">
                         <x-button href="/" color="white" leftIcon="arrow-small-left">Cancelar</x-button>
@@ -13,7 +13,7 @@
                     </x-slot:actions>
                 </x-page-heading>
 
-                <x-card class="mt-8">
+                <x-card>
                     <x-slot:body>
                         <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                             <div class="sm:col-span-2">
@@ -54,7 +54,7 @@
                 </x-card>
 
                 <x-button type="button" color="white" class="mt-6 w-full" x-on:click="modalPermissions = true">Editar permissões do usuário</x-button>
-            </div>
+            </x-container>
 
             <x-dialog.modal size="4xl" x-model="modalPermissions" title="Permissões">
                 @php
