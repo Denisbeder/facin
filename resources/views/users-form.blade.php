@@ -16,14 +16,14 @@
                 <x-card>
                     <x-slot:body>
                         <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-                            <div class="sm:col-span-2">
+                            <div class="col-span-2">
                                 <x-label for="name">Nome</x-label>
                                 <div class="mt-1 w-full">
                                     <x-input.text id="name" name="name" type="text" autocomplete="off" />
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2">
+                            <div class="col-span-2">
                                 <x-label for="email">E-mail</x-label>
                                 <div class="mt-1 w-full">
                                     <x-input.text id="email" name="email" type="email" autocomplete="off" />
@@ -44,9 +44,9 @@
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-2">
+                            <div class="col-span-2">
                                 <x-label class="flex items-center gap-3">
-                                    <x-input.checkbox name="de" value="1" /> Remover acesso temporariamente
+                                    <x-input.checkbox name="deactived" value="1" /> Remover acesso temporariamente
                                 </x-label>
                             </div>
                         </div>

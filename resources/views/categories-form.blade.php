@@ -33,6 +33,7 @@
                             <x-label for="name">Para página</x-label>
                             <div class="mt-1 w-full">
                                 <x-select name="page" direction="left-bottom" :options="[
+                                    ['value' => '', 'label' => 'Todas', 'disabled' => false],
                                     ['value' => 1, 'label' => 'Notícias', 'disabled' => false],
                                     ['value' => 3, 'label' => 'Colunas', 'disabled' => false],
                                     ['value' => 13, 'label' => 'Contato', 'disabled' => false],

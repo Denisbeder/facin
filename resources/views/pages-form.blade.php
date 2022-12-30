@@ -32,13 +32,30 @@
                         <div class="col-auto">
                             <x-label for="name">Tipo</x-label>
                             <div class="mt-1 w-full">
+                                <x-select name="page" direction="left-bottom" selected="1" :options="[
+                                    ['value' => 1, 'label' => 'Padrão', 'disabled' => false],
+                                    ['value' => 2, 'label' => 'Postagens', 'disabled' => false],
+                                ]" />
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <x-label for="name">Travar tipo de postagens</x-label>
+                            <div class="mt-1 w-full">
                                 <x-select name="type" direction="left-bottom" :options="[
-                                    ['value' => 1, 'label' => 'Post', 'disabled' => false],
+                                    ['value' => '', 'label' => 'Livre (Escolha no momento da criação)', 'disabled' => false],
+                                    ['value' => 1, 'label' => 'Misto (Texto, Imagens, Vídeos, etc...)', 'disabled' => false],
                                     ['value' => 3, 'label' => 'Imagem', 'disabled' => false],
                                     ['value' => 13, 'label' => 'Vídeo', 'disabled' => false],
                                     ['value' => 15, 'label' => 'Enquete', 'disabled' => false],
                                 ]" />
                             </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <x-label class="flex items-center gap-3">
+                                <x-input.checkbox name="status" value="1" /> Ativar página
+                            </x-label>
                         </div>
                     </div>
                 </x-slot:body>
