@@ -19,6 +19,25 @@
 
     $firstOptionLabel = $selectedOption['label'] ?? '';
 
+    $classListButton = [
+       'relative',
+       'w-full',
+       'cursor-default',
+       'rounded-md',
+       'border',
+       'border-gray-200',
+       'bg-white',
+       'h-[38px]',
+       'py-2',
+       'pl-3',
+       'pr-10',
+       'text-left',
+       'focus:border-indigo-500',
+       'focus:outline-none',
+       'focus:ring-1',
+       'focus:ring-indigo-500 sm:text-sm',
+    ];
+
     $classListOptions = [
         'bottom-full left-0 mb-1' => $direction === 'left-top',
         'bottom-full right-0 mb-1' => $direction === 'right-top',
@@ -58,14 +77,17 @@
         >
             <label x-listbox:label class="sr-only">{{ $name }}</label>
 
-            <x-button
+            <button
                 x-listbox:button
-                color="white"
-                rightIcon="chevron-up-down"
-                class="cursor-default w-full hover:bg-white px-3"
+                type="button"
+                @class($classListButton)
+                aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
             >
                 <span x-text="value ? value.label : '{{ $firstOptionLabel }}'" class="truncate text-clip"></span>
-            </x-button>
+                <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                    <x-icon.chevron-up-down class="w-4 h-4" />
+                </span>
+            </button>
 
             <ul
                 x-listbox:options

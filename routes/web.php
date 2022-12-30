@@ -32,3 +32,7 @@ Route::get('/categories-form', function () {
 Route::get('/home-hightlights', function () {
     return view('home-hightlights');
 });
+
+Route::get('/pages-form', function () {
+    return view('pages-form');
+});

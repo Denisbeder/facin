@@ -5,7 +5,7 @@
     <div class="mt-5 flex flex-grow flex-col">
         <nav class="flex-1 space-y-1 px-4 pb-4">
             <x-sidebar.nav-item href="#" icon="home" label="Visão geral" active />
-            <x-sidebar.nav-item href="#" icon="document" label="Páginas" />
+            <x-sidebar.nav-item href="/pages-form" icon="document" label="Páginas" />
             <x-sidebar.nav-item href="#" icon="pencil" label="Postagens" />
             <x-sidebar.nav-item href="#" icon="link" label="Posts relacionados" />
             <x-sidebar.nav-item href="/categories-form" icon="rectangle-stack" label="Categorias" />
