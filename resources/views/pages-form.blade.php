@@ -68,27 +68,32 @@
                                         'description' => 'Venda de Info-Produtos',
                                         'icon' => 'shopping-bag',
                                     ],
+                                    [
+                                        'value' => 'dropshipping',
+                                        'label' => 'Dropshipping',
+                                        'description' => 'Vendas',
+                                        'icon' => 'cube',
+                                    ],
                                 ];
                             @endphp
-                            <fieldset x-data="{
-                                selected: null,
-                            }">
+                            <fieldset x-data="{ selected: null }">
                                 <legend class="block text-sm font-medium text-gray-700">Selecione o tipo de página</legend>
 
-                                <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
+                                <div class="mt-3 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
                                     @foreach($pageTypes as $type)
                                     <label
-                                        class="relative select-none flex flex-col cursor-pointer rounded-lg border border-gray-200 bg-white p-4 focus:outline-none"
-                                        :class="selected === '{{ $type['value'] }}' && 'bg-indigo-50/30'"
+                                        class="relative select-none flex flex-col cursor-pointer rounded-lg border border-gray-200 bg-white p-4 focus:border-indigo-500 focus:outline-none"
+                                        :class="selected === '{{ $type['value'] }}' && 'bg-indigo-50/30 hover:bg-indigo-50/60'"
                                         @click="selected = '{{ $type['value'] }}'"
                                     >
                                         <input
+                                            tabindex="-1"
                                             type="radio"
                                             name="type"
                                             value="{{ $type['value'] }}"
                                             class="sr-only"
-                                            aria-labelledby="page-type-0-label"
-                                            aria-describedby="page-type-0-description-0"
+                                            aria-labelledby="page-type-{{ $type['value'] }}-label"
+                                            aria-describedby="page-type-{{ $type['value'] }}-description"
                                         >
 
                                         <span class="text-gray-400" :class="selected === '{{ $type['value'] }}' && 'text-indigo-500'">
@@ -97,8 +102,8 @@
 
                                         <span class="flex flex-1 mt-3">
                                             <span class="flex flex-col">
-                                              <span id="page-type-0-label" class="block text-sm font-semibold text-gray-900" :class="selected === '{{ $type['value'] }}' && 'text-indigo-500'">{{ $type['label'] }}</span>
-                                              <span id="page-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500">{{ $type['description'] }}</span>
+                                              <span id="page-type-{{ $type['value'] }}-label" class="block text-sm font-semibold text-gray-900" :class="selected === '{{ $type['value'] }}' && 'text-indigo-500'">{{ $type['label'] }}</span>
+                                              <span id="page-type-{{ $type['value'] }}-description" class="mt-1 flex items-center text-sm text-gray-500">{{ $type['description'] }}</span>
                                             </span>
 
                                             <x-icon.check-circle class="h-5 w-5 text-indigo-600 absolute top-4 right-4" ::class="selected !== '{{ $type['value'] }}' && 'invisible'" />
@@ -115,34 +120,76 @@
                             </fieldset>
                         </div>
 
-                        <div class="col-auto">
-                            <x-label for="name">Tipo</x-label>
-                            <div class="mt-1 w-full">
-                                <x-select name="page" direction="left-bottom" selected="1" :options="[
-                                    ['value' => 1, 'label' => 'Padrão', 'disabled' => false],
-                                    ['value' => 2, 'label' => 'Postagens', 'disabled' => false],
-                                ]" />
-                            </div>
-                        </div>
+                        <x-slot:footer class="bg-gray-50 gap-y-6 flex flex-col">
+                            <h3 class="text-lg font-medium leading-6 text-gray-900">Configurações</h4>
 
-                        <div class="col-auto">
-                            <x-label for="name">Travar tipo de postagens</x-label>
-                            <div class="mt-1 w-full">
-                                <x-select name="type" direction="left-bottom" :options="[
-                                    ['value' => '', 'label' => 'Livre (Escolha no momento da criação)', 'disabled' => false],
-                                    ['value' => 1, 'label' => 'Misto (Texto, Imagens, Vídeos, etc...)', 'disabled' => false],
-                                    ['value' => 3, 'label' => 'Imagem', 'disabled' => false],
-                                    ['value' => 13, 'label' => 'Vídeo', 'disabled' => false],
-                                    ['value' => 15, 'label' => 'Enquete', 'disabled' => false],
-                                ]" />
+                            <div class="col-auto">
+                                <fieldset x-data="{ selected: null }" class="mt-2">
+                                    <legend class="block text-sm font-medium text-gray-700">Travar tipo de postagens</legend>
+                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 mt-3">
+                                        @php
+                                            $typeLocks = [
+                                                ['value' => '1', 'label' => 'Livre', 'disable' => false, 'icon' => 'beaker'],
+                                                ['value' => '2', 'label' => 'Misto', 'disable' => false, 'icon' => 'rectangle-group'],
+                                                ['value' => '3', 'label' => 'Imagens', 'disable' => false, 'icon' => 'photo'],
+                                                ['value' => '4', 'label' => 'Vídeos', 'disable' => false, 'icon' => 'film'],
+                                                ['value' => '5', 'label' => 'Enquetes', 'disable' => false, 'icon' => 'chart-bar'],
+                                            ];
+                                        @endphp
+                                        @foreach($typeLocks as $typeLock)
+                                        <label
+                                            class="select-none border rounded-md py-3 px-3 flex items-center justify-center text-sm font-semibold sm:flex-1 cursor-pointer focus:outline-none focus:border-indigo-500"
+                                            :class="selected === '{{ $typeLock['value'] }}' && 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'"
+                                            @click="selected = '{{ $typeLock['value'] }}'"
+                                        >
+                                            <input tabindex="-1" type="radio" name="type_lock" value="{{ $typeLock['value'] }}" class="sr-only" aria-labelledby="type-lock-{{ $typeLock['value'] }}-label">
+                                            <span id="type-lock-{{ $typeLock['value'] }}-label" class="flex items-center">
+                                                <span class=" mr-2" :class="selected !== '{{ $typeLock['value'] }}' && 'text-gray-400'">
+                                                    <x-dynamic-component component="icon.{{ $typeLock['icon'] }}" class="w-5 h-5" />
+                                                </span>
+                                                {{ $typeLock['label'] }}
+                                            </span>
+                                        </label>
+                                        @endforeach
+                                    </div>
+                                </fieldset>
                             </div>
-                        </div>
 
-                        <div class="col-auto">
-                            <x-label class="flex items-center gap-3">
-                                <x-input.checkbox name="status" value="1" /> Ativar página
-                            </x-label>
-                        </div>
+                            <div class="col-auto">
+                                <fieldset x-data="{ selected: null }" class="mt-2">
+                                    <legend class="block text-sm font-medium text-gray-700">Total por página</legend>
+                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 mt-3">
+                                        @php
+                                            $perPages = [
+                                                ['value' => '10', 'label' => '10', 'disable' => false],
+                                                ['value' => '15', 'label' => '15', 'disable' => false],
+                                                ['value' => '30', 'label' => '30', 'disable' => false],
+                                                ['value' => '50', 'label' => '50', 'disable' => false],
+                                                ['value' => '100', 'label' => '100', 'disable' => false],
+                                            ];
+                                        @endphp
+                                        @foreach($perPages as $perPage)
+                                            <label
+                                                class="select-none border rounded-md py-3 px-3 flex items-center justify-center text-sm font-semibold sm:flex-1 cursor-pointer focus:outline-none focus:border-indigo-500"
+                                                :class="selected === '{{ $perPage['value'] }}' && 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'"
+                                                @click="selected = '{{ $perPage['value'] }}'"
+                                            >
+                                                <input tabindex="-1" type="radio" name="type_lock" value="{{ $perPage['value'] }}" class="sr-only" aria-labelledby="type-lock-{{ $perPage['value'] }}-label">
+                                                <span id="type-lock-{{ $perPage['value'] }}-label" class="flex items-center">
+                                                {{ $perPage['label'] }}
+                                            </span>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-auto">
+                                <x-label class="flex items-center gap-3">
+                                    <x-input.checkbox name="status" value="1" /> Ativar página
+                                </x-label>
+                            </div>
+                        </x-slot:footer>
                     </div>
                 </x-slot:body>
             </x-card>

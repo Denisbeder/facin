@@ -1,6 +1,6 @@
 <div {{ $attributes->merge(['class' => 'divide-y divide-gray-200 rounded-md bg-white border border-gray-200']) }}>
     @isset($header)
-        <div {{ $header->attributes->merge(['class' => 'px-4 py-5 sm:px-6']) }}>
+        <div {{ $header->attributes->merge(['class' => 'px-4 py-5 sm:px-6 rounded-t-md']) }}>
             {{ $header }}
         </div>
     @endisset
@@ -12,7 +12,7 @@
     @endisset
 
     @isset($footer)
-        <div {{ $footer->attributes->merge(['class' => 'px-4 py-5 sm:px-6']) }}>
+        <div {{ $footer->attributes->merge(['class' => 'px-4 py-5 sm:px-6 rounded-b-md']) }}>
             {{ $footer }}
         </div>
     @endisset
