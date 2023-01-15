@@ -36,3 +36,7 @@ Route::get('/home-hightlights', function () {
 Route::get('/pages-form', function () {
     return view('pages-form');
 });
+
+Route::get('/posts-form', function () {
+    return view('posts-form');
+});

@@ -4,7 +4,6 @@
     'color' => 'primary',
     'leftIcon' => false,
     'rightIcon' => false,
-    'rounded' => true,
 ])
 
 @php
@@ -24,7 +23,7 @@
     ];
 
     $classStyle = [
-        'rounded-md' => $rounded,
+        'rounded-md',
         'border',
         'focus:outline-none',
         'focus:ring-2',
