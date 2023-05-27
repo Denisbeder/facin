@@ -12,7 +12,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.aut
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::redirect('/', '/dashboard')->name('app.index');
 
-Route::middleware('auth')->group(function () {
+Route::middleware([])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
